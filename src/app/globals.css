@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+:root {
+  --forest: #1B4332;
+  --sage: #52796F;
+  --terracotta: #C75D2C;
+  --sand: #F5F2EB;
+  --chalk: #FFFFFF;
+  --charcoal: #1A1A1A;
+  --stone: #6B7280;
+  --eco-green: #16A34A;
+}
+
+@theme inline {
+  --color-forest: #1B4332;
+  --color-sage: #52796F;
+  --color-terracotta: #C75D2C;
+  --color-sand: #F5F2EB;
+  --color-chalk: #FFFFFF;
+  --color-charcoal: #1A1A1A;
+  --color-stone: #6B7280;
+  --color-eco-green: #16A34A;
+
+  --color-forest-light: #234d3e;
+  --color-terracotta-light: #d4734a;
+  --color-sage-light: #6a9486;
+
+  --font-heading: var(--font-plus-jakarta);
+  --font-body: var(--font-inter);
+  --font-serif: var(--font-fraunces);
+  --font-mono: var(--font-jetbrains);
+}
+
+body {
+  background-color: var(--sand);
+  color: var(--charcoal);
+  font-family: var(--font-body), system-ui, sans-serif;
+  position: relative;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Warm shadows */
+.shadow-warm-sm {
+  box-shadow: 0 1px 2px 0 rgba(27, 67, 50, 0.05);
+}
+.shadow-warm {
+  box-shadow: 0 1px 3px 0 rgba(27, 67, 50, 0.08), 0 1px 2px -1px rgba(27, 67, 50, 0.08);
+}
+.shadow-warm-md {
+  box-shadow: 0 4px 6px -1px rgba(27, 67, 50, 0.08), 0 2px 4px -2px rgba(27, 67, 50, 0.06);
+}
+.shadow-warm-lg {
+  box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.08), 0 4px 6px -4px rgba(27, 67, 50, 0.06);
+}
+.shadow-warm-xl {
+  box-shadow: 0 20px 25px -5px rgba(27, 67, 50, 0.08), 0 8px 10px -6px rgba(27, 67, 50, 0.06);
+}
+
+/* Heading tracking */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(27, 67, 50, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(27, 67, 50, 0.35);
+}
+
+/* Magnetic button hover */
+.btn-magnetic {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-magnetic:hover {
+  transform: scale(1.02);
+}
+.btn-magnetic:active {
+  transform: scale(0.98);
+}
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* Skeleton pulse */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.08; }
+}
+.skeleton-pulse {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  background-color: var(--stone);
+  border-radius: 8px;
+}
+
+/* CTA slide effect */
+.btn-cta {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.btn-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+.btn-cta:hover::before {
+  left: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .card-hover:hover {
+    transform: none;
+  }
+  .btn-magnetic:hover {
+    transform: none;
+  }
+}
