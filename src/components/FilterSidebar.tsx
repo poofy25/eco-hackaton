@@ -79,7 +79,7 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
     };
 
     return (
-        <div className="w-full h-full max-h-[calc(100vh-6rem)] flex flex-col">
+        <div className="w-full h-full flex flex-col">
             <div className="flex items-center justify-between mb-2 shrink-0">
                 <div className="flex items-center gap-2">
                     <SlidersHorizontal className="h-4 w-4 text-mercury-900" strokeWidth={1.5} />
@@ -279,8 +279,8 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                 </FilterSection>
             </div>
 
-            {/* Sticky bottom buttons */}
-            <div className="sticky bottom-0 mt-4 flex gap-2 shrink-0 pt-2 pb-2 bg-white border-t border-mercury-200 z-10">
+            {/* Fixed bottom buttons */}
+            <div className="mt-4 flex gap-2 shrink-0 pt-2 -500-200">
                 <button
                     onClick={() => {
                         setSelectedCategories([]);
