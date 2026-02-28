@@ -387,3 +387,9 @@ h6 {
 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
   background-color: var(--mercury-500);
 }
+
+/* Leaflet custom marker - remove default icon styling */
+.leaflet-div-icon.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
