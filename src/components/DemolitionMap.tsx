@@ -73,7 +73,30 @@ function createPinIcon(status: string): string {
     return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
-export default function DemolitionMap({
+const hasApiKey = !!(
+    typeof process !== "undefined" &&
+    process.env?.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+);
+
+function MapPlaceholder({ className }: { className?: string }) {
+    return (
+        <div className={cn("flex h-full w-full flex-col items-center justify-center gap-3 bg-mercury-50 p-8", className)}>
+            <div className="rounded-lg border border-mercury-200 bg-white p-6 text-center max-w-sm">
+                <p className="text-sm font-medium text-mercury-900 mb-1">Harta demolărilor</p>
+                <p className="text-sm text-mercury-500">
+                    Pentru a afișa harta, adăugați <code className="bg-mercury-100 px-1 rounded text-xs">NEXT_PUBLIC_GOOGLE_MAPS_API_KEY</code> în fișierul <code className="bg-mercury-100 px-1 rounded text-xs">.env.local</code>.
+                </p>
+                <p className="text-xs text-mercury-400 mt-3">
+                    <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank" rel="noopener noreferrer" className="underline hover:text-mercury-600">
+                        Obțineți o cheie API →
+                    </a>
+                </p>
+            </div>
+        </div>
+    );
+}
+
+function DemolitionMapInner({
     announcements,
     selectedId,
     onSelectAnnouncement,
@@ -170,4 +193,11 @@ export default function DemolitionMap({
         </GoogleMap>
         </div>
     );
+}
+
+export default function DemolitionMap(props: DemolitionMapProps) {
+    if (!hasApiKey) {
+        return <MapPlaceholder className={props.className} />;
+    }
+    return <DemolitionMapInner {...props} />;
 }
