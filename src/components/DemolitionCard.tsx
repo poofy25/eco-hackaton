@@ -1,5 +1,6 @@
 "use client";
 
+
 import { forwardRef } from "react";
 import type { DemolitionAnnouncement } from "@/lib/demolition-data";
 import {
@@ -9,31 +10,31 @@ import {
 } from "@/lib/demolition-data";
 import { formatPrice, cn } from "@/lib/utils";
 import {
-    Building2,
+    Building,
     Home,
-    Landmark,
+    BriefcaseBusiness,
     Store,
     Warehouse,
     Factory,
-    GraduationCap,
-    Cross,
+    School,
+    Hospital,
     MapPin,
     Calendar,
     Layers,
     Ruler,
-    Eye,
+    Eye
 } from "lucide-react";
 
 // ── Icon mapping ──
 const buildingTypeIconMap: Record<string, React.ElementType> = {
-    'residential-apartment': Building2,
+    'residential-apartment': Building,
     'residential-house': Home,
-    'commercial-office': Landmark,
+    'commercial-office': BriefcaseBusiness,
     'commercial-retail': Store,
     'industrial-warehouse': Warehouse,
     'industrial-factory': Factory,
-    'public-school': GraduationCap,
-    'public-hospital': Cross,
+    'public-school': School,
+    'public-hospital': Hospital,
 };
 
 // ── Status badge styles ──
@@ -51,7 +52,7 @@ interface DemolitionCardProps {
 
 const DemolitionCard = forwardRef<HTMLDivElement, DemolitionCardProps>(
     function DemolitionCard({ announcement, isHighlighted = false, onViewDetails }, ref) {
-        const IconComponent = buildingTypeIconMap[announcement.buildingType] || Building2;
+        const IconComponent = buildingTypeIconMap[announcement.buildingType] || Building;
         const totalValue = getTotalEstimatedValue(announcement);
 
         // Get top 4 materials by estimated value
@@ -59,7 +60,7 @@ const DemolitionCard = forwardRef<HTMLDivElement, DemolitionCardProps>(
             .sort((a, b) => b.estimatedValue - a.estimatedValue)
             .slice(0, 4);
 
-        const scheduledDate = new Date(announcement.scheduledDate).toLocaleDateString("ro-MD", {
+        const scheduledDate = new Date(announcement.startDate).toLocaleDateString("ro-MD", {
             day: "numeric",
             month: "short",
             year: "numeric",
@@ -69,8 +70,8 @@ const DemolitionCard = forwardRef<HTMLDivElement, DemolitionCardProps>(
             <div
                 ref={ref}
                 className={cn(
-                    "bg-mercury-50 -500/20 p-5 transition-all duration-200 card-hover",
-                    isHighlighted && "-900"
+                    "bg-white border border-mercury-200 p-5 transition-all duration-200 card-hover",
+                    isHighlighted && "border-mercury-900"
                 )}
             >
                 {/* Header: Status + Building Type */}
@@ -149,8 +150,8 @@ const DemolitionCard = forwardRef<HTMLDivElement, DemolitionCardProps>(
                                         material.recoverabilityPercent >= 75
                                             ? "bg-eco"
                                             : material.recoverabilityPercent >= 50
-                                              ? "bg-mercury-500"
-                                              : "bg-red-400"
+                                                ? "bg-mercury-500"
+                                                : "bg-red-400"
                                     )}
                                     style={{ width: `${material.recoverabilityPercent}%` }}
                                 />
@@ -167,31 +168,14 @@ const DemolitionCard = forwardRef<HTMLDivElement, DemolitionCardProps>(
                     </span>
                 </div>
 
-                {/* Contractor + Action */}
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <img
-                            src={announcement.contractor.avatar}
-                            alt={announcement.contractor.name}
-                            className="h-7 w-7 object-cover"
-                        />
-                        <div className="min-w-0">
-                            <p className="text-[11px] font-semibold text-mercury-900 truncate">
-                                {announcement.contractor.name}
-                            </p>
-                            <p className="text-[10px] text-mercury-500 truncate">
-                                {announcement.contractor.company}
-                            </p>
-                        </div>
-                    </div>
-                    <button
-                        onClick={() => onViewDetails?.(announcement.id)}
-                        className="btn-magnetic flex items-center gap-1.5 bg-mercury-900 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-mercury-900/90 transition-colors"
-                    >
-                        <Eye className="h-3.5 w-3.5" strokeWidth={1.5} />
-                        Vezi Detalii
-                    </button>
-                </div>
+                {/* Action */}
+                <button
+                    onClick={() => onViewDetails?.(announcement.id)}
+                    className="btn-magnetic flex items-center justify-center gap-1.5 w-full bg-mercury-900 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-mercury-900/90 transition-colors"
+                >
+                    <Eye className="h-3.5 w-3.5" strokeWidth={1.5} />
+                    Vezi Detalii
+                </button>
             </div>
         );
     }

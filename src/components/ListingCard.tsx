@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Listing } from "@/lib/mock-data";
 import { categories } from "@/lib/mock-data";
 import { formatPrice, getConditionColor, cn } from "@/lib/utils";
-import { MapPin, Star } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 const categoryNameMap = Object.fromEntries(categories.map((c) => [c.id, c.name]));
 
@@ -15,24 +15,15 @@ interface ListingCardProps {
 
 export default function ListingCard({ listing, variant = "grid" }: ListingCardProps) {
     const categoryName = categoryNameMap[listing.category] || listing.category;
-    const discount =
-        listing.originalPrice && !listing.isFree
-            ? Math.round(((listing.originalPrice - listing.price) / listing.originalPrice) * 100)
-            : 0;
 
     if (variant === "list") {
         return (
             <Link href={`/listing/${listing.id}`} className="group card-hover flex gap-4 bg-white p-3 border border-mercury-200 transition-all">
                 <div className="relative h-28 w-36 shrink-0 overflow-hidden bg-mercury-50">
-                    <img src={listing.images[0]} alt={listing.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                    <img src={listing.images[0]} alt={listing.title} className="h-full w-full object-cover" loading="lazy" />
                     {listing.isFree && (
                         <span className="absolute top-2 left-2 bg-eco px-2 py-0.5 text-[11px] font-semibold text-white">
                             GRATUIT
-                        </span>
-                    )}
-                    {discount > 0 && !listing.isFree && (
-                        <span className="absolute top-2 right-2 bg-yellow-sea-500 px-2 py-0.5 text-[11px] font-semibold text-mercury-900">
-                            -{discount}%
                         </span>
                     )}
                 </div>
@@ -55,7 +46,6 @@ export default function ListingCard({ listing, variant = "grid" }: ListingCardPr
                                 {listing.location} · {listing.distance} km
                             </span>
                             <span className="flex items-center gap-1">
-                                <img src={listing.seller.avatar} alt={listing.seller.name} className="h-3.5 w-3.5 object-cover" />
                                 {listing.seller.name}
                             </span>
                         </div>
@@ -84,15 +74,10 @@ export default function ListingCard({ listing, variant = "grid" }: ListingCardPr
         <Link href={`/listing/${listing.id}`} className="group card-hover flex flex-col bg-white border border-mercury-200 transition-all p-3">
             {/* Image */}
             <div className="relative aspect-[4/3] overflow-hidden bg-mercury-50">
-                <img src={listing.images[0]} alt={listing.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                <img src={listing.images[0]} alt={listing.title} className="h-full w-full object-cover" loading="lazy" />
                 {listing.isFree && (
                     <span className="absolute top-2 left-2 bg-eco px-2.5 py-1 text-xs font-semibold text-white">
                         GRATUIT
-                    </span>
-                )}
-                {discount > 0 && !listing.isFree && (
-                    <span className="absolute top-2 right-2 bg-yellow-sea-500 px-2 py-0.5 text-[11px] font-semibold text-mercury-900">
-                        -{discount}%
                     </span>
                 )}
                 {listing.images.length > 1 && (
@@ -121,13 +106,7 @@ export default function ListingCard({ listing, variant = "grid" }: ListingCardPr
 
                 {/* Seller + Location */}
                 <div className="mt-2 flex items-center gap-2 text-[11px] text-mercury-500">
-                    <img src={listing.seller.avatar} alt={listing.seller.name} className="h-4 w-4 object-cover" />
                     <span className="truncate">{listing.seller.name}</span>
-                    <span className="text-mercury-500/40">·</span>
-                    <span className="flex items-center gap-0.5 shrink-0">
-                        <Star className="h-3 w-3 fill-current text-yellow-sea-500" strokeWidth={0} />
-                        {listing.seller.rating}
-                    </span>
                 </div>
 
                 <div className="mt-1 flex items-center gap-1 text-[11px] text-mercury-500">

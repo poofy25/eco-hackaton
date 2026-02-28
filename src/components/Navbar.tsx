@@ -88,13 +88,13 @@ export default function Navbar() {
                 <div className="hidden sm:flex items-center gap-1 shrink-0">
                     <Link
                         href="/browse"
-                        className="px-3 py-1.5 text-sm font-semibold text-mercury-900 hover:text-mercury-900 transition-colors "
+                        className="px-3 py-1.5 text-sm font-normal text-mercury-900 hover:text-mercury-900 transition-colors "
                     >
                         Materiale
                     </Link>
                     <Link
                         href="/demolitions"
-                        className="px-3 py-1.5 text-sm font-semibold text-mercury-900 hover:text-mercury-900 transition-colors "
+                        className="px-3 py-1.5 text-sm font-normal text-mercury-900 hover:text-mercury-900 transition-colors "
                     >
                         Demolări
                     </Link>
@@ -228,16 +228,16 @@ export default function Navbar() {
                                 <Search className="h-3.5 w-3.5" strokeWidth={2} />
                             </button>
                         </div>
-                        <Link href="/demolitions" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
+                        <Link href="/demolitions" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-normal text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
                             Demolări
                         </Link>
-                        <Link href="/dashboard" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
+                        <Link href="/dashboard" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-normal text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
                             <LayoutDashboard className="h-4 w-4" strokeWidth={1.5} /> Panou
                         </Link>
-                        <Link href="/dashboard/new-listing" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
+                        <Link href="/dashboard/new-listing" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-normal text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
                             <PlusCircle className="h-4 w-4" strokeWidth={1.5} /> Adaugă Anunț
                         </Link>
-                        <Link href="/login" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
+                        <Link href="/login" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-normal text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
                             <User className="h-4 w-4" strokeWidth={1.5} /> Autentificare
                         </Link>
                     </div>

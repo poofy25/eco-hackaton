@@ -1,8 +1,149 @@
-"use client"; import { useState } from "react";
-import { SlidersHorizontal, LayoutGrid, List, ChevronRight } from "lucide-react";
+"use client";
+import { useState } from "react";
+import {
+  SlidersHorizontal,
+  LayoutGrid,
+  List,
+  ChevronRight,
+} from "lucide-react";
 import Link from "next/link";
 import ListingCard from "@/components/ListingCard";
 import FilterSidebar from "@/components/FilterSidebar";
 import { listings } from "@/lib/mock-data";
-import { cn } from "@/lib/utils"; export default function BrowsePage() { const [viewMode, setViewMode] = useState<"grid" | "list">("grid"); const [filtersOpen, setFiltersOpen] = useState(false); const [sortBy, setSortBy] = useState("newest"); return ( <div className="mx-auto max-w-7xl px-4 lg:px-6 py-6"> {/* Breadcrumb */} <nav className="flex items-center gap-1.5 text-sm text-mercury-500 mb-6"> <Link href="/" className="hover:text-mercury-900 transition-colors">Acasă</Link> <ChevronRight className="h-3 w-3" strokeWidth={1.5} /> <span className="text-mercury-900 font-medium">Toate Materialele</span> </nav> <div className="flex gap-8"> {/* Filter Sidebar — Desktop */} <aside className="hidden lg:block w-64 shrink-0"> <div className="sticky top-20"> <FilterSidebar /> </div> </aside> {/* Main Content */} <div className="flex-1 min-w-0"> {/* Top Bar */} <div className="flex flex-wrap items-center justify-between gap-3 mb-6"> <div className="flex items-center gap-3"> <h1 className="font-heading text-xl font-bold text-mercury-900"> Toate Materialele </h1> <span className="text-sm text-mercury-500">{listings.length} rezultate</span> </div> <div className="flex items-center gap-2"> {/* Mobile Filter Button */} <button onClick={() => setFiltersOpen(true)} className="lg:hidden flex items-center gap-2 -500/20 px-3 py-2 text-sm font-medium text-mercury-900 hover:bg-white transition-colors" > <SlidersHorizontal className="h-4 w-4" strokeWidth={1.5} /> Filtre </button> {/* Sort */} <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="-500/20 bg-white px-3 py-2 text-sm text-mercury-900 focus:outline-none focus:focus:-950/20" > <option value="newest">Cele mai noi</option> <option value="price-low">Preț: Mic → Mare</option> <option value="price-high">Preț: Mare → Mic</option> <option value="nearest">Cele mai aproape</option> <option value="most-saved">Cele mai salvate</option> </select> {/* View Toggle */} <div className="hidden sm:flex -500/20 overflow-hidden"> <button onClick={() => setViewMode("grid")} className={cn( "p-2 transition-colors", viewMode === "grid" ? "bg-[#FED601] text-mercury-900 py-2 -900" : "bg-white text-mercury-500 hover:bg-white" )} aria-label="Vizualizare grilă" > <LayoutGrid className="h-4 w-4" strokeWidth={1.5} /> </button> <button onClick={() => setViewMode("list")} className={cn( "p-2 transition-colors", viewMode === "list" ? "bg-[#FED601] text-mercury-900 py-2 -900" : "bg-white text-mercury-500 hover:bg-white" )} aria-label="Vizualizare listă" > <List className="h-4 w-4" strokeWidth={1.5} /> </button> </div> </div> </div> {/* Listing Grid */} <div className={cn( viewMode === "grid" ? "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6" : "flex flex-col gap-3" )} > {listings.map((listing) => ( <ListingCard key={listing.id} listing={listing} variant={viewMode} /> ))} </div> </div> </div> {/* Mobile Filters Bottom Sheet */} {filtersOpen && ( <div className="fixed inset-0 z-50 lg:hidden"> <div className="absolute inset-0 bg-mercury-900/50" onClick={() => setFiltersOpen(false)} /> <div className="absolute bottom-0 left-0 right-0 max-h-[85vh] overflow-y-auto -2xl bg-white p-6"> <FilterSidebar onClose={() => setFiltersOpen(false)} /> </div> </div> )} </div> );
+import { cn } from "@/lib/utils";
+export default function BrowsePage() {
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [sortBy, setSortBy] = useState("newest");
+  return (
+    <div className="mx-auto max-w-7xl px-4 lg:px-6 py-6">
+      {" "}
+      {/* Breadcrumb */}{" "}
+      <nav className="flex items-center gap-1.5 text-sm text-mercury-500 mb-6">
+        {" "}
+        <Link href="/" className="hover:text-mercury-900 transition-colors">
+          Acasă
+        </Link>{" "}
+        <ChevronRight className="h-3 w-3" strokeWidth={1.5} />{" "}
+        <span className="text-mercury-900 font-medium">
+          Toate Materialele
+        </span>{" "}
+      </nav>{" "}
+      <div className="flex gap-8">
+        {" "}
+        {/* Filter Sidebar — Desktop */}{" "}
+        <aside className="hidden lg:block w-64 shrink-0">
+          {" "}
+          <div className="sticky top-20">
+            {" "}
+            <FilterSidebar />{" "}
+          </div>{" "}
+        </aside>{" "}
+        {/* Main Content */}{" "}
+        <div className="flex-1 min-w-0">
+          {" "}
+          {/* Top Bar */}{" "}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+            {" "}
+            <div className="flex items-center gap-3">
+              {" "}
+              <h1 className="font-heading text-xl font-bold text-mercury-900">
+                {" "}
+                Toate Materialele{" "}
+              </h1>{" "}
+              <span className="text-sm text-mercury-500">
+                {listings.length} rezultate
+              </span>{" "}
+            </div>{" "}
+            <div className="flex items-center gap-2">
+              {" "}
+              {/* Mobile Filter Button */}{" "}
+              <button
+                onClick={() => setFiltersOpen(true)}
+                className="lg:hidden flex items-center gap-2 -500/20 px-3 py-2 text-sm font-medium text-mercury-900 hover:bg-white transition-colors"
+              >
+                {" "}
+                <SlidersHorizontal className="h-4 w-4" strokeWidth={1.5} />{" "}
+                Filtre{" "}
+              </button>{" "}
+              {/* Sort */}{" "}
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="-500/20 bg-white px-3 py-2 text-sm text-mercury-900 focus:outline-none focus:focus:-950/20"
+              >
+                {" "}
+                <option value="newest">Cele mai noi</option>{" "}
+                <option value="price-low">Preț: Mic → Mare</option>{" "}
+                <option value="price-high">Preț: Mare → Mic</option>{" "}
+                <option value="nearest">Cele mai aproape</option>{" "}
+                <option value="most-saved">Cele mai salvate</option>{" "}
+              </select>{" "}
+              {/* View Toggle */}{" "}
+              <div className="hidden sm:flex -500/20 overflow-hidden">
+                {" "}
+                <button
+                  onClick={() => setViewMode("grid")}
+                  className={cn(
+                    "p-2 transition-colors",
+                    viewMode === "grid"
+                      ? "bg-[#FED601] text-mercury-900 py-2 -900"
+                      : "bg-white text-mercury-500 hover:bg-white",
+                  )}
+                  aria-label="Vizualizare grilă"
+                >
+                  {" "}
+                  <LayoutGrid className="h-4 w-4" strokeWidth={1.5} />{" "}
+                </button>{" "}
+                <button
+                  onClick={() => setViewMode("list")}
+                  className={cn(
+                    "p-2 transition-colors",
+                    viewMode === "list"
+                      ? "bg-[#FED601] text-mercury-900 py-2 -900"
+                      : "bg-white text-mercury-500 hover:bg-white",
+                  )}
+                  aria-label="Vizualizare listă"
+                >
+                  {" "}
+                  <List className="h-4 w-4" strokeWidth={1.5} />{" "}
+                </button>{" "}
+              </div>{" "}
+            </div>{" "}
+          </div>{" "}
+          {/* Listing Grid */}{" "}
+          <div
+            className={cn(
+              viewMode === "grid"
+                ? "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6"
+                : "flex flex-col gap-3",
+            )}
+          >
+            {" "}
+            {listings.map((listing) => (
+              <ListingCard
+                key={listing.id}
+                listing={listing}
+                variant={viewMode}
+              />
+            ))}{" "}
+          </div>{" "}
+        </div>{" "}
+      </div>{" "}
+      {/* Mobile Filters Bottom Sheet */}{" "}
+      {filtersOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          {" "}
+          <div
+            className="absolute inset-0 bg-mercury-900/50"
+            onClick={() => setFiltersOpen(false)}
+          />{" "}
+          <div className="absolute bottom-0 left-0 right-0 max-h-[85vh] overflow-y-auto -2xl bg-white p-6">
+            {" "}
+            <FilterSidebar onClose={() => setFiltersOpen(false)} />{" "}
+          </div>{" "}
+        </div>
+      )}{" "}
+    </div>
+  );
 }

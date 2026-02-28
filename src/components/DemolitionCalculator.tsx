@@ -17,14 +17,14 @@ import {
 import { buildingTypeLabels, type BuildingType } from "@/lib/demolition-data";
 import { cn } from "@/lib/utils";
 import {
-    Building2,
+    Building,
     Home,
-    Landmark,
+    BriefcaseBusiness,
     Store,
     Warehouse,
     Factory,
-    GraduationCap,
-    Cross,
+    School,
+    Hospital,
     Calculator,
     Plus,
     X,
@@ -36,14 +36,14 @@ import {
 
 // ── Icon mapping for building types ──
 const buildingIcons: Record<BuildingType, React.ElementType> = {
-    'residential-apartment': Building2,
+    'residential-apartment': Building,
     'residential-house': Home,
-    'commercial-office': Landmark,
+    'commercial-office': BriefcaseBusiness,
     'commercial-retail': Store,
     'industrial-warehouse': Warehouse,
     'industrial-factory': Factory,
-    'public-school': GraduationCap,
-    'public-hospital': Cross,
+    'public-school': School,
+    'public-hospital': Hospital,
 };
 
 type TabMode = "quick" | "detailed";
@@ -323,8 +323,8 @@ export default function DemolitionCalculator() {
                                                             m.recoverabilityPercent >= 75
                                                                 ? "text-eco"
                                                                 : m.recoverabilityPercent >= 50
-                                                                  ? "text-mercury-500"
-                                                                  : "text-red-500"
+                                                                    ? "text-mercury-500"
+                                                                    : "text-red-500"
                                                         )}
                                                     >
                                                         {m.recoverabilityPercent}%
@@ -546,10 +546,10 @@ export default function DemolitionCalculator() {
                                                             m.condition === "Nou"
                                                                 ? "bg-eco/10 text-eco"
                                                                 : m.condition === "Bun"
-                                                                  ? "bg-mercury-500/10 text-mercury-500"
-                                                                  : m.condition === "Acceptabil"
-                                                                    ? "bg-amber-100 text-amber-700"
-                                                                    : "bg-mercury-500/10 text-mercury-500"
+                                                                    ? "bg-mercury-500/10 text-mercury-500"
+                                                                    : m.condition === "Acceptabil"
+                                                                        ? "bg-amber-100 text-amber-700"
+                                                                        : "bg-mercury-500/10 text-mercury-500"
                                                         )}
                                                     >
                                                         {m.condition} ({m.recoverabilityPercent}%)
