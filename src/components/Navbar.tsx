@@ -28,7 +28,7 @@ export default function Navbar() {
         t("searchPlaceholders.concrete"),
     ];
 
-    const setLocale = (locale: "ro" | "en") => {
+    const setLocale = (locale: "ro" | "en" | "ru") => {
         setCurrentLang(locale.toUpperCase());
         setLangMenuOpen(false);
         router.replace(pathname || "/", { locale });
@@ -143,6 +143,12 @@ export default function Navbar() {
                                         className={`w-full text-left px-4 py-2 text-sm transition-colors ${currentLang === "EN" ? "font-bold text-mercury-900" : "text-mercury-900"} hover:bg-mercury-900 hover:text-white`}
                                     >
                                         {t("languages.en")}
+                                    </button>
+                                    <button
+                                        onClick={() => setLocale("ru")}
+                                        className={`w-full text-left px-4 py-2 text-sm transition-colors ${currentLang === "RU" ? "font-bold text-mercury-900" : "text-mercury-900"} hover:bg-mercury-900 hover:text-white`}
+                                    >
+                                        {t("languages.ru")}
                                     </button>
                                 </div>
                             </>

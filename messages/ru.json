@@ -1,0 +1,534 @@
+{
+  "common": {
+    "free": "БЕСПЛАТНО",
+    "dismiss": "Закрыть",
+    "apply": "Применить",
+    "clearAll": "Очистить всё",
+    "search": "Поиск",
+    "home": "Главная",
+    "cart": "Корзина",
+    "menu": "Меню",
+    "selectLanguage": "Выбрать язык"
+  },
+  "nav": {
+    "cart": "Корзина",
+    "menu": "Меню",
+    "selectLanguage": "Выбрать язык",
+    "searchPlaceholder": "Поиск материалов...",
+    "searchPlaceholders": {
+      "materials": "Поиск материалов...",
+      "lumber": "Пиломатериалы...",
+      "steel": "Сталь...",
+      "concrete": "Бетон..."
+    },
+    "materials": "Материалы",
+    "demolitions": "Снос",
+    "dashboard": "Панель",
+    "addListing": "Добавить объявление",
+    "settings": "Настройки",
+    "logout": "Выйти",
+    "login": "Войти",
+    "languages": {
+      "ro": "Румынский (по умолчанию)",
+      "ru": "Русский",
+      "en": "Английский"
+    },
+    "bottomNav": {
+      "home": "Главная",
+      "search": "Поиск",
+      "scan": "Сканер",
+      "orders": "Заказы",
+      "profile": "Профиль"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Найдите неиспользованные материалы.",
+      "description": "Рынок излишков стройматериалов, объединяющий строителей и подрядчиков.",
+      "categoryCount": "{count} объявлений"
+    },
+    "viewAllMaterials": "Все материалы",
+    "footer": "© 2026 Salvio. Все права защищены."
+  },
+  "howItWorks": {
+    "title": "Как это работает",
+    "steps": {
+      "list": {
+        "title": "Разместите",
+        "description": "Сделайте фото, установите цену (или отдайте бесплатно) и опубликуйте за 60 секунд."
+      },
+      "connect": {
+        "title": "Связь",
+        "description": "Покупатели просматривают, отправляют сообщения и договариваются о самовывозе или доставке."
+      },
+      "impact": {
+        "title": "Влияние",
+        "description": "Каждая сделка отвлекает материалы от свалки. Отслеживайте свой экологический вклад в реальном времени."
+      }
+    },
+    "cta": "Начните продавать — это бесплатно"
+  },
+  "filters": {
+    "title": "Фильтры",
+    "closeFilters": "Закрыть фильтры",
+    "freeOnly": "Только бесплатные",
+    "category": "Категория",
+    "condition": "Состояние",
+    "priceRange": "Диапазон цен",
+    "distance": "Расстояние",
+    "popularMarkets": "Популярные магазины",
+    "sellerType": "Тип продавца",
+    "min": "Мин",
+    "max": "Макс",
+    "conditions": {
+      "surplus": "Новый излишек",
+      "lightlyUsed": "Немного б/у",
+      "asIs": "Как есть",
+      "recovered": "Восстановленный"
+    },
+    "distances": ["5 км", "10 км", "25 км", "50 км", "100+ км"],
+    "sellerTypes": {
+      "all": "Все продавцы",
+      "markets": "Магазины и склады",
+      "individual": "Частные продавцы"
+    },
+    "needHelp": "Нужна помощь?",
+    "visitSupport": "Центр поддержки"
+  },
+  "sidebar": {
+    "title": "Панель продавца",
+    "description": "Управляйте объявлениями и отслеживайте влияние",
+    "overview": "Обзор",
+    "myListings": "Мои объявления",
+    "orders": "Заказы",
+    "calculators": "Калькуляторы",
+    "impactReport": "Отчёт о влиянии"
+  },
+  "browse": {
+    "breadcrumb": "Все материалы",
+    "title": "Все материалы",
+    "resultsCount": "{count} результатов",
+    "filters": "Фильтры",
+    "sort": {
+      "newest": "Сначала новые",
+      "priceAsc": "Цена: низкая → высокая",
+      "priceDesc": "Цена: высокая → низкая",
+      "nearest": "Ближайшие",
+      "mostSaved": "Самые сохранённые"
+    },
+    "viewGrid": "Сетка",
+    "viewList": "Список"
+  },
+  "listing": {
+    "free": "БЕСПЛАТНО",
+    "discount": "-{discount}%",
+    "quantity": "{quantity} {unit}",
+    "notFound": "Объявление не найдено",
+    "notFoundDescription": "Это объявление могло быть удалено или не существует.",
+    "searchMaterials": "Поиск материалов",
+    "memberSince": "Участник с {date}",
+    "ecologicalContribution": "Экологический вклад",
+    "available": "{quantity} {unit} доступно",
+    "decreaseQty": "Уменьшить количество",
+    "increaseQty": "Увеличить количество",
+    "specs": "Характеристики",
+    "atDistance": "в {distance}",
+    "pickupAvailable": "Самовывоз",
+    "delivery": "Доставка",
+    "shipping": "Отправка",
+    "addToCart": "В корзину",
+    "messageSeller": "Написать продавцу",
+    "save": "Сохранить",
+    "share": "Поделиться",
+    "report": "Пожаловаться",
+    "impactMessage": "Покупая этот товар, вы экономите примерно {wasteKg} кг отходов от свалки и {co2Kg} кг выбросов CO₂.",
+    "description": "Описание",
+    "moreFromSeller": "Ещё от {seller}",
+    "similarMaterials": "Похожие материалы"
+  },
+  "cart": {
+    "emptyTitle": "Корзина пуста",
+    "emptyDescription": "Ищите материалы и добавляйте товары в корзину.",
+    "searchMaterials": "Поиск материалов",
+    "title": "Корзина",
+    "itemCount": "({count} товар)",
+    "itemCountPlural": "({count} товаров)",
+    "summary": "Итого заказа",
+    "subtotal": "Подытог",
+    "serviceFee": "Комиссия сервиса",
+    "totalEstimate": "Ориентировочная сумма",
+    "serviceFeeTooltip": "Эта комиссия поддерживает работу Salvio и экологические инициативы",
+    "continueToCheckout": "Перейти к оформлению",
+    "taxNote": "Налоги и доставка рассчитываются при оформлении",
+    "decrease": "Уменьшить",
+    "increase": "Увеличить",
+    "remove": "Удалить"
+  },
+  "login": {
+    "welcome": "С возвращением",
+    "description": "Войдите в аккаунт, чтобы продолжить.",
+    "email": "Email",
+    "password": "Пароль",
+    "emailPlaceholder": "you@company.com",
+    "passwordPlaceholder": "Введите пароль",
+    "rememberMe": "Запомнить меня",
+    "forgotPassword": "Забыли пароль?",
+    "submit": "Войти",
+    "or": "или",
+    "continueWithGoogle": "Продолжить с Google",
+    "noAccount": "Нет аккаунта?",
+    "signUp": "Зарегистрироваться",
+    "quote": "Излишки одной компании — основа другой."
+  },
+  "dashboard": {
+    "welcome": "С возвращением, {name}",
+    "subtitle": "Вот что происходит с вашим магазином сегодня.",
+    "addListing": "Добавить объявление",
+    "stats": {
+      "activeListings": "Активные объявления",
+      "totalSales": "Всего продаж",
+      "itemsSold": "Проданных товаров",
+      "impact": "Влияние"
+    },
+    "trends": {
+      "newThisWeek": "2 новых на этой неделе",
+      "salesUp": "+12% в этом месяце",
+      "soldThisWeek": "+5 на этой неделе",
+      "diverted": "отвлечено от свалки"
+    },
+    "recentOrders": "Недавние заказы",
+    "viewAll": "Смотреть все →",
+    "orderNumber": "№ заказа",
+    "buyer": "Покупатель",
+    "date": "Дата",
+    "status": "Статус",
+    "amount": "Сумма",
+    "statuses": {
+      "pending": "ожидание",
+      "confirmed": "подтверждён",
+      "ready": "готов",
+      "completed": "выполнен",
+      "cancelled": "отменён"
+    }
+  },
+  "listings": {
+    "title": "Мои объявления",
+    "newListing": "Новое объявление",
+    "filters": {
+      "all": "Все",
+      "active": "Активные",
+      "paused": "На паузе",
+      "sold": "Проданы"
+    },
+    "statuses": {
+      "active": "активно",
+      "paused": "пауза",
+      "sold": "продано"
+    },
+    "actions": {
+      "edit": "Редактировать",
+      "pause": "Пауза",
+      "activate": "Активировать",
+      "delete": "Удалить"
+    },
+    "listedAt": "Размещено {date}"
+  },
+  "orders": {
+    "title": "Заказы",
+    "items": "Товары",
+    "logistics": "Доставка",
+    "logisticsTypes": {
+      "pickup": "самовывоз",
+      "delivery": "доставка",
+      "shipping": "отправка"
+    },
+    "quantity": "Кол-во: {count}"
+  },
+  "newListing": {
+    "title": "Добавить объявление",
+    "description": "Разместите излишки материалов быстро и просто.",
+    "modes": {
+      "single": "Один товар",
+      "bulk": "Массовый импорт"
+    },
+    "fields": {
+      "title": "Название *",
+      "category": "Категория *",
+      "condition": "Состояние",
+      "quantity": "Количество *",
+      "unit": "Единица",
+      "price": "Цена (MDL)",
+      "description": "Описание (необязательно)",
+      "photos": "Фото (необязательно)"
+    },
+    "placeholders": {
+      "title": "напр. Пиломатериалы 5×15 см, Краска Caparol 10л",
+      "select": "Выбрать",
+      "quantity": "50",
+      "unit": "шт, м², кг",
+      "price": "0.00",
+      "description": "Добавьте дополнительные детали..."
+    },
+    "pricing": {
+      "sell": "Продать",
+      "free": "Отдать бесплатно",
+      "freeInfo": "Бесплатные объявления получают в 3× больше просмотров!"
+    },
+    "addPhotos": "Добавить фото",
+    "locationDelivery": "Местоположение и доставка",
+    "pickupAvailable": "Самовывоз доступен",
+    "deliveryAvailable": "Доставка доступна",
+    "shippingAvailable": "Отправка доступна",
+    "modify": "Изменить",
+    "hide": "Скрыть",
+    "specsNote": "Технические характеристики генерируются автоматически по категории.",
+    "saveDraft": "Сохранить черновик",
+    "publish": "Опубликовать",
+    "bulk": {
+      "uploadFile": "Загрузить файл",
+      "dropzone": "Перетащите файл сюда или нажмите для выбора",
+      "formats": "CSV, Excel (.xlsx) или JSON",
+      "pasteTable": "Вставить из таблицы",
+      "pasteHint": "Скопируйте строки из Excel или Google Sheets.",
+      "quickAdd": "Быстрое добавление",
+      "titleCol": "Название",
+      "categoryCol": "Категория",
+      "qtyCol": "Кол-во",
+      "priceCol": "Цена",
+      "conditionCol": "Состояние",
+      "titlePlaceholder": "Название товара",
+      "pricePlaceholder": "MDL",
+      "addRow": "Добавить строку",
+      "locationForAll": "Местоположение для всех товаров",
+      "publishAll": "Опубликовать все ({count})",
+      "publishAllPlural": "Опубликовать все ({count})"
+    }
+  },
+  "impact": {
+    "title": "Отчёт о влиянии",
+    "totalDiverted": "Всего материалов отвлечено от свалки",
+    "truckLoads": "Это эквивалентно {count} грузовикам, не попавшим на свалку.",
+    "byCategory": "Отходы по категориям",
+    "monthlyImpact": "Ежемесячное влияние",
+    "saved": "Спасённые отходы",
+    "diverted": "Отвлечённые отходы",
+    "shareTitle": "Поделитесь своим влиянием",
+    "shareText": "Я спас {count} кг стройматериалов от свалки с Salvio",
+    "shareLinkedIn": "Поделиться в LinkedIn",
+    "downloadImage": "Скачать изображение"
+  },
+  "impactTicker": {
+    "live": "В эфире",
+    "tonsDiverted": "{value} тонн отвлечено от свалки",
+    "mdlRecycled": "{value} MDL в переработанных материалах",
+    "activeSellers": "{value} активных продавцов"
+  },
+  "missionStrip": {
+    "quote": "Строительная отрасль генерирует 600 миллионов тонн отходов ежегодно. Мы верим, что каждый материал заслуживает второго шанса.",
+    "learnMore": "Подробнее о нашей миссии →"
+  },
+  "demolitions": {
+    "title": "Снос и восстанавливаемые материалы",
+    "description": "Откройте запланированные сносы в Молдове и оцените стоимость восстанавливаемых материалов. Превратите строительные отходы в ценные ресурсы.",
+    "stats": {
+      "listings": "Объявления",
+      "value": "Стоимость",
+      "recoverable": "Восстанавливаемо"
+    },
+    "tabs": {
+      "listings": "Объявления",
+      "calculator": "Калькулятор"
+    },
+    "filters": {
+      "all": "Все",
+      "planned": "Запланировано",
+      "inProgress": "В процессе",
+      "completed": "Завершено"
+    },
+    "allCities": "Все города",
+    "empty": "Объявления не найдены",
+    "emptyHint": "Измените фильтры для других результатов."
+  },
+  "demolitionCard": {
+    "recoverableMaterials": "Восстанавливаемые материалы",
+    "estimatedValue": "Ориентировочная стоимость",
+    "viewDetails": "Подробнее",
+    "floors": "{floors} этаж",
+    "floorsPlural": "{floors} этажей",
+    "area": "{area} м²",
+    "year": "Год {year}"
+  },
+  "demolitionCalculator": {
+    "quickEstimate": "Быстрая оценка",
+    "detailedComponents": "По компонентам",
+    "buildingType": "Тип здания",
+    "area": "Площадь (м²)",
+    "floors": "Этажи",
+    "yearBuilt": "Год постройки",
+    "areaPlaceholder": "напр. 2000",
+    "calculate": "Рассчитать",
+    "totalValue": "Общая стоимость",
+    "co2Saved": "CO₂ сэкономлено",
+    "recoverable": "Восстанавливаемо",
+    "material": "Материал",
+    "quantity": "Количество",
+    "recovery": "Восст.",
+    "value": "Стоимость",
+    "listOnSalvio": "Разместить на Salvio",
+    "detailedHint": "Добавьте материалы по отдельности для более точной оценки стоимости восстановления.",
+    "component": "Компонент {index}",
+    "selectMaterial": "Выберите материал",
+    "addComponent": "Добавить компонент",
+    "calculateValue": "Рассчитать стоимость",
+    "wasteDiverted": "Отходы отвлечены",
+    "condition": "Состояние"
+  },
+  "scan": {
+    "title": "Сканер SKU",
+    "instructions": "Наведите камеру на штрихкод",
+    "hint": "Отсканируйте штрихкод или QR-код товара, чтобы найти его на Salvio",
+    "manualEntry": "Ввести вручную",
+    "skuResult": "SKU: {code}",
+    "resultsCount": "{count} результат",
+    "resultsCountPlural": "{count} результатов",
+    "scanAgain": "Сканировать снова",
+    "noResults": "Нет результатов",
+    "noResultsHint": "Код {code} не найден в каталоге. Попробуйте другой код или просмотрите вручную.",
+    "browseAll": "Просмотреть всё",
+    "manualMode": {
+      "title": "Ручной ввод",
+      "description": "Введите код SKU или вставьте ссылку на товар",
+      "placeholder": "SKU или ссылка: 900160 / https://caparolshop.md/...",
+      "urlHint": "Поиск по URL товара",
+      "backToScanner": "Назад к сканеру"
+    }
+  },
+  "buyer": {
+    "title": "Моя панель",
+    "stats": {
+      "ordersPlaced": "Размещённых заказов",
+      "savedItems": "Сохранённых товаров",
+      "totalSavings": "Общая экономия",
+      "impact": "Влияние"
+    },
+    "trends": {
+      "vsRetail": "vs розничная цена",
+      "wasteDiverted": "отходов отвлечено"
+    },
+    "activeOrders": "Активные заказы",
+    "savedItems": "Сохранённые товары",
+    "viewAll": "Смотреть все →",
+    "steps": {
+      "placed": "Размещён",
+      "confirmed": "Подтверждён",
+      "ready": "Готов",
+      "completed": "Выполнен"
+    },
+    "quantityLogistics": "Кол-во: {count} · {logistics}",
+    "savedTitle": "Сохранённые товары",
+    "savedSearches": "Сохранённые поиски",
+    "alertsActive": "Уведомления активны",
+    "orderHistory": "История заказов",
+    "action": "Действие",
+    "total": "Итого",
+    "leaveReview": "Оставить отзыв"
+  },
+  "calculators": {
+    "tabs": {
+      "area": "Площадь",
+      "paint": "Краска",
+      "tile": "Плитка",
+      "concrete": "Бетон",
+      "wallpaper": "Обои"
+    },
+    "shapes": {
+      "rectangle": "Прямоугольник",
+      "circle": "Круг",
+      "triangle": "Треугольник",
+      "trapezoid": "Трапеция"
+    },
+    "labels": {
+      "length": "Длина",
+      "width": "Ширина",
+      "radius": "Радиус",
+      "base": "Основание",
+      "height": "Высота",
+      "baseLarge": "Большее основание",
+      "baseSmall": "Меньшее основание",
+      "quantity": "Количество",
+      "waste": "Отходы",
+      "costPerSqm": "Стоимость / м²"
+    },
+    "units": {
+      "m": "м",
+      "pcs": "шт",
+      "percent": "%",
+      "mdl": "MDL",
+      "liters": "л",
+      "tons": "т",
+      "rolls": "рулонов"
+    },
+    "results": {
+      "area": "Площадь",
+      "totalWithQty": "Всего (× кол-во)",
+      "withWaste": "С учётом отходов",
+      "estimatedCost": "Ориентировочная стоимость",
+      "wallArea": "Площадь стен",
+      "paintArea": "Площадь покраски",
+      "paintNeeded": "Краски нужно",
+      "totalArea": "Общая площадь",
+      "tilesNeeded": "Плиток нужно",
+      "volume": "Объём",
+      "total": "Всего",
+      "estimatedWeight": "Ориент. вес",
+      "effectivePerimeter": "Эффективный периметр",
+      "stripsNeeded": "Полос нужно",
+      "rollsNeeded": "Рулонов нужно"
+    },
+    "paint": {
+      "roomLength": "Длина комнаты",
+      "roomWidth": "Ширина комнаты",
+      "doors": "Двери",
+      "windows": "Окна",
+      "coats": "Слои",
+      "coverage": "Расход краски"
+    },
+    "tile": {
+      "zoneLength": "Длина зоны",
+      "zoneWidth": "Ширина зоны",
+      "tileLength": "Длина плитки",
+      "tileWidth": "Ширина плитки",
+      "grout": "Шов",
+      "pricePerTile": "Цена / плитка"
+    },
+    "concrete": {
+      "depth": "Глубина",
+      "pricePerCubic": "Цена / м³"
+    },
+    "wallpaper": {
+      "roomLength": "Длина комнаты",
+      "roomWidth": "Ширина комнаты",
+      "rollWidth": "Ширина рулона",
+      "rollLength": "Длина рулона",
+      "pricePerRoll": "Цена / рулон"
+    },
+    "disclaimer": "Результаты ориентировочные. Обратитесь к специалисту для точных расчётов."
+  },
+  "socialProof": {
+    "feeNote": "Salvio взимает небольшую комиссию только при продаже. Размещение всегда бесплатно."
+  },
+  "categories": {
+    "lumber": "Пиломатериалы и древесина",
+    "steel": "Сталь и металл",
+    "concrete": "Бетон и кладка",
+    "electrical": "Электрика",
+    "plumbing": "Сантехника",
+    "fixtures": "Фурнитура и аксессуары",
+    "roofing": "Кровля",
+    "tile": "Плитка и камень",
+    "insulation": "Утеплитель",
+    "paint": "Краски и отделка",
+    "doors": "Двери и окна",
+    "equipment": "Тяжёлая техника"
+  }
+}
