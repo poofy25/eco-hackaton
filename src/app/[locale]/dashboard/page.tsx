@@ -1,8 +1,159 @@
-"use client"; import Link from "next/link";
+"use client";
+
+import Link from "next/link";
 import { Package, DollarSign, ShoppingBag, Leaf, PlusCircle } from "lucide-react";
 import StatsCard from "@/components/StatsCard";
 import { orders, sellers } from "@/lib/mock-data";
-import { formatPrice, formatDate } from "@/lib/utils"; const seller = sellers[0]; const statusColors: Record<string, string> = { pending: "bg-amber-100 text-amber-700", confirmed: "bg-blue-100 text-blue-700", ready: "bg-mercury-500/10 text-mercury-500", completed: "bg-mercury-900/10 text-mercury-900", cancelled: "bg-mercury-500/10 text-mercury-500",
-}; const statusLabels: Record<string, string> = { pending: "în așteptare", confirmed: "confirmat", ready: "pregătit", completed: "finalizat", cancelled: "anulat",
-}; export default function SellerOverview() { return ( <div> <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8"> <div> <h1 className="font-heading text-2xl font-bold text-mercury-900"> Bine ai revenit, {seller.name.split(" ")[0]} </h1> <p className="text-sm text-mercury-500 mt-1"> Iată ce se întâmplă cu magazinul tău azi. </p> </div> <Link href="/dashboard/new-listing" className="btn-magnetic btn-cta flex items-center gap-2 bg-mercury-500 px-5 py-2.5 text-sm font-semibold text-white -300" > <PlusCircle className="h-4 w-4" strokeWidth={1.5} /> Adaugă Anunț Nou </Link> </div> {/* Stats */} <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8"> <StatsCard icon={Package} label="Anunțuri Active" value="12" trend="2 noi săptămâna aceasta" trendUp /> <StatsCard icon={DollarSign} label="Vânzări Totale" value={formatPrice(seller.totalSales)} trend="+12% luna aceasta" trendUp /> <StatsCard icon={ShoppingBag} label="Articole Vândute" value="86" trend="+5 săptămâna aceasta" trendUp /> <StatsCard icon={Leaf} label="Impact" value={`${seller.impactKg.toLocaleString()} kg`} trend="deviate de la groapa de gunoi" trendUp /> </div> {/* Recent Orders */} <div className="bg-white -300 overflow-hidden"> <div className="flex items-center justify-between p-5 -500/10"> <h2 className="font-heading text-lg font-semibold text-mercury-900"> Comenzi Recente </h2> <Link href="/dashboard/orders" className="text-sm font-medium text-mercury-900 hover:text-mercury-900 transition-colors" > Vezi Toate → </Link> </div> <div className="overflow-x-auto"> <table className="w-full"> <thead> <tr className="-500/10"> <th className="px-5 py-3 text-left text-xs font-medium text-mercury-500 uppercase tracking-wider"> Nr. Comandă </th> <th className="px-5 py-3 text-left text-xs font-medium text-mercury-500 uppercase tracking-wider"> Cumpărător </th> <th className="px-5 py-3 text-left text-xs font-medium text-mercury-500 uppercase tracking-wider"> Data </th> <th className="px-5 py-3 text-left text-xs font-medium text-mercury-500 uppercase tracking-wider"> Status </th> <th className="px-5 py-3 text-right text-xs font-medium text-mercury-500 uppercase tracking-wider"> Sumă </th> </tr> </thead> <tbody className="divide-y divide-mercury-500/10"> {orders.map((order) => ( <tr key={order.id} className="hover:bg-white/50 transition-colors cursor-pointer"> <td className="px-5 py-3.5 font-mono text-sm text-mercury-900"> {order.orderNumber} </td> <td className="px-5 py-3.5"> <div className="flex items-center gap-2"> <img src={order.buyer.avatar} alt={order.buyer.name} className="h-7 w-7 object-cover" /> <span className="text-sm text-mercury-900">{order.buyer.name}</span> </div> </td> <td className="px-5 py-3.5 text-sm text-mercury-500"> {formatDate(order.createdAt)} </td> <td className="px-5 py-3.5"> <span className={`inline-block px-2.5 py-0.5 text-xs font-medium capitalize ${ statusColors[order.status] || "bg-mercury-500/10 text-mercury-500" }`} > {statusLabels[order.status] || order.status} </span> </td> <td className="px-5 py-3.5 text-right font-mono text-sm font-medium text-mercury-900"> {formatPrice(order.total)} </td> </tr> ))} </tbody> </table> </div> </div> </div> );
+import { formatPrice, formatDate } from "@/lib/utils";
+
+const seller = sellers[0];
+
+const statusColors: Record<string, string> = {
+    pending: "bg-amber-100 text-amber-700",
+    confirmed: "bg-blue-100 text-blue-700",
+    ready: "bg-mercury-500/10 text-mercury-500",
+    completed: "bg-mercury-900/10 text-mercury-900",
+    cancelled: "bg-mercury-500/10 text-mercury-500",
+};
+
+const statusLabels: Record<string, string> = {
+    pending: "în așteptare",
+    confirmed: "confirmat",
+    ready: "pregătit",
+    completed: "finalizat",
+    cancelled: "anulat",
+};
+
+export default function SellerOverview() {
+    return (
+        <div>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h1 className="font-heading text-2xl font-bold text-mercury-900">
+                        Bine ai revenit, {seller.name.split(" ")[0]}
+                    </h1>
+                    <p className="text-sm text-mercury-500 mt-1">
+                        Iată ce se întâmplă cu magazinul tău azi.
+                    </p>
+                </div>
+                <Link
+                    href="/dashboard/new-listing"
+                    className="btn-magnetic btn-cta flex items-center gap-2 bg-mercury-900 px-5 py-2.5 text-sm font-semibold text-white"
+                >
+                    <PlusCircle className="h-4 w-4" strokeWidth={1.5} />
+                    Adaugă Anunț Nou
+                </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <StatsCard
+                    icon={Package}
+                    label="Anunțuri Active"
+                    value="12"
+                    trend="2 noi săptămâna aceasta"
+                    trendUp
+                />
+                <StatsCard
+                    icon={DollarSign}
+                    label="Vânzări Totale"
+                    value={formatPrice(seller.totalSales)}
+                    trend="+12% luna aceasta"
+                    trendUp
+                />
+                <StatsCard
+                    icon={ShoppingBag}
+                    label="Articole Vândute"
+                    value="86"
+                    trend="+5 săptămâna aceasta"
+                    trendUp
+                />
+                <StatsCard
+                    icon={Leaf}
+                    label="Impact"
+                    value={`${seller.impactKg.toLocaleString()} kg`}
+                    trend="deviate de la groapa de gunoi"
+                    trendUp
+                />
+            </div>
+
+            {/* Recent Orders */}
+            <div className="bg-white border border-mercury-200 overflow-hidden">
+                <div className="flex items-center justify-between p-5 border-b border-mercury-200">
+                    <h2 className="font-heading text-lg font-semibold text-mercury-900">
+                        Comenzi Recente
+                    </h2>
+                    <Link
+                        href="/dashboard/orders"
+                        className="text-sm font-medium text-mercury-900 hover:text-mercury-900 transition-colors"
+                    >
+                        Vezi Toate →
+                    </Link>
+                </div>
+                <div className="overflow-x-auto">
+                    <table className="w-full">
+                        <thead>
+                            <tr className="border-b border-mercury-200">
+                                <th className="px-5 py-3 text-left text-xs font-medium text-mercury-500 uppercase tracking-wider">
+                                    Nr. Comandă
+                                </th>
+                                <th className="px-5 py-3 text-left text-xs font-medium text-mercury-500 uppercase tracking-wider">
+                                    Cumpărător
+                                </th>
+                                <th className="px-5 py-3 text-left text-xs font-medium text-mercury-500 uppercase tracking-wider">
+                                    Data
+                                </th>
+                                <th className="px-5 py-3 text-left text-xs font-medium text-mercury-500 uppercase tracking-wider">
+                                    Status
+                                </th>
+                                <th className="px-5 py-3 text-right text-xs font-medium text-mercury-500 uppercase tracking-wider">
+                                    Sumă
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-mercury-200">
+                            {orders.map((order) => (
+                                <tr
+                                    key={order.id}
+                                    className="hover:bg-mercury-50 transition-colors cursor-pointer"
+                                >
+                                    <td className="px-5 py-3.5 font-mono text-sm text-mercury-900">
+                                        {order.orderNumber}
+                                    </td>
+                                    <td className="px-5 py-3.5">
+                                        <div className="flex items-center gap-2">
+                                            <img
+                                                src={order.buyer.avatar}
+                                                alt={order.buyer.name}
+                                                className="h-7 w-7 object-cover"
+                                            />
+                                            <span className="text-sm text-mercury-900">
+                                                {order.buyer.name}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td className="px-5 py-3.5 text-sm text-mercury-500">
+                                        {formatDate(order.createdAt)}
+                                    </td>
+                                    <td className="px-5 py-3.5">
+                                        <span
+                                            className={`inline-block px-2.5 py-0.5 text-xs font-medium capitalize ${
+                                                statusColors[order.status] ||
+                                                "bg-mercury-500/10 text-mercury-500"
+                                            }`}
+                                        >
+                                            {statusLabels[order.status] || order.status}
+                                        </span>
+                                    </td>
+                                    <td className="px-5 py-3.5 text-right font-mono text-sm font-medium text-mercury-900">
+                                        {formatPrice(order.total)}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    );
 }

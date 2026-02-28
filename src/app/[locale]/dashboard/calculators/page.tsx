@@ -48,7 +48,7 @@ function InputField({
             <label className="block text-xs font-semibold text-mercury-500 uppercase tracking-wider mb-1.5">
                 {label}
             </label>
-            <div className="flex -500-200 bg-white ">
+            <div className="flex border border-mercury-200 bg-white">
                 <input
                     type="number"
                     value={value}
@@ -58,7 +58,7 @@ function InputField({
                     min="0"
                     step="any"
                 />
-                <span className="flex items-center px-3 -500-200 bg-mercury-50 text-xs font-semibold text-mercury-500 ">
+                <span className="flex items-center px-3 border-l border-mercury-200 bg-mercury-50 text-xs font-semibold text-mercury-500">
                     {unit}
                 </span>
             </div>
@@ -68,7 +68,7 @@ function InputField({
 
 function ResultCard({ label, value, unit }: { label: string; value: string; unit: string }) {
     return (
-        <div className="-500-200 bg-mercury-50 p-4 ">
+        <div className="border border-mercury-200 bg-mercury-50 p-4">
             <p className="text-xs font-semibold text-mercury-500 uppercase tracking-wider mb-1">{label}</p>
             <p className="text-2xl font-bold text-mercury-900">
                 {value} <span className="text-sm font-semibold text-mercury-500">{unit}</span>
@@ -589,8 +589,8 @@ function AreaCalculator() {
                                 className={cn(
                                     "flex items-center gap-2 px-3 py-2 text-xs font-semibold transition-colors ",
                                     active
-                                        ? "bg-mercury-900 text-white -900"
-                                        : "bg-white text-mercury-900 -500-200 hover:-900"
+                                        ? "bg-mercury-900 text-white"
+                                        : "bg-white text-mercury-900 border border-mercury-200 hover:border-mercury-900"
                                 )}
                             >
                                 <Icon className="h-3.5 w-3.5" strokeWidth={1.5} />
@@ -602,7 +602,7 @@ function AreaCalculator() {
             </div>
 
             {/* SVG Diagram */}
-            <div className="-500-200 bg-[#FAFAFA] p-2 ">
+            <div className="border border-mercury-200 bg-[#FAFAFA] p-2">
                 {shape === "rectangle" && <AreaSvgRectangle length={parseFloat(length) || 0} width={parseFloat(width) || 0} />}
                 {shape === "circle" && <AreaSvgCircle radius={parseFloat(radius) || 0} />}
                 {shape === "triangle" && <AreaSvgTriangle base={parseFloat(base) || 0} height={parseFloat(height) || 0} />}
@@ -684,7 +684,7 @@ function PaintCalculator() {
     return (
         <div className="space-y-6">
             {/* SVG Diagram */}
-            <div className="-500-200 bg-[#FAFAFA] p-2 ">
+            <div className="border border-mercury-200 bg-[#FAFAFA] p-2">
                 <PaintSvg roomLength={rl} roomWidth={rw} roomHeight={rh} doors={numDoors} windows={numWindows} />
             </div>
 
@@ -737,7 +737,7 @@ function TileCalculator() {
     return (
         <div className="space-y-6">
             {/* SVG Diagram */}
-            <div className="-500-200 bg-[#FAFAFA] p-2 ">
+            <div className="border border-mercury-200 bg-[#FAFAFA] p-2">
                 <TileSvg areaLength={al} areaWidth={aw} tileLength={parseFloat(tileLength) || 60} tileWidth={parseFloat(tileWidth) || 60} />
             </div>
 
@@ -790,7 +790,7 @@ function ConcreteCalculator() {
     return (
         <div className="space-y-6">
             {/* SVG Diagram */}
-            <div className="-500-200 bg-[#FAFAFA] p-2 ">
+            <div className="border border-mercury-200 bg-[#FAFAFA] p-2">
                 <ConcreteSvg length={l} width={w} depth={d} />
             </div>
 
@@ -850,7 +850,7 @@ function WallpaperCalculator() {
     return (
         <div className="space-y-6">
             {/* SVG Diagram */}
-            <div className="-500-200 bg-[#FAFAFA] p-2 ">
+            <div className="border border-mercury-200 bg-[#FAFAFA] p-2">
                 <WallpaperSvg roomLength={rl} roomWidth={rw} roomHeight={rh} strips={stripsNeeded} rolls={rollsNeeded} />
             </div>
 
@@ -901,8 +901,8 @@ export default function DashboardCalculatorsPage() {
                                 className={cn(
                                     "flex items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-colors ",
                                     active
-                                        ? "bg-mercury-900 text-white -900"
-                                        : "bg-white text-mercury-900 -500-200 hover:-900"
+                                        ? "bg-mercury-900 text-white"
+                                        : "bg-white text-mercury-900 border border-mercury-200 hover:border-mercury-900"
                                 )}
                             >
                                 <Icon className="h-4 w-4" strokeWidth={1.5} />
@@ -913,7 +913,7 @@ export default function DashboardCalculatorsPage() {
                 </div>
 
                 {/* Calculator body */}
-                <div className="-500-200 bg-white p-6 ">
+                <div className="border border-mercury-200 bg-white p-6">
                     <h2 className="font-heading font-bold text-base uppercase tracking-tight mb-6">
                         {calculatorTabs.find((t) => t.id === activeCalc)?.label}
                     </h2>
@@ -926,7 +926,7 @@ export default function DashboardCalculatorsPage() {
                 </div>
 
                 {/* Info note */}
-                <p className="mt-4 text-xs text-mercury-500-400 text-center">
+                <p className="mt-4 text-xs text-mercury-400 text-center">
                     Rezultatele sunt estimative. Consultați un specialist pentru calcule precise.
                 </p>
             </div>

@@ -220,23 +220,26 @@ export default function Navbar() {
                 </div>
             </div>
 
+            {/* Mobile Search — always visible below navbar */}
+            <div className="sm:hidden border-b border-mercury-200 bg-white px-4 py-2">
+                <div className="relative">
+                    <input
+                        type="text"
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        placeholder={t("searchPlaceholder")}
+                        className="w-full border border-mercury-200 bg-white py-2 pl-3 pr-10 text-sm text-mercury-900 focus:outline-none focus:border-mercury-500"
+                    />
+                    <button className="absolute right-1 top-1/2 -translate-y-1/2 bg-mercury-900 text-white h-7 w-7 flex items-center justify-center">
+                        <Search className="h-3.5 w-3.5" strokeWidth={2} />
+                    </button>
+                </div>
+            </div>
+
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className="sm:hidden border border-mercury-200 bg-white">
                     <div className="mx-auto max-w-7xl px-4 py-3 space-y-1">
-                        {/* Mobile Search */}
-                        <div className="relative mb-2">
-                            <input
-                                type="text"
-                                value={searchValue}
-                                onChange={(e) => setSearchValue(e.target.value)}
-                                placeholder={t("searchPlaceholder")}
-                                className="w-full border border-mercury-200 bg-white py-2.5 pl-3 pr-10 text-sm text-mercury-900 focus:outline-none focus:border-mercury-500"
-                            />
-                            <button className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-mercury-900 text-white h-7 w-7 flex items-center justify-center ">
-                                <Search className="h-3.5 w-3.5" strokeWidth={2} />
-                            </button>
-                        </div>
                         <Link href="/demolitions" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
                             {t("demolitions")}
                         </Link>

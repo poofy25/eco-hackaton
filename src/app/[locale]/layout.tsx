@@ -7,7 +7,6 @@ import { CartProvider } from "@/lib/cart-context";
 import { AuthProvider } from "@/lib/auth-context";
 import { ToastProvider } from "@/components/Toast";
 import Navbar from "@/components/Navbar";
-import BottomNav from "@/components/BottomNav";
 
 type Props = {
     children: React.ReactNode;
@@ -45,10 +44,9 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <CartProvider>
                     <ToastProvider>
                         <Navbar />
-                        <main className="pt-16 pb-20 sm:pb-0 min-h-screen">
+                        <main className="pt-28 sm:pt-16 min-h-screen">
                             {children}
                         </main>
-                        <BottomNav />
                     </ToastProvider>
                 </CartProvider>
             </AuthProvider>

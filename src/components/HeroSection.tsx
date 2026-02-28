@@ -76,7 +76,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* CATEGORY GRID — full width */}
-                <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 mt-6">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-6">
                     {categories.map((cat) => {
                         const Icon = iconMap[cat.icon];
                         return (
