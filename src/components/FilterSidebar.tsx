@@ -12,7 +12,7 @@ interface FilterSidebarProps {
 const conditions = ["Surplus Nou", "Ușor Utilizat", "În Starea Actuală", "Recuperat"];
 
 const popularMarkets = [
-    "Nanomarket",
+    "Nanumarket",
     "Caparol Shop",
     "Dedeman",
     "Megatex",

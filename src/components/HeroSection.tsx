@@ -16,7 +16,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const providerLogos = [
-    { name: "Caparol", logo: "caparol.png" }, { name: "Nanomarket", logo: "nanomarket.png" },
+    { name: "Caparol", logo: "caparol.png" }, { name: "Nanumarket", logo: "nanumarket.png" },
     { name: "Supraten", logo: "supraten.png" }, { name: "Bauconstruct", logo: "bauconstruct.png" },
     { name: "Profmet", logo: "profmet.png" }, { name: "Bicomplex", logo: "bicomplex.png" },
     { name: "Domic.md", logo: "domic.png" }, { name: "Dansicons", logo: "dansicons.png" },
@@ -68,15 +68,7 @@ export default function HeroSection() {
                     </p>
 
                     {/* STATS PILL */}
-                    <div className="inline-flex items-center gap-2 bg-mercury-900 text-white px-3 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wide">
-                        <span className="relative flex h-2 w-2 flex-shrink-0">
-                            <span className="animate-ping absolute inline-flex h-full w-full bg-[#FED601] opacity-75"></span>
-                            <span className="relative inline-flex h-2 w-2 bg-yellow-sea-600"></span>
-                        </span>
-                        <span>
-                            <AnimatedCounter end={41452} /> Tone de Deșeuri Reutilizate
-                        </span>
-                    </div>
+                  
                 </div>
 
                 {/* CATEGORY GRID — full width */}
