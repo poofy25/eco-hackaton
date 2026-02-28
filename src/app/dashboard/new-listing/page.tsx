@@ -1,7 +1,207 @@
-"use client"; import { useState } from "react";
+"use client";
+
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Upload, X, Plus, Leaf, Eye,
+import {
+    Upload, X, Plus, Leaf, FileSpreadsheet, ClipboardPaste, Table2,
 } from "lucide-react";
 import { categories } from "@/lib/mock-data";
-import { useToast } from "@/components/Toast"; const conditions = ["Surplus Nou", "Ușor Utilizat", "În Starea Actuală", "Recuperat"]; export default function NewListingPage() { const router = useRouter(); const { showToast } = useToast(); const [pricingMode, setPricingMode] = useState<"sell" | "free">("sell"); const [specs, setSpecs] = useState([{ key: "", value: "" }]); const addSpec = () => setSpecs([...specs, { key: "", value: "" }]); const removeSpec = (index: number) => setSpecs(specs.filter((_, i) => i !== index)); const handlePublish = () => { showToast("Anunțul a fost publicat cu succes!"); router.push("/dashboard/listings"); }; return ( <div className="max-w-3xl"> <h1 className="font-heading text-2xl font-bold text-black-900 mb-2"> Adaugă un Anunț Nou </h1> <p className="text-sm text-black-500 mb-8"> Completează detaliile de mai jos pentru a lista materialele tale surplus. </p> {/* Photos */} <section className="mb-8"> <h2 className="font-heading text-base font-semibold text-black-900 mb-3"> Fotografii </h2> <div className="grid grid-cols-2 sm:grid-cols-4 gap-3"> <label className="flex aspect-square cursor-pointer flex-col items-center justify-center rounded-none border  border-black-500/25 bg-white/50 hover:bg-white hover:border-deep-teal-900/30 transition-colors"> <Upload className="h-6 w-6 text-black-500 mb-1" strokeWidth={1.5} /> <span className="text-xs text-black-500">Adaugă Fotografii</span> <span className="text-[10px] text-black-500/60 mt-0.5">Până la 8</span> <input type="file" multiple accept="image/*" className="hidden" /> </label> {[1, 2, 3].map((i) => ( <div key={i} className="aspect-square rounded-none bg-black-500/5 border border-black-500/10" /> ))} </div> </section> {/* Details */} <section className="mb-8"> <h2 className="font-heading text-base font-semibold text-black-900 mb-3"> Detalii </h2> <div className="space-y-4"> <div> <label className="text-xs font-medium text-black-500 uppercase tracking-wider"> Titlu </label> <input type="text" placeholder="ex. Cherestea Brad 5×15 cm" className="mt-1.5 w-full rounded-none border border-black-500/20 bg-white px-4 py-2.5 text-sm placeholder:text-black-500/50 focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20 focus:border-deep-teal-900/40" /> </div> <div className="grid grid-cols-2 gap-4"> <div> <label className="text-xs font-medium text-black-500 uppercase tracking-wider"> Categorie </label> <select className="mt-1.5 w-full rounded-none border border-black-500/20 bg-white px-4 py-2.5 text-sm text-black-900 focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20"> <option value="">Selectează categoria</option> {categories.map((cat) => ( <option key={cat.id} value={cat.id}> {cat.name} </option> ))} </select> </div> <div> <label className="text-xs font-medium text-black-500 uppercase tracking-wider"> Stare </label> <select className="mt-1.5 w-full rounded-none border border-black-500/20 bg-white px-4 py-2.5 text-sm text-black-900 focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20"> <option value="">Selectează starea</option> {conditions.map((c) => ( <option key={c} value={c}>{c}</option> ))} </select> </div> </div> <div> <label className="text-xs font-medium text-black-500 uppercase tracking-wider"> Descriere </label> <textarea rows={4} placeholder="Descrie materialul, istoricul lui și de ce îl vinzi..." className="mt-1.5 w-full rounded-none border border-black-500/20 bg-white px-4 py-2.5 text-sm placeholder:text-black-500/50 focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20 focus:border-deep-teal-900/40 resize-none" /> <p className="mt-1 text-right text-[10px] text-black-500">0 / 2000</p> </div> </div> </section> {/* Specs */} <section className="mb-8"> <h2 className="font-heading text-base font-semibold text-black-900 mb-3"> Specificații </h2> <div className="space-y-2"> {specs.map((spec, i) => ( <div key={i} className="flex gap-2"> <input type="text" placeholder="ex. Material" value={spec.key} onChange={(e) => { const updated = [...specs]; updated[i].key = e.target.value; setSpecs(updated); }} className="flex-1 rounded-none border border-black-500/20 bg-white px-3 py-2 text-sm placeholder:text-black-500/50 focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20" /> <input type="text" placeholder="ex. Brad Douglas" value={spec.value} onChange={(e) => { const updated = [...specs]; updated[i].value = e.target.value; setSpecs(updated); }} className="flex-1 rounded-none border border-black-500/20 bg-white px-3 py-2 text-sm placeholder:text-black-500/50 focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20" /> {specs.length > 1 && ( <button onClick={() => removeSpec(i)} className="p-2 text-black-500 hover:text-black-500 transition-colors" > <X className="h-4 w-4" strokeWidth={1.5} /> </button> )} </div> ))} <button onClick={addSpec} className="flex items-center gap-1.5 text-sm font-medium text-black-900 hover:text-black-900 transition-colors" > <Plus className="h-3.5 w-3.5" strokeWidth={1.5} /> Adaugă altă specificație </button> </div> </section> {/* Pricing */} <section className="mb-8"> <h2 className="font-heading text-base font-semibold text-black-900 mb-3"> Preț </h2> <div className="flex gap-3 mb-4"> <button onClick={() => setPricingMode("sell")} className={`flex-1 rounded-none border py-3 text-sm font-semibold transition-colors ${ pricingMode === "sell" ? "border-deep-teal-900 bg-black-900/5 text-black-900" : "border-black-500/15 text-black-500 hover:bg-white" }`} > Vinde </button> <button onClick={() => setPricingMode("free")} className={`flex-1 rounded-none border py-3 text-sm font-semibold transition-colors ${ pricingMode === "free" ? "border-deep-teal-400 bg-black-500/5 text-black-500" : "border-black-500/15 text-black-500 hover:bg-white" }`} > Oferă Gratuit </button> </div> {pricingMode === "free" && ( <div className="rounded-none bg-black-500/5 border border-deep-teal-400/15 p-3 flex items-center gap-2 mb-4"> <Leaf className="h-4 w-4 text-black-500 shrink-0" strokeWidth={1.5} /> <p className="text-xs text-black-900"> Anunțurile gratuite primesc <span className="font-semibold">de 3× mai multă vizibilitate</span> în rezultatele căutării! </p> </div> )} {pricingMode === "sell" && ( <div className="grid grid-cols-2 gap-4"> <div> <label className="text-xs font-medium text-black-500 uppercase tracking-wider"> Preț (per unitate) </label> <div className="relative mt-1.5"> <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-black-500">MDL</span> <input type="number" step="0.01" placeholder="0,00" className="w-full rounded-none border border-black-500/20 bg-white pl-12 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20" /> </div> </div> <div> <label className="text-xs font-medium text-black-500 uppercase tracking-wider"> Preț Original de Retail </label> <div className="relative mt-1.5"> <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-black-500">MDL</span> <input type="number" step="0.01" placeholder="Opțional" className="w-full rounded-none border border-black-500/20 bg-white pl-12 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20" /> </div> </div> </div> )} <div className="mt-4"> <label className="text-xs font-medium text-black-500 uppercase tracking-wider"> Cantitate </label> <div className="grid grid-cols-2 gap-4 mt-1.5"> <input type="number" placeholder="ex. 50" className="rounded-none border border-black-500/20 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20" /> <input type="text" placeholder="Unitate (ex. bucăți, m²)" className="rounded-none border border-black-500/20 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20" /> </div> </div> </section> {/* Logistics */} <section className="mb-8"> <h2 className="font-heading text-base font-semibold text-black-900 mb-3"> Locație & Logistică </h2> <div className="space-y-3"> <input type="text" placeholder="Adresă sau Cod Poștal" defaultValue="Chișinău, MD-2001" className="w-full rounded-none border border-black-500/20 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-deep-teal-900/20" /> <div className="space-y-2"> {["Ridicare disponibilă", "Livrare disponibilă", "Expediere disponibilă"].map( (option) => ( <label key={option} className="flex items-center gap-2.5 cursor-pointer"> <input type="checkbox" defaultChecked={option === "Ridicare disponibilă"} className="rounded-none border-black-500/30 text-black-900 focus:ring-deep-teal-900/20 h-4 w-4" /> <span className="text-sm text-black-900">{option}</span> </label> ) )} </div> </div> </section> {/* Actions */} <div className="flex gap-3 pb-8"> <button className="flex items-center gap-2 rounded-none border border-black-500/20 px-6 py-3 text-sm font-medium text-black-500 hover:bg-white transition-colors"> <Eye className="h-4 w-4" strokeWidth={1.5} /> Previzualizare </button> <button onClick={handlePublish} className="btn-magnetic btn-cta flex-1 rounded-none bg-black-900 py-3 font-heading text-sm font-semibold text-white border border-black-300" > Publică Anunțul </button> </div> </div> );
+import { useToast } from "@/components/Toast";
+import { cn } from "@/lib/utils";
+
+const conditions = ["Surplus Nou", "Ușor Utilizat", "În Starea Actuală", "Recuperat"];
+
+interface BulkItem {
+    title: string;
+    category: string;
+    quantity: string;
+    price: string;
+    condition: string;
+}
+
+const emptyBulkItem = (): BulkItem => ({
+    title: "",
+    category: "",
+    quantity: "1",
+    price: "",
+    condition: "Surplus Nou",
+});
+
+export default function NewListingPage() {
+    const router = useRouter();
+    const { showToast } = useToast();
+    const [addMode, setAddMode] = useState<"individual" | "bulk">("individual");
+    const [pricingMode, setPricingMode] = useState<"sell" | "free">("sell");
+    const [locationOpen, setLocationOpen] = useState(false);
+    const [bulkItems, setBulkItems] = useState<BulkItem[]>([emptyBulkItem(), emptyBulkItem(), emptyBulkItem()]);
+
+    const addBulkItem = () => setBulkItems([...bulkItems, emptyBulkItem()]);
+    const removeBulkItem = (index: number) => {
+        if (bulkItems.length > 1) setBulkItems(bulkItems.filter((_, i) => i !== index));
+    };
+    const updateBulkItem = (index: number, field: keyof BulkItem, value: string) => {
+        const updated = [...bulkItems];
+        updated[index] = { ...updated[index], [field]: value };
+        setBulkItems(updated);
+    };
+    const filledBulkCount = bulkItems.filter((i) => i.title.trim()).length;
+
+    const handlePublish = () => { showToast("Anunțul a fost publicat cu succes!"); router.push("/dashboard/listings"); };
+    const handleBulkPublish = () => { showToast(`${filledBulkCount} anunțuri publicate cu succes!`); router.push("/dashboard/listings"); };
+    const handleDraft = () => { showToast("Salvat ca ciornă."); };
+
+    return (
+        <div className="max-w-3xl">
+            <h1 className="font-heading text-2xl font-bold text-charcoal mb-2">Adaugă Anunț</h1>
+            <p className="text-sm text-stone mb-6">Listează materialele tale surplus rapid și simplu.</p>
+
+            {/* MODE SELECTOR */}
+            <div className="flex gap-3 mb-8">
+                <button onClick={() => setAddMode("individual")} className={cn("flex-1 py-3 text-sm font-semibold border transition-colors rounded-lg", addMode === "individual" ? "border-forest bg-forest text-white" : "border-stone-200 text-stone hover:bg-sand")}>Produs Individual</button>
+                <button onClick={() => setAddMode("bulk")} className={cn("flex-1 py-3 text-sm font-semibold border transition-colors rounded-lg", addMode === "bulk" ? "border-forest bg-forest text-white" : "border-stone-200 text-stone hover:bg-sand")}>Import în Masă</button>
+            </div>
+
+            {addMode === "individual" && (
+                <>
+                    <section className="mb-6">
+                        <div className="space-y-4">
+                            <div>
+                                <label className="text-xs font-medium text-stone uppercase tracking-wider">Titlu *</label>
+                                <input type="text" placeholder="ex. Cherestea Brad 5×15 cm, Vopsea Caparol 10L" className="mt-1.5 w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm placeholder:text-stone focus:outline-none focus:border-forest" />
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="text-xs font-medium text-stone uppercase tracking-wider">Categorie *</label>
+                                    <select className="mt-1.5 w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm text-charcoal focus:outline-none focus:border-forest">
+                                        <option value="">Selectează</option>
+                                        {categories.map((cat) => (<option key={cat.id} value={cat.id}>{cat.name}</option>))}
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-medium text-stone uppercase tracking-wider">Stare</label>
+                                    <select defaultValue="Surplus Nou" className="mt-1.5 w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm text-charcoal focus:outline-none focus:border-forest">
+                                        {conditions.map((c) => (<option key={c} value={c}>{c}</option>))}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="mb-6">
+                        <div className="flex gap-3 mb-4">
+                            <button onClick={() => setPricingMode("sell")} className={cn("flex-1 rounded-lg border py-2.5 text-sm font-semibold transition-colors", pricingMode === "sell" ? "border-forest bg-forest/5 text-forest" : "border-stone-200 text-stone hover:bg-sand")}>Vinde</button>
+                            <button onClick={() => setPricingMode("free")} className={cn("flex-1 rounded-lg border py-2.5 text-sm font-semibold transition-colors", pricingMode === "free" ? "border-eco bg-eco/5 text-eco" : "border-stone-200 text-stone hover:bg-sand")}>Oferă Gratuit</button>
+                        </div>
+                        {pricingMode === "free" && (
+                            <div className="rounded-lg bg-eco/5 border border-eco/15 p-3 flex items-center gap-2 mb-4">
+                                <Leaf className="h-4 w-4 text-eco shrink-0" strokeWidth={1.5} />
+                                <p className="text-xs text-charcoal">Anunțurile gratuite primesc <span className="font-semibold">de 3× mai multă vizibilitate</span>!</p>
+                            </div>
+                        )}
+                        <div className="grid grid-cols-3 gap-4">
+                            <div><label className="text-xs font-medium text-stone uppercase tracking-wider">Cantitate *</label><input type="number" placeholder="50" className="mt-1.5 w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm focus:outline-none focus:border-forest" /></div>
+                            <div><label className="text-xs font-medium text-stone uppercase tracking-wider">Unitate</label><input type="text" placeholder="buc, m², kg" className="mt-1.5 w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm focus:outline-none focus:border-forest" /></div>
+                            {pricingMode === "sell" && (<div><label className="text-xs font-medium text-stone uppercase tracking-wider">Preț (MDL)</label><input type="number" step="0.01" placeholder="0,00" className="mt-1.5 w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm focus:outline-none focus:border-forest" /></div>)}
+                        </div>
+                    </section>
+
+                    <section className="mb-6">
+                        <label className="text-xs font-medium text-stone uppercase tracking-wider">Descriere <span className="text-stone/50 normal-case">(opțional)</span></label>
+                        <textarea rows={2} placeholder="Adaugă detalii suplimentare..." className="mt-1.5 w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm placeholder:text-stone focus:outline-none focus:border-forest resize-none" />
+                    </section>
+
+                    <section className="mb-6">
+                        <label className="text-xs font-medium text-stone uppercase tracking-wider mb-2 block">Fotografii <span className="text-stone/50 normal-case">(opțional)</span></label>
+                        <label className="flex cursor-pointer items-center justify-center gap-2 border border-dashed border-stone-200 rounded-lg bg-sand py-4 hover:bg-white hover:border-forest transition-colors">
+                            <Upload className="h-4 w-4 text-stone" strokeWidth={1.5} />
+                            <span className="text-sm text-stone">Adaugă fotografii</span>
+                            <input type="file" multiple accept="image/*" className="hidden" />
+                        </label>
+                    </section>
+
+                    <section className="mb-6 border border-stone-200 rounded-xl p-4">
+                        <div className="flex items-center justify-between">
+                            <div><p className="text-xs font-medium text-stone uppercase tracking-wider">Locație & Livrare</p><p className="text-sm text-charcoal mt-1">Chișinău, MD-2001 · Ridicare disponibilă</p></div>
+                            <button onClick={() => setLocationOpen(!locationOpen)} className="text-xs font-semibold text-forest hover:underline">{locationOpen ? "Ascunde" : "Modifică"}</button>
+                        </div>
+                        {locationOpen && (
+                            <div className="mt-4 space-y-3">
+                                <input type="text" defaultValue="Chișinău, MD-2001" className="w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm focus:outline-none focus:border-forest" />
+                                <div className="space-y-2">
+                                    {["Ridicare disponibilă", "Livrare disponibilă", "Expediere disponibilă"].map((option) => (
+                                        <label key={option} className="flex items-center gap-2.5 cursor-pointer">
+                                            <input type="checkbox" defaultChecked={option === "Ridicare disponibilă"} className="rounded border-stone-200 text-forest focus:ring-0 h-4 w-4" />
+                                            <span className="text-sm text-charcoal">{option}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </section>
+
+                    <p className="text-xs text-stone/50 mb-6">Specificațiile tehnice se generează automat în funcție de categorie.</p>
+
+                    <div className="flex gap-3 pb-8">
+                        <button onClick={handleDraft} className="flex items-center gap-2 border border-stone-200 px-5 py-3 text-sm font-medium text-stone hover:bg-sand transition-colors rounded-lg">Salvează ca Ciornă</button>
+                        <button onClick={handlePublish} className="flex-1 bg-charcoal text-white py-3 border border-charcoal text-sm font-semibold hover:opacity-90 transition-colors rounded-lg">Publică Anunțul</button>
+                    </div>
+                </>
+            )}
+
+            {addMode === "bulk" && (
+                <>
+                    <section className="mb-6">
+                        <div className="flex items-center gap-2 mb-3"><FileSpreadsheet className="h-4 w-4 text-charcoal" strokeWidth={1.5} /><h2 className="font-heading text-base font-semibold text-charcoal">Încarcă Fișier</h2></div>
+                        <label className="flex cursor-pointer flex-col items-center justify-center border border-dashed border-stone-200 rounded-xl bg-sand p-8 hover:bg-white hover:border-forest transition-colors">
+                            <Upload className="h-8 w-8 text-stone mb-2" strokeWidth={1.5} />
+                            <span className="text-sm font-semibold text-charcoal">Trage fișierul aici sau click pentru a selecta</span>
+                            <span className="text-xs text-stone mt-1">CSV, Excel (.xlsx) sau JSON</span>
+                            <input type="file" accept=".csv,.xlsx,.xls,.json" className="hidden" />
+                        </label>
+                    </section>
+
+                    <section className="mb-6">
+                        <div className="flex items-center gap-2 mb-3"><ClipboardPaste className="h-4 w-4 text-charcoal" strokeWidth={1.5} /><h2 className="font-heading text-base font-semibold text-charcoal">Lipește din Tabel</h2></div>
+                        <p className="text-xs text-stone mb-2">Copiază rândurile din Excel sau Google Sheets.</p>
+                        <textarea rows={4} placeholder={"Cherestea Brad 5×15\tCherestea & Lemn\t50\t85\tSurplus Nou"} className="w-full border border-stone-200 rounded-lg bg-white px-4 py-3 text-sm font-data placeholder:text-stone focus:outline-none focus:border-forest resize-none" />
+                    </section>
+
+                    <section className="mb-6">
+                        <div className="flex items-center gap-2 mb-3"><Table2 className="h-4 w-4 text-charcoal" strokeWidth={1.5} /><h2 className="font-heading text-base font-semibold text-charcoal">Adăugare Rapidă</h2></div>
+                        <div className="border border-stone-200 rounded-xl overflow-x-auto">
+                            <div className="grid grid-cols-[1fr_130px_70px_90px_130px_36px] gap-0 bg-sand border-b border-stone-200">
+                                <div className="px-3 py-2 text-[10px] font-bold text-stone uppercase tracking-wider border-r border-stone-200">Titlu</div>
+                                <div className="px-3 py-2 text-[10px] font-bold text-stone uppercase tracking-wider border-r border-stone-200">Categorie</div>
+                                <div className="px-3 py-2 text-[10px] font-bold text-stone uppercase tracking-wider border-r border-stone-200">Cant.</div>
+                                <div className="px-3 py-2 text-[10px] font-bold text-stone uppercase tracking-wider border-r border-stone-200">Preț</div>
+                                <div className="px-3 py-2 text-[10px] font-bold text-stone uppercase tracking-wider border-r border-stone-200">Stare</div>
+                                <div className="px-3 py-2"></div>
+                            </div>
+                            {bulkItems.map((item, index) => (
+                                <div key={index} className="grid grid-cols-[1fr_130px_70px_90px_130px_36px] gap-0 border-b border-stone-200 last:border-b-0">
+                                    <input type="text" value={item.title} onChange={(e) => updateBulkItem(index, "title", e.target.value)} placeholder="Titlu produs" className="px-3 py-2.5 border-r border-stone-200 text-sm focus:outline-none focus:bg-sand placeholder:text-stone" />
+                                    <select value={item.category} onChange={(e) => updateBulkItem(index, "category", e.target.value)} className="px-2 py-2.5 border-r border-stone-200 text-xs focus:outline-none bg-transparent"><option value="">—</option>{categories.map((cat) => (<option key={cat.id} value={cat.id}>{cat.name}</option>))}</select>
+                                    <input type="number" value={item.quantity} onChange={(e) => updateBulkItem(index, "quantity", e.target.value)} className="px-3 py-2.5 border-r border-stone-200 text-sm focus:outline-none focus:bg-sand" />
+                                    <input type="number" value={item.price} onChange={(e) => updateBulkItem(index, "price", e.target.value)} placeholder="MDL" className="px-3 py-2.5 border-r border-stone-200 text-sm focus:outline-none focus:bg-sand placeholder:text-stone" />
+                                    <select value={item.condition} onChange={(e) => updateBulkItem(index, "condition", e.target.value)} className="px-2 py-2.5 border-r border-stone-200 text-xs focus:outline-none bg-transparent">{conditions.map((c) => (<option key={c} value={c}>{c}</option>))}</select>
+                                    <button onClick={() => removeBulkItem(index)} className="flex items-center justify-center text-stone hover:text-charcoal transition-colors"><X className="h-4 w-4" strokeWidth={1.5} /></button>
+                                </div>
+                            ))}
+                        </div>
+                        <button onClick={addBulkItem} className="mt-2 flex items-center gap-1.5 text-sm font-semibold text-charcoal hover:opacity-70 transition-colors"><Plus className="h-3.5 w-3.5" strokeWidth={1.5} /> Adaugă rând</button>
+                    </section>
+
+                    <section className="mb-6 border border-stone-200 rounded-xl p-4">
+                        <p className="text-xs font-medium text-stone uppercase tracking-wider">Locație pentru toate produsele</p>
+                        <input type="text" defaultValue="Chișinău, MD-2001" className="mt-2 w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-sm focus:outline-none focus:border-forest" />
+                    </section>
+
+                    <div className="flex gap-3 pb-8">
+                        <button onClick={handleDraft} className="flex items-center gap-2 border border-stone-200 px-5 py-3 text-sm font-medium text-stone hover:bg-sand transition-colors rounded-lg">Salvează ca Ciornă</button>
+                        <button onClick={handleBulkPublish} className="flex-1 bg-charcoal text-white py-3 border border-charcoal text-sm font-semibold hover:opacity-90 transition-colors rounded-lg">Publică Toate ({filledBulkCount} {filledBulkCount === 1 ? "anunț" : "anunțuri"})</button>
+                    </div>
+                </>
+            )}
+        </div>
+    );
 }

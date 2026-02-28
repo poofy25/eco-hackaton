@@ -1,31 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
-    --deep-teal-50: #fefefe;
-    --deep-teal-100: #fefefe;
-    --deep-teal-200: #fefefe;
-    --deep-teal-300: #fefefe;
-    --deep-teal-400: #fed601;
-    --deep-teal-500: #fed601;
-    --deep-teal-600: #fed601;
-    --deep-teal-700: #000000;
-    --deep-teal-800: #000000;
-    --deep-teal-900: #000000;
-    --deep-teal-950: #000000;
+    /* ── Design System Colors (Monochrome + Amber Accent) ── */
+    --forest: #1A1A1A;
+    --sage: #4B5563;
+    --terracotta: #FFAA0A;
+    --sand: #FAFAF8;
+    --chalk: #FFFFFF;
+    --charcoal: #1A1A1A;
+    --stone: #6B7280;
+    --eco: #16A34A;
+    --accent: #FFAA0A;
+    --danger: #DC2626;
 
-    --pearl-bush-50: #fefefe;
-    --pearl-bush-100: #fefefe;
-    --pearl-bush-200: #fefefe;
-    --pearl-bush-300: #fefefe;
-    --pearl-bush-400: #fefefe;
-    --pearl-bush-500: #fefefe;
-    --pearl-bush-600: #000000;
-    --pearl-bush-700: #000000;
-    --pearl-bush-800: #000000;
-    --pearl-bush-900: #000000;
-    --pearl-bush-950: #000000;
+    /* ── Warm Shadows (disabled) ── */
+    --shadow-warm-sm: none;
+    --shadow-warm-md: none;
+    --shadow-warm-lg: none;
 
+    /* ── Legacy aliases (gradual migration) ── */
     --black-50: #fefefe;
     --black-100: #fefefe;
     --black-200: #fefefe;
@@ -38,10 +32,47 @@
     --black-900: #000000;
     --black-950: #000000;
 
-    --project-paper: #fefefe;
+    --deep-teal-50: #fefefe;
+    --deep-teal-100: #fefefe;
+    --deep-teal-200: #fefefe;
+    --deep-teal-300: #fefefe;
+    --deep-teal-400: #FFAA0A;
+    --deep-teal-500: #4B5563;
+    --deep-teal-600: #4B5563;
+    --deep-teal-700: #1A1A1A;
+    --deep-teal-800: #1A1A1A;
+    --deep-teal-900: #1A1A1A;
+    --deep-teal-950: #1A1A1A;
+
+    --pearl-bush-50: #fefefe;
+    --pearl-bush-100: #fefefe;
+    --pearl-bush-200: #fefefe;
+    --pearl-bush-300: #fefefe;
+    --pearl-bush-400: #fefefe;
+    --pearl-bush-500: #fefefe;
+    --pearl-bush-600: #1A1A1A;
+    --pearl-bush-700: #1A1A1A;
+    --pearl-bush-800: #1A1A1A;
+    --pearl-bush-900: #1A1A1A;
+    --pearl-bush-950: #1A1A1A;
+
+    --project-paper: #FAFAF8;
 }
 
 @theme inline {
+    /* ── New design tokens ── */
+    --color-forest: var(--forest);
+    --color-sage: var(--sage);
+    --color-terracotta: var(--terracotta);
+    --color-sand: var(--sand);
+    --color-chalk: var(--chalk);
+    --color-charcoal: var(--charcoal);
+    --color-stone: var(--stone);
+    --color-eco: var(--eco);
+    --color-accent: var(--accent);
+    --color-danger: var(--danger);
+
+    /* ── Legacy color tokens (kept for migration) ── */
     --color-deep-teal-50: var(--deep-teal-50);
     --color-deep-teal-100: var(--deep-teal-100);
     --color-deep-teal-200: var(--deep-teal-200);
@@ -80,29 +111,46 @@
 
     --color-project-paper: var(--project-paper);
 
-    --font-heading: 'Inter', sans-serif;
+    /* ── Font families ── */
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
+    --font-mission: 'Fraunces', serif;
+    --font-data: 'JetBrains Mono', monospace;
 
-    --radius-sm: 0px;
-    --radius-md: 0px;
-    --radius-lg: 0px;
-    --radius-xl: 0px;
-    --radius-2xl: 0px;
-    --radius-3xl: 0px;
-    --radius-full: 0px;
+    /* ── Radius system ── */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --radius-2xl: 16px;
+    --radius-3xl: 24px;
+    --radius-full: 9999px;
+
+    /* ── Shadows (disabled) ── */
+    --shadow-warm-sm: none;
+    --shadow-warm-md: none;
+    --shadow-warm-lg: none;
 }
 
 body {
-    color: var(--black-900);
+    background-color: var(--sand);
+    color: var(--charcoal);
+    font-family: 'Inter', sans-serif;
     position: relative;
     line-height: 1.3;
 }
 
-* {
-    font-family: 'Inter', sans-serif !important;
+/* Noise texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
 }
-
-/* Noise texture overlay removed for clean look */
 
 h1,
 h2,
@@ -110,7 +158,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-heading);
+    font-family: 'Plus Jakarta Sans', sans-serif;
     letter-spacing: -0.04em;
     line-height: 1.1;
 }
@@ -125,37 +173,38 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 0px;
+    background: rgba(26, 26, 26, 0.15);
+    border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(26, 26, 26, 0.3);
 }
 
-/* Strip animations for brutalist look */
+/* Button hover effects */
 .btn-magnetic {
-    transition: none;
+    transition: transform 0.2s ease;
 }
 
 .btn-magnetic:hover {
-    transform: none;
+    transform: scale(1.02);
 }
 
 .btn-magnetic:active {
-    transform: none;
+    transform: scale(0.98);
 }
 
+/* Card hover effects */
 .card-hover {
-    transition: transform 0.1s;
+    transition: transform 0.2s ease;
 }
 
 .card-hover:hover {
-    transform: none;
+    transform: translateY(-2px);
 }
 
+/* Skeleton loading */
 @keyframes skeleton-pulse {
-
     0%,
     100% {
         opacity: 0.15;
@@ -168,12 +217,87 @@ h6 {
 
 .skeleton-pulse {
     animation: skeleton-pulse 1.5s ease-in-out infinite;
-    background-color: var(--black-300);
-    border-radius: 0;
+    background-color: rgba(107, 114, 128, 0.15);
+    border-radius: 12px;
 }
 
+/* CTA button sliding effect */
 .btn-cta {
     position: relative;
     overflow: hidden;
     z-index: 1;
+}
+
+.btn-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.btn-cta:hover::before {
+    transform: translateX(0);
+}
+
+/* Scanner overrides for html5-qrcode */
+.scanner-container video {
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+}
+
+.scanner-container #qr-shaded-region {
+    border-color: rgba(26, 26, 26, 0.5) !important;
+}
+
+.scanner-container img[alt="Info"] {
+    display: none !important;
+}
+
+.scanner-container span {
+    color: white !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12px !important;
+}
+
+/* Hide html5-qrcode branding */
+#html5-qrcode-anchor-scan-type-change,
+#html5-qrcode-button-camera-permission,
+.html5-qrcode-element {
+    border-radius: 8px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Scan line animation */
+@keyframes scan-line-move {
+    0% {
+        top: 15%;
+    }
+    50% {
+        top: 80%;
+    }
+    100% {
+        top: 15%;
+    }
+}
+
+.scan-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #1A1A1A 20%, #1A1A1A 80%, transparent 100%);
+    animation: scan-line-move 2.5s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+/* Logo marquee slider */
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    animation: marquee 20s linear infinite;
 }

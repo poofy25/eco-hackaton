@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Search, PlusCircle, Package, UserCircle } from "lucide-react";
+import { Home, Search, ScanBarcode, Package, UserCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
     { href: "/", icon: Home, label: "Acasă" },
     { href: "/browse", icon: Search, label: "Caută" },
-    { href: "/dashboard/new-listing", icon: PlusCircle, label: "Vinde", isCenter: true },
-    { href: "/buyer/orders", icon: Package, label: "Comenzi" },
+    { href: "/scan", icon: ScanBarcode, label: "Scanează", isCenter: true },
+    { href: "/dashboard/orders", icon: Package, label: "Comenzi" },
     { href: "/dashboard", icon: UserCircle, label: "Profil" },
 ];
 
@@ -17,9 +17,9 @@ export default function BottomNav() {
     const pathname = usePathname();
 
     return (
-        <nav className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white border-t border-black-300">
-            <div className="flex items-center justify-around h-16 max-w-7xl mx-auto border-x border-black-300">
-                {navItems.map((item, idx) => {
+        <nav className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white border-t border-stone-200">
+            <div className="flex items-center justify-around h-16 max-w-7xl mx-auto">
+                {navItems.map((item) => {
                     const isActive = pathname === item.href;
                     const Icon = item.icon;
 
@@ -28,7 +28,7 @@ export default function BottomNav() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="flex flex-col items-center justify-center flex-1 h-full border-x border-black-900 bg-[#FED601] hover:bg-black-900 hover:text-[#FED601] transition-colors text-black-900"
+                                className="flex flex-col items-center justify-center flex-1 h-full bg-forest text-white hover:opacity-90 transition-colors"
                             >
                                 <Icon className="h-5 w-5 mb-1" strokeWidth={1.5} />
                                 <span className="text-[10px] font-bold uppercase tracking-wider">
@@ -43,11 +43,11 @@ export default function BottomNav() {
                             key={item.href}
                             href={item.href}
                             className={cn(
-                                "flex flex-col items-center justify-center flex-1 h-full transition-colors",
-                                idx !== 0 && "border-l border-black-300/10", // subtle grid lines between items
-                                isActive ? "text-black-900 bg-black-900/5" : "text-black-500 hover:bg-black-900/5 hover:text-black-900"
+                                "relative flex flex-col items-center justify-center flex-1 h-full transition-colors",
+                                isActive ? "text-charcoal" : "text-stone hover:text-charcoal"
                             )}
                         >
+                            {isActive && <span className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-5 bg-accent rounded-full" />}
                             <Icon className="h-5 w-5 mb-1" strokeWidth={1.5} />
                             <span className="text-[10px] font-bold uppercase tracking-wider">{item.label}</span>
                         </Link>
@@ -55,7 +55,7 @@ export default function BottomNav() {
                 })}
             </div>
             {/* Safe area padding for notched devices */}
-            <div className="h-[env(safe-area-inset-bottom)] bg-white border-x border-black-300 max-w-7xl mx-auto" />
+            <div className="h-[env(safe-area-inset-bottom)] bg-white max-w-7xl mx-auto" />
         </nav>
     );
 }
