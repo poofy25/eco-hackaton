@@ -4,14 +4,8 @@ import { Link } from "@/i18n/navigation";
 import type { Listing } from "@/lib/mock-data";
 import { categories } from "@/lib/mock-data";
 import { formatPrice, getConditionColor, cn } from "@/lib/utils";
-<<<<<<< Updated upstream
 import { MapPin } from "lucide-react";
-
-const categoryNameMap = Object.fromEntries(categories.map((c) => [c.id, c.name]));
-=======
-import { MapPin, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
->>>>>>> Stashed changes
 
 interface ListingCardProps {
     listing: Listing;
@@ -19,9 +13,6 @@ interface ListingCardProps {
 }
 
 export default function ListingCard({ listing, variant = "grid" }: ListingCardProps) {
-<<<<<<< Updated upstream
-    const categoryName = categoryNameMap[listing.category] || listing.category;
-=======
     const t = useTranslations("listing");
     const tCategories = useTranslations("categories");
     const categoryName = tCategories(listing.category) || listing.category;
@@ -29,7 +20,6 @@ export default function ListingCard({ listing, variant = "grid" }: ListingCardPr
         listing.originalPrice && !listing.isFree
             ? Math.round(((listing.originalPrice - listing.price) / listing.originalPrice) * 100)
             : 0;
->>>>>>> Stashed changes
 
     if (variant === "list") {
         return (
@@ -41,14 +31,11 @@ export default function ListingCard({ listing, variant = "grid" }: ListingCardPr
                             {t("free")}
                         </span>
                     )}
-<<<<<<< Updated upstream
-=======
                     {discount > 0 && !listing.isFree && (
                         <span className="absolute top-2 right-2 bg-yellow-sea-500 px-2 py-0.5 text-[11px] font-semibold text-mercury-900">
                             {t("discount", { discount })}
                         </span>
                     )}
->>>>>>> Stashed changes
                 </div>
                 <div className="flex flex-1 flex-col justify-between min-w-0">
                     <div>
@@ -103,14 +90,11 @@ export default function ListingCard({ listing, variant = "grid" }: ListingCardPr
                         {t("free")}
                     </span>
                 )}
-<<<<<<< Updated upstream
-=======
                 {discount > 0 && !listing.isFree && (
                     <span className="absolute top-2 right-2 bg-yellow-sea-500 px-2 py-0.5 text-[11px] font-semibold text-mercury-900">
                         {t("discount", { discount })}
                     </span>
                 )}
->>>>>>> Stashed changes
                 {listing.images.length > 1 && (
                     <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
                         {listing.images.map((_, i) => (
