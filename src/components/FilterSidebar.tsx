@@ -33,15 +33,15 @@ function FilterSection({
 }) {
     const [open, setOpen] = useState(defaultOpen);
     return (
-        <div className="border-b border-stone-200 py-4">
+        <div className="-500-200 py-4">
             <button
                 onClick={() => setOpen(!open)}
-                className="flex w-full items-center justify-between text-sm font-semibold text-charcoal"
+                className="flex w-full items-center justify-between text-sm font-semibold text-mercury-900"
             >
                 {title}
                 <ChevronDown
                     className={cn(
-                        "h-4 w-4 text-stone transition-transform",
+                        "h-4 w-4 text-mercury-500 transition-transform",
                         open && "rotate-180"
                     )}
                     strokeWidth={1.5}
@@ -82,14 +82,14 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
         <div className="w-full h-full flex flex-col">
             <div className="flex items-center justify-between mb-2 shrink-0">
                 <div className="flex items-center gap-2">
-                    <SlidersHorizontal className="h-4 w-4 text-charcoal" strokeWidth={1.5} />
-                    <h3 className="font-heading text-base font-semibold text-charcoal">
+                    <SlidersHorizontal className="h-4 w-4 text-mercury-900" strokeWidth={1.5} />
+                    <h3 className="font-heading text-base font-semibold text-mercury-900">
                         Filtre
                     </h3>
                 </div>
                 {onClose && (
                     <button onClick={onClose} aria-label="Închide filtrele">
-                        <X className="h-5 w-5 text-stone" strokeWidth={1.5} />
+                        <X className="h-5 w-5 text-mercury-500" strokeWidth={1.5} />
                     </button>
                 )}
             </div>
@@ -97,21 +97,21 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
             {/* Scrollable filter body */}
             <div className="flex-1 overflow-y-auto min-h-0">
                 {/* FREE TOGGLE */}
-                <div className="py-4 border-b border-stone-200">
+                <div className="py-4 -500-200">
                     <label className="flex items-center justify-between cursor-pointer">
-                        <span className="text-sm font-semibold text-charcoal">
+                        <span className="text-sm font-semibold text-mercury-900">
                             Doar Articole Gratuite
                         </span>
                         <button
                             onClick={() => setFreeOnly(!freeOnly)}
                             className={cn(
-                                "relative h-6 w-11 rounded-full transition-colors",
-                                freeOnly ? "bg-forest" : "bg-stone/20"
+                                "relative h-6 w-11 transition-colors",
+                                freeOnly ? "bg-mercury-900" : "bg-mercury-500/20"
                             )}
                         >
                             <span
                                 className={cn(
-                                    "absolute top-0.5 h-5 w-5 rounded-full bg-white transition-transform",
+                                    "absolute top-0.5 h-5 w-5 bg-white transition-transform",
                                     freeOnly ? "left-[22px]" : "left-0.5"
                                 )}
                             />
@@ -129,14 +129,14 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                                     key={cat.id}
                                     onClick={() => toggleCategory(cat.id)}
                                     className={cn(
-                                        "px-3 py-1.5 text-xs font-semibold border transition-colors rounded-lg",
+                                        "px-3 py-1.5 text-xs font-semibold transition-colors ",
                                         selected
-                                            ? "bg-forest text-white border-forest"
-                                            : "bg-white text-charcoal border-stone-200 hover:border-forest"
+                                            ? "bg-mercury-900 text-white -900"
+                                            : "bg-white text-mercury-900 -500-200 hover:-900"
                                     )}
                                 >
                                     {cat.name}
-                                    <span className={cn("ml-1.5", selected ? "text-white/70" : "text-stone")}>
+                                    <span className={cn("ml-1.5", selected ? "text-white/70" : "text-mercury-500")}>
                                         {cat.count}
                                     </span>
                                 </button>
@@ -155,10 +155,10 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                                     key={c}
                                     onClick={() => toggleCondition(c)}
                                     className={cn(
-                                        "px-3 py-1.5 text-xs font-semibold border transition-colors rounded-lg",
+                                        "px-3 py-1.5 text-xs font-semibold transition-colors ",
                                         selected
-                                            ? "bg-forest text-white border-forest"
-                                            : "bg-white text-charcoal border-stone-200 hover:border-forest"
+                                            ? "bg-mercury-900 text-white -900"
+                                            : "bg-white text-mercury-900 -500-200 hover:-900"
                                     )}
                                 >
                                     {c}
@@ -177,22 +177,22 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                             max="10000"
                             value={priceRange[1]}
                             onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
-                            className="w-full accent-forest"
+                            className="w-full yellow-sea-500-mercury-900"
                         />
                         <div className="flex items-center gap-2">
                             <input
                                 type="number"
                                 value={priceRange[0]}
                                 onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
-                                className="w-full rounded-lg border border-stone-200 bg-white/50 px-3 py-1.5 text-sm"
+                                className="w-full -500-200 bg-white/50 px-3 py-1.5 text-sm"
                                 placeholder="Min"
                             />
-                            <span className="text-stone">—</span>
+                            <span className="text-mercury-500">—</span>
                             <input
                                 type="number"
                                 value={priceRange[1]}
                                 onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
-                                className="w-full rounded-lg border border-stone-200 bg-white/50 px-3 py-1.5 text-sm"
+                                className="w-full -500-200 bg-white/50 px-3 py-1.5 text-sm"
                                 placeholder="Max"
                             />
                         </div>
@@ -205,7 +205,7 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                         {["5 km", "10 km", "25 km", "50 km", "100+ km"].map((d) => (
                             <button
                                 key={d}
-                                className="border border-stone-200 px-3 py-1.5 text-xs font-semibold text-charcoal hover:bg-forest hover:text-white hover:border-forest transition-colors rounded-lg"
+                                className="-500-200 px-3 py-1.5 text-xs font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white hover:-900 transition-colors "
                             >
                                 {d}
                             </button>
@@ -223,10 +223,10 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                                     key={m}
                                     onClick={() => toggleMarket(m)}
                                     className={cn(
-                                        "flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold border transition-colors rounded-lg",
+                                        "flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold transition-colors ",
                                         selected
-                                            ? "bg-forest text-white border-forest"
-                                            : "bg-white text-charcoal border-stone-200 hover:border-forest"
+                                            ? "bg-mercury-900 text-white -900"
+                                            : "bg-white text-mercury-900 -500-200 hover:-900"
                                     )}
                                 >
                                     <Store className="h-3 w-3" strokeWidth={1.5} />
@@ -243,10 +243,10 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                         <button
                             onClick={() => setSellerType("all")}
                             className={cn(
-                                "flex items-center gap-2 px-3 py-2 text-xs font-semibold border transition-colors rounded-lg",
+                                "flex items-center gap-2 px-3 py-2 text-xs font-semibold transition-colors ",
                                 sellerType === "all"
-                                    ? "bg-forest text-white border-forest"
-                                    : "bg-white text-charcoal border-stone-200 hover:border-forest"
+                                    ? "bg-mercury-900 text-white -900"
+                                    : "bg-white text-mercury-900 -500-200 hover:-900"
                             )}
                         >
                             Toți Vânzătorii
@@ -254,10 +254,10 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                         <button
                             onClick={() => setSellerType("markets")}
                             className={cn(
-                                "flex items-center gap-2 px-3 py-2 text-xs font-semibold border transition-colors rounded-lg",
+                                "flex items-center gap-2 px-3 py-2 text-xs font-semibold transition-colors ",
                                 sellerType === "markets"
-                                    ? "bg-forest text-white border-forest"
-                                    : "bg-white text-charcoal border-stone-200 hover:border-forest"
+                                    ? "bg-mercury-900 text-white -900"
+                                    : "bg-white text-mercury-900 -500-200 hover:-900"
                             )}
                         >
                             <Store className="h-3.5 w-3.5" strokeWidth={1.5} />
@@ -266,10 +266,10 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                         <button
                             onClick={() => setSellerType("individual")}
                             className={cn(
-                                "flex items-center gap-2 px-3 py-2 text-xs font-semibold border transition-colors rounded-lg",
+                                "flex items-center gap-2 px-3 py-2 text-xs font-semibold transition-colors ",
                                 sellerType === "individual"
-                                    ? "bg-forest text-white border-forest"
-                                    : "bg-white text-charcoal border-stone-200 hover:border-forest"
+                                    ? "bg-mercury-900 text-white -900"
+                                    : "bg-white text-mercury-900 -500-200 hover:-900"
                             )}
                         >
                             <UserCircle className="h-3.5 w-3.5" strokeWidth={1.5} />
@@ -280,7 +280,7 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
             </div>
 
             {/* Fixed bottom buttons */}
-            <div className="mt-4 flex gap-2 shrink-0 pt-2 border-t border-stone-200">
+            <div className="mt-4 flex gap-2 shrink-0 pt-2 -500-200">
                 <button
                     onClick={() => {
                         setSelectedCategories([]);
@@ -290,11 +290,11 @@ export default function FilterSidebar({ onClose }: FilterSidebarProps) {
                         setPriceRange([0, 10000]);
                         setFreeOnly(false);
                     }}
-                    className="flex-1 border border-stone-200 py-2 text-sm font-medium text-stone hover:bg-sand transition-colors rounded-lg"
+                    className="flex-1 -500-200 py-2 text-sm font-medium text-mercury-500 hover:bg-mercury-50 transition-colors "
                 >
                     Șterge Tot
                 </button>
-                <button className="flex-1 bg-charcoal text-white py-2 border border-charcoal text-sm font-semibold hover:opacity-90 transition-colors rounded-lg">
+                <button className="flex-1 bg-mercury-900 text-white py-2 -900 text-sm font-semibold hover:opacity-90 transition-colors ">
                     Aplică
                 </button>
             </div>

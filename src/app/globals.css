@@ -1,62 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
 @import "tailwindcss";
 
 :root {
-    /* ── Design System Colors (Monochrome + Amber Accent) ── */
+    /* ── Design System Colors ── */
     --forest: #1A1A1A;
     --sage: #4B5563;
-    --terracotta: #FFAA0A;
     --sand: #FAFAF8;
     --chalk: #FFFFFF;
     --charcoal: #1A1A1A;
     --stone: #6B7280;
     --eco: #16A34A;
-    --accent: #FFAA0A;
     --danger: #DC2626;
+
+    /* ── Yellow Sea ── */
+    --yellow-sea-50: #fffbea;
+    --yellow-sea-100: #fff5c5;
+    --yellow-sea-200: #ffeb86;
+    --yellow-sea-300: #ffdb46;
+    --yellow-sea-400: #ffc71c;
+    --yellow-sea-500: #fea80a;
+    --yellow-sea-600: #e17c00;
+    --yellow-sea-700: #bb5602;
+    --yellow-sea-800: #974209;
+    --yellow-sea-900: #7c360b;
+    --yellow-sea-950: #481a00;
+
+    /* ── Mercury ── */
+    --mercury-50: #f9faf9;
+    --mercury-100: #f4f5f4;
+    --mercury-200: #e9e9e7;
+    --mercury-300: #d5d5d2;
+    --mercury-400: #a7a79f;
+    --mercury-500: #76766e;
+    --mercury-600: #54564f;
+    --mercury-700: #42433d;
+    --mercury-800: #282725;
+    --mercury-900: #1b1b18;
+    --mercury-950: #0c0c09;
+
+    /* ── Legacy aliases (mapping to new colors for migration) ── */
+    --terracotta: var(--yellow-sea-500);
+    --accent: var(--yellow-sea-500);
+
+    --black-50: var(--mercury-50);
+    --black-100: var(--mercury-100);
+    --black-200: var(--mercury-200);
+    --black-300: var(--mercury-300);
+    --black-400: var(--mercury-400);
+    --black-500: var(--mercury-500);
+    --black-600: var(--mercury-600);
+    --black-700: var(--mercury-700);
+    --black-800: var(--mercury-800);
+    --black-900: var(--mercury-900);
+    --black-950: var(--mercury-950);
+
+    --deep-teal-50: var(--mercury-50);
+    --deep-teal-100: var(--mercury-100);
+    --deep-teal-200: var(--mercury-200);
+    --deep-teal-300: var(--mercury-300);
+    --deep-teal-400: var(--yellow-sea-500);
+    --deep-teal-500: var(--mercury-600);
+    --deep-teal-600: var(--mercury-700);
+    --deep-teal-700: var(--mercury-800);
+    --deep-teal-800: var(--mercury-900);
+    --deep-teal-900: var(--mercury-950);
+    --deep-teal-950: var(--mercury-950);
+
+    --pearl-bush-50: var(--mercury-50);
+    --pearl-bush-100: var(--mercury-100);
+    --pearl-bush-200: var(--mercury-200);
+    --pearl-bush-300: var(--mercury-300);
+    --pearl-bush-400: var(--mercury-400);
+    --pearl-bush-500: var(--mercury-500);
+    --pearl-bush-600: var(--mercury-600);
+    --pearl-bush-700: var(--mercury-700);
+    --pearl-bush-800: var(--mercury-800);
+    --pearl-bush-900: var(--mercury-900);
+    --pearl-bush-950: var(--mercury-950);
+
+    --project-paper: var(--mercury-50);
 
     /* ── Warm Shadows (disabled) ── */
     --shadow-warm-sm: none;
     --shadow-warm-md: none;
     --shadow-warm-lg: none;
-
-    /* ── Legacy aliases (gradual migration) ── */
-    --black-50: #fefefe;
-    --black-100: #fefefe;
-    --black-200: #fefefe;
-    --black-300: #d6d6d6;
-    --black-400: #a5a5a5;
-    --black-500: #767676;
-    --black-600: #575757;
-    --black-700: #434343;
-    --black-800: #292929;
-    --black-900: #000000;
-    --black-950: #000000;
-
-    --deep-teal-50: #fefefe;
-    --deep-teal-100: #fefefe;
-    --deep-teal-200: #fefefe;
-    --deep-teal-300: #fefefe;
-    --deep-teal-400: #FFAA0A;
-    --deep-teal-500: #4B5563;
-    --deep-teal-600: #4B5563;
-    --deep-teal-700: #1A1A1A;
-    --deep-teal-800: #1A1A1A;
-    --deep-teal-900: #1A1A1A;
-    --deep-teal-950: #1A1A1A;
-
-    --pearl-bush-50: #fefefe;
-    --pearl-bush-100: #fefefe;
-    --pearl-bush-200: #fefefe;
-    --pearl-bush-300: #fefefe;
-    --pearl-bush-400: #fefefe;
-    --pearl-bush-500: #fefefe;
-    --pearl-bush-600: #1A1A1A;
-    --pearl-bush-700: #1A1A1A;
-    --pearl-bush-800: #1A1A1A;
-    --pearl-bush-900: #1A1A1A;
-    --pearl-bush-950: #1A1A1A;
-
-    --project-paper: #FAFAF8;
 }
 
 @theme inline {
@@ -72,7 +99,33 @@
     --color-accent: var(--accent);
     --color-danger: var(--danger);
 
-    /* ── Legacy color tokens (kept for migration) ── */
+    /* ── Yellow Sea ── */
+    --color-yellow-sea-50: var(--yellow-sea-50);
+    --color-yellow-sea-100: var(--yellow-sea-100);
+    --color-yellow-sea-200: var(--yellow-sea-200);
+    --color-yellow-sea-300: var(--yellow-sea-300);
+    --color-yellow-sea-400: var(--yellow-sea-400);
+    --color-yellow-sea-500: var(--yellow-sea-500);
+    --color-yellow-sea-600: var(--yellow-sea-600);
+    --color-yellow-sea-700: var(--yellow-sea-700);
+    --color-yellow-sea-800: var(--yellow-sea-800);
+    --color-yellow-sea-900: var(--yellow-sea-900);
+    --color-yellow-sea-950: var(--yellow-sea-950);
+
+    /* ── Mercury ── */
+    --color-mercury-50: var(--mercury-50);
+    --color-mercury-100: var(--mercury-100);
+    --color-mercury-200: var(--mercury-200);
+    --color-mercury-300: var(--mercury-300);
+    --color-mercury-400: var(--mercury-400);
+    --color-mercury-500: var(--mercury-500);
+    --color-mercury-600: var(--mercury-600);
+    --color-mercury-700: var(--mercury-700);
+    --color-mercury-800: var(--mercury-800);
+    --color-mercury-900: var(--mercury-900);
+    --color-mercury-950: var(--mercury-950);
+
+    /* ── Legacy color tokens (mapped to new ones for migration) ── */
     --color-deep-teal-50: var(--deep-teal-50);
     --color-deep-teal-100: var(--deep-teal-100);
     --color-deep-teal-200: var(--deep-teal-200);
@@ -112,19 +165,20 @@
     --color-project-paper: var(--project-paper);
 
     /* ── Font families ── */
-    --font-heading: 'Plus Jakarta Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --font-mission: 'Fraunces', serif;
-    --font-data: 'JetBrains Mono', monospace;
+    --font-heading: 'Onest', sans-serif;
+    --font-body: 'Onest', sans-serif;
+    --font-mission: 'Onest', serif;
+    --font-data: 'Onest', monospace;
+    --font-sans: 'Onest', sans-serif;
 
     /* ── Radius system ── */
-    --radius-sm: 4px;
-    --radius-md: 6px;
-    --radius-lg: 8px;
-    --radius-xl: 12px;
-    --radius-2xl: 16px;
-    --radius-3xl: 24px;
-    --radius-full: 9999px;
+    --radius-sm: 0px;
+    --radius-md: 0px;
+    --radius-lg: 0px;
+    --radius-xl: 0px;
+    --radius-2xl: 0px;
+    --radius-3xl: 0px;
+    --radius-full: 0px;
 
     /* ── Shadows (disabled) ── */
     --shadow-warm-sm: none;
@@ -133,11 +187,19 @@
 }
 
 body {
-    background-color: var(--sand);
-    color: var(--charcoal);
-    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: var(--mercury-900);
+    font-family: 'Onest', sans-serif;
     position: relative;
-    line-height: 1.3;
+    line-height: 1.4;
+}
+
+p,
+span,
+div,
+li,
+a {
+    line-height: 1.4;
 }
 
 /* Noise texture overlay */
@@ -158,8 +220,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    letter-spacing: -0.04em;
+    font-family: 'Onest', sans-serif;
+    letter-spacing: -0.02em;
     line-height: 1.1;
 }
 
@@ -205,6 +267,7 @@ h6 {
 
 /* Skeleton loading */
 @keyframes skeleton-pulse {
+
     0%,
     100% {
         opacity: 0.15;
@@ -232,7 +295,7 @@ h6 {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: -1;
@@ -276,9 +339,11 @@ h6 {
     0% {
         top: 15%;
     }
+
     50% {
         top: 80%;
     }
+
     100% {
         top: 15%;
     }
@@ -294,8 +359,13 @@ h6 {
 
 /* Logo marquee slider */
 @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .animate-marquee {

@@ -120,17 +120,17 @@ export default function DemolitionCalculator() {
     return (
         <div className="space-y-5">
             {/* Tab Headers */}
-            <div className="flex rounded-lg bg-sand p-1 gap-1">
+            <div className="flex bg-mercury-50 p-1 gap-1">
                 <button
                     onClick={() => {
                         setActiveTab("quick");
                         setDetailedResult(null);
                     }}
                     className={cn(
-                        "flex-1 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all",
+                        "flex-1 px-4 py-2.5 text-sm font-semibold transition-all",
                         activeTab === "quick"
-                            ? "bg-forest text-white"
-                            : "text-stone hover:text-charcoal hover:bg-chalk/60"
+                            ? "bg-mercury-900 text-white"
+                            : "text-mercury-500 hover:text-mercury-900 hover:bg-mercury-50/60"
                     )}
                 >
                     <span className="flex items-center justify-center gap-2">
@@ -144,10 +144,10 @@ export default function DemolitionCalculator() {
                         setQuickResult(null);
                     }}
                     className={cn(
-                        "flex-1 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all",
+                        "flex-1 px-4 py-2.5 text-sm font-semibold transition-all",
                         activeTab === "detailed"
-                            ? "bg-forest text-white"
-                            : "text-stone hover:text-charcoal hover:bg-chalk/60"
+                            ? "bg-mercury-900 text-white"
+                            : "text-mercury-500 hover:text-mercury-900 hover:bg-mercury-50/60"
                     )}
                 >
                     <span className="flex items-center justify-center gap-2">
@@ -162,7 +162,7 @@ export default function DemolitionCalculator() {
                 <div className="space-y-5">
                     {/* Building type selector grid */}
                     <div>
-                        <label className="block text-xs font-semibold text-stone uppercase tracking-wide mb-2">
+                        <label className="block text-xs font-semibold text-mercury-500 uppercase tracking-wide mb-2">
                             Tipul clădirii
                         </label>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -171,10 +171,10 @@ export default function DemolitionCalculator() {
                                     key={key}
                                     onClick={() => selectBuildingType(key)}
                                     className={cn(
-                                        "flex flex-col items-center gap-2 rounded-xl border p-3 transition-all text-center",
+                                        "flex flex-col items-center gap-2 p-3 transition-all text-center",
                                         quickInput.buildingType === key
-                                            ? "border-forest bg-forest/5 ring-1 ring-forest text-forest"
-                                            : "border-stone/20 bg-chalk text-stone hover:border-stone hover:bg-stone/5"
+                                            ? "-900 bg-mercury-900/5 -900 text-mercury-900"
+                                            : "-500/20 bg-mercury-50 text-mercury-500 hover:-500 hover:bg-mercury-500/5"
                                     )}
                                 >
                                     <Icon className="h-6 w-6" strokeWidth={1.5} />
@@ -189,7 +189,7 @@ export default function DemolitionCalculator() {
                     {/* Input fields */}
                     <div className="grid grid-cols-3 gap-3">
                         <div>
-                            <label className="block text-[11px] font-semibold text-stone uppercase tracking-wide mb-1.5">
+                            <label className="block text-[11px] font-semibold text-mercury-500 uppercase tracking-wide mb-1.5">
                                 Suprafață (m²)
                             </label>
                             <input
@@ -203,11 +203,11 @@ export default function DemolitionCalculator() {
                                     }))
                                 }
                                 placeholder="ex: 2000"
-                                className="w-full rounded-lg border border-stone/20 bg-chalk px-3 py-2 text-sm text-charcoal placeholder:text-stone/40 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest transition-colors"
+                                className="w-full -500/20 bg-mercury-50 px-3 py-2 text-sm text-mercury-900 placeholder:text-mercury-500/40 focus:-900 focus:outline-none focus:focus:-900 transition-colors"
                             />
                         </div>
                         <div>
-                            <label className="block text-[11px] font-semibold text-stone uppercase tracking-wide mb-1.5">
+                            <label className="block text-[11px] font-semibold text-mercury-500 uppercase tracking-wide mb-1.5">
                                 Etaje
                             </label>
                             <input
@@ -221,11 +221,11 @@ export default function DemolitionCalculator() {
                                         floors: parseInt(e.target.value) || 1,
                                     }))
                                 }
-                                className="w-full rounded-lg border border-stone/20 bg-chalk px-3 py-2 text-sm text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest transition-colors"
+                                className="w-full -500/20 bg-mercury-50 px-3 py-2 text-sm text-mercury-900 focus:-900 focus:outline-none focus:focus:-900 transition-colors"
                             />
                         </div>
                         <div>
-                            <label className="block text-[11px] font-semibold text-stone uppercase tracking-wide mb-1.5">
+                            <label className="block text-[11px] font-semibold text-mercury-500 uppercase tracking-wide mb-1.5">
                                 Anul construcției
                             </label>
                             <input
@@ -239,7 +239,7 @@ export default function DemolitionCalculator() {
                                         year: parseInt(e.target.value) || 2000,
                                     }))
                                 }
-                                className="w-full rounded-lg border border-stone/20 bg-chalk px-3 py-2 text-sm text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest transition-colors"
+                                className="w-full -500/20 bg-mercury-50 px-3 py-2 text-sm text-mercury-900 focus:-900 focus:outline-none focus:focus:-900 transition-colors"
                             />
                         </div>
                     </div>
@@ -248,7 +248,7 @@ export default function DemolitionCalculator() {
                     <button
                         onClick={handleQuickCalculate}
                         disabled={!quickInput.buildingType || quickInput.area <= 0}
-                        className="btn-magnetic w-full rounded-lg bg-forest px-4 py-3 text-sm font-semibold text-white hover:bg-forest/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                        className="btn-magnetic w-full bg-mercury-900 px-4 py-3 text-sm font-semibold text-white hover:bg-mercury-900/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                     >
                         <Calculator className="h-4 w-4" strokeWidth={1.5} />
                         Calculează Estimarea
@@ -259,61 +259,61 @@ export default function DemolitionCalculator() {
                         <div className="space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
                             {/* Summary cards */}
                             <div className="grid grid-cols-3 gap-2">
-                                <div className="rounded-xl bg-forest/5 border border-forest/10 p-3 text-center">
-                                    <p className="text-[10px] font-semibold text-stone uppercase tracking-wide mb-1">
+                                <div className="bg-mercury-900/5 -900/10 p-3 text-center">
+                                    <p className="text-[10px] font-semibold text-mercury-500 uppercase tracking-wide mb-1">
                                         Valoare totală
                                     </p>
-                                    <p className="font-data text-sm font-bold text-forest">
+                                    <p className="font-data text-sm font-bold text-mercury-900">
                                         {formatMDL(quickResult.totalValue)}
                                     </p>
                                 </div>
-                                <div className="rounded-xl bg-eco/5 border border-eco/10 p-3 text-center">
-                                    <p className="text-[10px] font-semibold text-stone uppercase tracking-wide mb-1">
+                                <div className="bg-eco/5 /10 p-3 text-center">
+                                    <p className="text-[10px] font-semibold text-mercury-500 uppercase tracking-wide mb-1">
                                         CO₂ economisit
                                     </p>
                                     <p className="font-data text-sm font-bold text-eco">
                                         {formatCO2(quickResult.co2Saved)}
                                     </p>
                                 </div>
-                                <div className="rounded-xl bg-sage/5 border border-sage/10 p-3 text-center">
-                                    <p className="text-[10px] font-semibold text-stone uppercase tracking-wide mb-1">
+                                <div className="bg-mercury-500/5 -500/10 p-3 text-center">
+                                    <p className="text-[10px] font-semibold text-mercury-500 uppercase tracking-wide mb-1">
                                         Recuperabil
                                     </p>
-                                    <p className="font-data text-sm font-bold text-sage">
+                                    <p className="font-data text-sm font-bold text-mercury-500">
                                         {quickResult.wasteDiverted.toFixed(1)} t
                                     </p>
                                 </div>
                             </div>
 
                             {/* Materials table */}
-                            <div className="rounded-xl border border-stone/20 overflow-hidden">
+                            <div className="-500/20 overflow-hidden">
                                 <table className="w-full text-[12px]">
                                     <thead>
-                                        <tr className="bg-sand/80">
-                                            <th className="px-3 py-2 text-left font-semibold text-stone">
+                                        <tr className="bg-mercury-50/80">
+                                            <th className="px-3 py-2 text-left font-semibold text-mercury-500">
                                                 Material
                                             </th>
-                                            <th className="px-3 py-2 text-right font-semibold text-stone">
+                                            <th className="px-3 py-2 text-right font-semibold text-mercury-500">
                                                 Cantitate
                                             </th>
-                                            <th className="px-3 py-2 text-right font-semibold text-stone">
+                                            <th className="px-3 py-2 text-right font-semibold text-mercury-500">
                                                 Recup.
                                             </th>
-                                            <th className="px-3 py-2 text-right font-semibold text-stone">
+                                            <th className="px-3 py-2 text-right font-semibold text-mercury-500">
                                                 Valoare
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody className="divide-y divide-stone/10">
+                                    <tbody className="divide-y divide-mercury-500/10">
                                         {quickResult.materials.map((m, idx) => (
                                             <tr
                                                 key={idx}
-                                                className="hover:bg-sand/40 transition-colors"
+                                                className="hover:bg-mercury-50/40 transition-colors"
                                             >
-                                                <td className="px-3 py-2 font-medium text-charcoal">
+                                                <td className="px-3 py-2 font-medium text-mercury-900">
                                                     {m.materialType}
                                                 </td>
-                                                <td className="px-3 py-2 text-right font-data text-stone">
+                                                <td className="px-3 py-2 text-right font-data text-mercury-500">
                                                     {m.quantity} {m.unit}
                                                 </td>
                                                 <td className="px-3 py-2 text-right">
@@ -323,14 +323,14 @@ export default function DemolitionCalculator() {
                                                             m.recoverabilityPercent >= 75
                                                                 ? "text-eco"
                                                                 : m.recoverabilityPercent >= 50
-                                                                  ? "text-stone"
+                                                                  ? "text-mercury-500"
                                                                   : "text-red-500"
                                                         )}
                                                     >
                                                         {m.recoverabilityPercent}%
                                                     </span>
                                                 </td>
-                                                <td className="px-3 py-2 text-right font-data font-semibold text-charcoal">
+                                                <td className="px-3 py-2 text-right font-data font-semibold text-mercury-900">
                                                     {formatMDL(m.estimatedValue)}
                                                 </td>
                                             </tr>
@@ -340,7 +340,7 @@ export default function DemolitionCalculator() {
                             </div>
 
                             {/* CTA */}
-                            <button className="btn-magnetic btn-cta w-full rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-charcoal hover:opacity-90 transition-colors flex items-center justify-center gap-2">
+                            <button className="btn-magnetic btn-cta w-full bg-yellow-sea-500 px-4 py-3 text-sm font-semibold text-mercury-900 hover:opacity-90 transition-colors flex items-center justify-center gap-2">
                                 Listează pe Salvio
                                 <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
                             </button>
@@ -352,7 +352,7 @@ export default function DemolitionCalculator() {
             {/* ── Detailed Tab ── */}
             {activeTab === "detailed" && (
                 <div className="space-y-5">
-                    <p className="text-xs text-stone">
+                    <p className="text-xs text-mercury-500">
                         Adăugați materialele individual pentru o estimare mai precisă a valorii de recuperare.
                     </p>
 
@@ -361,16 +361,16 @@ export default function DemolitionCalculator() {
                         {detailedInputs.map((input, index) => (
                             <div
                                 key={index}
-                                className="rounded-xl border border-stone/20 bg-chalk p-3 space-y-2"
+                                className="-500/20 bg-mercury-50 p-3 space-y-2"
                             >
                                 <div className="flex items-center justify-between mb-1">
-                                    <span className="text-[11px] font-semibold text-stone">
+                                    <span className="text-[11px] font-semibold text-mercury-500">
                                         Componenta {index + 1}
                                     </span>
                                     {detailedInputs.length > 1 && (
                                         <button
                                             onClick={() => removeDetailedRow(index)}
-                                            className="rounded-lg p-1 text-stone hover:text-red-600 hover:bg-red-50 transition-colors"
+                                            className="p-1 text-mercury-500 hover:text-red-600 hover:bg-red-50 transition-colors"
                                         >
                                             <X className="h-3.5 w-3.5" strokeWidth={1.5} />
                                         </button>
@@ -384,7 +384,7 @@ export default function DemolitionCalculator() {
                                             onChange={(e) =>
                                                 updateDetailedRow(index, "materialType", e.target.value)
                                             }
-                                            className="w-full rounded-lg border border-stone/20 bg-chalk px-2.5 py-2 text-[12px] text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest transition-colors"
+                                            className="w-full -500/20 bg-mercury-50 px-2.5 py-2 text-[12px] text-mercury-900 focus:-900 focus:outline-none focus:focus:-900 transition-colors"
                                         >
                                             <option value="">Selectați materialul</option>
                                             {availableMaterialTypes.map((type) => (
@@ -401,7 +401,7 @@ export default function DemolitionCalculator() {
                                             onChange={(e) =>
                                                 updateDetailedRow(index, "condition", e.target.value)
                                             }
-                                            className="w-full rounded-lg border border-stone/20 bg-chalk px-2.5 py-2 text-[12px] text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest transition-colors"
+                                            className="w-full -500/20 bg-mercury-50 px-2.5 py-2 text-[12px] text-mercury-900 focus:-900 focus:outline-none focus:focus:-900 transition-colors"
                                         >
                                             {availableConditions.map((cond) => (
                                                 <option key={cond} value={cond}>
@@ -425,7 +425,7 @@ export default function DemolitionCalculator() {
                                                 )
                                             }
                                             placeholder="Cantitate"
-                                            className="w-full rounded-lg border border-stone/20 bg-chalk px-2.5 py-2 text-[12px] text-charcoal placeholder:text-stone/40 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest transition-colors"
+                                            className="w-full -500/20 bg-mercury-50 px-2.5 py-2 text-[12px] text-mercury-900 placeholder:text-mercury-500/40 focus:-900 focus:outline-none focus:focus:-900 transition-colors"
                                         />
                                     </div>
                                     {/* Unit */}
@@ -435,7 +435,7 @@ export default function DemolitionCalculator() {
                                             onChange={(e) =>
                                                 updateDetailedRow(index, "unit", e.target.value)
                                             }
-                                            className="w-full rounded-lg border border-stone/20 bg-chalk px-2.5 py-2 text-[12px] text-charcoal focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest transition-colors"
+                                            className="w-full -500/20 bg-mercury-50 px-2.5 py-2 text-[12px] text-mercury-900 focus:-900 focus:outline-none focus:focus:-900 transition-colors"
                                         >
                                             {availableUnits.map((unit) => (
                                                 <option key={unit} value={unit}>
@@ -452,7 +452,7 @@ export default function DemolitionCalculator() {
                     {/* Add row button */}
                     <button
                         onClick={addDetailedRow}
-                        className="btn-magnetic flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-stone/30 bg-sand/50 py-2.5 text-xs font-semibold text-stone hover:border-forest hover:text-forest hover:bg-forest/5 transition-colors"
+                        className="btn-magnetic flex w-full items-center justify-center gap-2 -500/30 bg-mercury-50/50 py-2.5 text-xs font-semibold text-mercury-500 hover:-900 hover:text-mercury-900 hover:bg-mercury-900/5 transition-colors"
                     >
                         <Plus className="h-3.5 w-3.5" strokeWidth={1.5} />
                         Adaugă componentă
@@ -462,7 +462,7 @@ export default function DemolitionCalculator() {
                     <button
                         onClick={handleDetailedCalculate}
                         disabled={!detailedInputs.some((i) => i.materialType && i.quantity > 0)}
-                        className="btn-magnetic w-full rounded-lg bg-forest px-4 py-3 text-sm font-semibold text-white hover:bg-forest/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                        className="btn-magnetic w-full bg-mercury-900 px-4 py-3 text-sm font-semibold text-white hover:bg-mercury-900/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                     >
                         <Calculator className="h-4 w-4" strokeWidth={1.5} />
                         Calculează Valoarea
@@ -473,89 +473,89 @@ export default function DemolitionCalculator() {
                         <div className="space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
                             {/* Summary cards */}
                             <div className="grid grid-cols-3 gap-2">
-                                <div className="rounded-xl bg-forest/5 border border-forest/10 p-3 text-center">
+                                <div className="bg-mercury-900/5 -900/10 p-3 text-center">
                                     <div className="flex items-center justify-center mb-1.5">
-                                        <TrendingUp className="h-4 w-4 text-forest" strokeWidth={1.5} />
+                                        <TrendingUp className="h-4 w-4 text-mercury-900" strokeWidth={1.5} />
                                     </div>
-                                    <p className="text-[10px] font-semibold text-stone uppercase tracking-wide mb-0.5">
+                                    <p className="text-[10px] font-semibold text-mercury-500 uppercase tracking-wide mb-0.5">
                                         Valoare totală
                                     </p>
-                                    <p className="font-data text-sm font-bold text-forest">
+                                    <p className="font-data text-sm font-bold text-mercury-900">
                                         {formatMDL(detailedResult.totalValue)}
                                     </p>
                                 </div>
-                                <div className="rounded-xl bg-eco/5 border border-eco/10 p-3 text-center">
+                                <div className="bg-eco/5 /10 p-3 text-center">
                                     <div className="flex items-center justify-center mb-1.5">
                                         <Leaf className="h-4 w-4 text-eco" strokeWidth={1.5} />
                                     </div>
-                                    <p className="text-[10px] font-semibold text-stone uppercase tracking-wide mb-0.5">
+                                    <p className="text-[10px] font-semibold text-mercury-500 uppercase tracking-wide mb-0.5">
                                         CO₂ economisit
                                     </p>
                                     <p className="font-data text-sm font-bold text-eco">
                                         {formatCO2(detailedResult.co2Saved)}
                                     </p>
                                 </div>
-                                <div className="rounded-xl bg-sage/5 border border-sage/10 p-3 text-center">
+                                <div className="bg-mercury-500/5 -500/10 p-3 text-center">
                                     <div className="flex items-center justify-center mb-1.5">
-                                        <Trash2 className="h-4 w-4 text-sage" strokeWidth={1.5} />
+                                        <Trash2 className="h-4 w-4 text-mercury-500" strokeWidth={1.5} />
                                     </div>
-                                    <p className="text-[10px] font-semibold text-stone uppercase tracking-wide mb-0.5">
+                                    <p className="text-[10px] font-semibold text-mercury-500 uppercase tracking-wide mb-0.5">
                                         Deșeuri deviate
                                     </p>
-                                    <p className="font-data text-sm font-bold text-sage">
+                                    <p className="font-data text-sm font-bold text-mercury-500">
                                         {(detailedResult.wasteDiverted / 1000).toFixed(1)} t
                                     </p>
                                 </div>
                             </div>
 
                             {/* Materials table */}
-                            <div className="rounded-xl border border-stone/20 overflow-hidden">
+                            <div className="-500/20 overflow-hidden">
                                 <table className="w-full text-[12px]">
                                     <thead>
-                                        <tr className="bg-sand/80">
-                                            <th className="px-3 py-2 text-left font-semibold text-stone">
+                                        <tr className="bg-mercury-50/80">
+                                            <th className="px-3 py-2 text-left font-semibold text-mercury-500">
                                                 Material
                                             </th>
-                                            <th className="px-3 py-2 text-right font-semibold text-stone">
+                                            <th className="px-3 py-2 text-right font-semibold text-mercury-500">
                                                 Cantitate
                                             </th>
-                                            <th className="px-3 py-2 text-right font-semibold text-stone">
+                                            <th className="px-3 py-2 text-right font-semibold text-mercury-500">
                                                 Stare
                                             </th>
-                                            <th className="px-3 py-2 text-right font-semibold text-stone">
+                                            <th className="px-3 py-2 text-right font-semibold text-mercury-500">
                                                 Valoare
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody className="divide-y divide-stone/10">
+                                    <tbody className="divide-y divide-mercury-500/10">
                                         {detailedResult.materials.map((m, idx) => (
                                             <tr
                                                 key={idx}
-                                                className="hover:bg-sand/40 transition-colors"
+                                                className="hover:bg-mercury-50/40 transition-colors"
                                             >
-                                                <td className="px-3 py-2 font-medium text-charcoal">
+                                                <td className="px-3 py-2 font-medium text-mercury-900">
                                                     {m.materialType}
                                                 </td>
-                                                <td className="px-3 py-2 text-right font-data text-stone">
+                                                <td className="px-3 py-2 text-right font-data text-mercury-500">
                                                     {m.quantity} {m.unit}
                                                 </td>
                                                 <td className="px-3 py-2 text-right">
                                                     <span
                                                         className={cn(
-                                                            "rounded-full px-2 py-0.5 text-[10px] font-bold",
+                                                            "px-2 py-0.5 text-[10px] font-bold",
                                                             m.condition === "Nou"
                                                                 ? "bg-eco/10 text-eco"
                                                                 : m.condition === "Bun"
-                                                                  ? "bg-stone/10 text-stone"
+                                                                  ? "bg-mercury-500/10 text-mercury-500"
                                                                   : m.condition === "Acceptabil"
                                                                     ? "bg-amber-100 text-amber-700"
-                                                                    : "bg-stone/10 text-stone"
+                                                                    : "bg-mercury-500/10 text-mercury-500"
                                                         )}
                                                     >
                                                         {m.condition} ({m.recoverabilityPercent}%)
                                                     </span>
                                                 </td>
-                                                <td className="px-3 py-2 text-right font-data font-semibold text-charcoal">
+                                                <td className="px-3 py-2 text-right font-data font-semibold text-mercury-900">
                                                     {formatMDL(m.estimatedValue)}
                                                 </td>
                                             </tr>
@@ -565,7 +565,7 @@ export default function DemolitionCalculator() {
                             </div>
 
                             {/* CTA */}
-                            <button className="btn-magnetic btn-cta w-full rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-charcoal hover:opacity-90 transition-colors flex items-center justify-center gap-2">
+                            <button className="btn-magnetic btn-cta w-full bg-yellow-sea-500 px-4 py-3 text-sm font-semibold text-mercury-900 hover:opacity-90 transition-colors flex items-center justify-center gap-2">
                                 Listează pe Salvio
                                 <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
                             </button>

@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`antialiased bg-[#FAFAFA] text-black-900`}>
+            <body className={`antialiased bg-white text-mercury-900`}>
                 <AuthProvider>
                     <CartProvider>
                         <ToastProvider>

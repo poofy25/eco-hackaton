@@ -101,16 +101,16 @@ export default function DemolitionsPage() {
     }, [isCityDropdownOpen]);
 
     return (
-        <div className="min-h-screen bg-sand">
+        <div className="min-h-screen bg-mercury-50">
             {/* ── Header ── */}
-            <div className="border-b border-stone/10 bg-chalk/80 backdrop-blur-sm">
+            <div className="-500/10 bg-mercury-50/80 backdrop-blur-sm">
                 <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
                     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                         <div>
-                            <h1 className="font-heading text-xl sm:text-2xl font-bold text-charcoal tracking-tight">
+                            <h1 className="font-heading text-xl sm:text-2xl font-bold text-mercury-900 tracking-tight">
                                 Demolări & Materiale Recuperabile
                             </h1>
-                            <p className="mt-1 text-xs sm:text-sm text-stone max-w-xl">
+                            <p className="mt-1 text-xs sm:text-sm text-mercury-500 max-w-xl">
                                 Descoperă demolările planificate în Moldova și estimează valoarea materialelor
                                 recuperabile. Transformă deșeurile de construcție în resurse valoroase.
                             </p>
@@ -119,32 +119,32 @@ export default function DemolitionsPage() {
                         {/* Stats bar */}
                         <div className="flex items-center gap-4 shrink-0">
                             <div className="flex items-center gap-1.5">
-                                <ClipboardList className="h-4 w-4 text-forest" strokeWidth={1.5} />
+                                <ClipboardList className="h-4 w-4 text-mercury-900" strokeWidth={1.5} />
                                 <div>
-                                    <p className="text-[10px] text-stone uppercase tracking-wide">Anunțuri</p>
-                                    <p className="font-data text-sm font-bold text-charcoal">
+                                    <p className="text-[10px] text-mercury-500 uppercase tracking-wide">Anunțuri</p>
+                                    <p className="font-data text-sm font-bold text-mercury-900">
                                         {stats.total}
                                     </p>
                                 </div>
                             </div>
-                            <div className="h-8 w-px bg-stone/15" />
+                            <div className="h-8 w-px bg-mercury-500/15" />
                             <div className="flex items-center gap-1.5">
-                                <TrendingUp className="h-4 w-4 text-terracotta" strokeWidth={1.5} />
+                                <TrendingUp className="h-4 w-4 text-yellow-sea-500" strokeWidth={1.5} />
                                 <div>
-                                    <p className="text-[10px] text-stone uppercase tracking-wide">Valoare</p>
-                                    <p className="font-data text-sm font-bold text-charcoal">
+                                    <p className="text-[10px] text-mercury-500 uppercase tracking-wide">Valoare</p>
+                                    <p className="font-data text-sm font-bold text-mercury-900">
                                         {formatNumber(stats.totalValue)} MDL
                                     </p>
                                 </div>
                             </div>
-                            <div className="h-8 w-px bg-stone/15" />
+                            <div className="h-8 w-px bg-mercury-500/15" />
                             <div className="flex items-center gap-1.5">
                                 <Recycle className="h-4 w-4 text-eco" strokeWidth={1.5} />
                                 <div>
-                                    <p className="text-[10px] text-stone uppercase tracking-wide">
+                                    <p className="text-[10px] text-mercury-500 uppercase tracking-wide">
                                         Recuperabil
                                     </p>
-                                    <p className="font-data text-sm font-bold text-charcoal">
+                                    <p className="font-data text-sm font-bold text-mercury-900">
                                         {formatNumber(Math.round(stats.totalTonnage))} t
                                     </p>
                                 </div>
@@ -159,7 +159,7 @@ export default function DemolitionsPage() {
                 {/* Desktop: split view | Mobile: stacked */}
                 <div className="flex flex-col lg:flex-row lg:h-[calc(100vh-10rem)]">
                     {/* ── Left: Map ── */}
-                    <div className="h-[40vh] lg:h-full lg:w-[55%] lg:border-r lg:border-stone/10 p-3 lg:p-4">
+                    <div className="h-[40vh] lg:h-full lg:w-[55%] lg:lg:-500/10 p-3 lg:p-4">
                         <DemolitionMap
                             announcements={filtered}
                             selectedId={selectedId}
@@ -171,29 +171,29 @@ export default function DemolitionsPage() {
                     {/* ── Right: Content ── */}
                     <div className="flex flex-1 flex-col lg:w-[45%] overflow-hidden">
                         {/* Right tab switcher */}
-                        <div className="flex border-b border-stone/10 bg-chalk px-4 pt-3">
+                        <div className="flex -500/10 bg-mercury-50 px-4 pt-3">
                             <button
                                 onClick={() => setRightTab("announcements")}
                                 className={cn(
-                                    "flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold border-b-2 transition-colors -mb-px",
+                                    "flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold -2 transition-colors -mb-px",
                                     rightTab === "announcements"
-                                        ? "border-forest text-forest"
-                                        : "border-transparent text-stone hover:text-charcoal"
+                                        ? "-900 text-mercury-900"
+                                        : "text-mercury-500 hover:text-mercury-900"
                                 )}
                             >
                                 <Building2 className="h-3.5 w-3.5" strokeWidth={1.5} />
                                 Anunțuri
-                                <span className="rounded-full bg-sand px-1.5 py-0.5 text-[10px] font-bold text-stone">
+                                <span className="bg-mercury-50 px-1.5 py-0.5 text-[10px] font-bold text-mercury-500">
                                     {filtered.length}
                                 </span>
                             </button>
                             <button
                                 onClick={() => setRightTab("calculator")}
                                 className={cn(
-                                    "flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold border-b-2 transition-colors -mb-px",
+                                    "flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold -2 transition-colors -mb-px",
                                     rightTab === "calculator"
-                                        ? "border-forest text-forest"
-                                        : "border-transparent text-stone hover:text-charcoal"
+                                        ? "-900 text-mercury-900"
+                                        : "text-mercury-500 hover:text-mercury-900"
                                 )}
                             >
                                 <Calculator className="h-3.5 w-3.5" strokeWidth={1.5} />
@@ -205,7 +205,7 @@ export default function DemolitionsPage() {
                         {rightTab === "announcements" && (
                             <>
                                 {/* Filters */}
-                                <div className="flex flex-wrap items-center gap-2 px-4 py-3 bg-chalk/50 border-b border-stone/10">
+                                <div className="flex flex-wrap items-center gap-2 px-4 py-3 bg-mercury-50/50 -500/10">
                                     {/* Status filter pills */}
                                     <div className="flex gap-1.5">
                                         {statusFilterOptions.map((opt) => (
@@ -213,10 +213,10 @@ export default function DemolitionsPage() {
                                                 key={opt.value}
                                                 onClick={() => setStatusFilter(opt.value)}
                                                 className={cn(
-                                                    "rounded-lg px-3 py-1.5 text-[11px] font-semibold transition-colors",
+                                                    "px-3 py-1.5 text-[11px] font-semibold transition-colors",
                                                     statusFilter === opt.value
-                                                        ? "bg-forest text-white"
-                                                        : "bg-sand text-stone hover:bg-stone/10 hover:text-charcoal"
+                                                        ? "bg-mercury-900 text-white"
+                                                        : "bg-mercury-50 text-mercury-500 hover:bg-mercury-500/10 hover:text-mercury-900"
                                                 )}
                                             >
                                                 {opt.label}
@@ -231,20 +231,20 @@ export default function DemolitionsPage() {
                                                 e.stopPropagation();
                                                 setIsCityDropdownOpen((prev) => !prev);
                                             }}
-                                            className="flex items-center gap-1.5 rounded-lg border border-stone/20 bg-chalk px-3 py-1.5 text-[11px] font-semibold text-charcoal hover:border-forest transition-colors"
+                                            className="flex items-center gap-1.5 -500/20 bg-mercury-50 px-3 py-1.5 text-[11px] font-semibold text-mercury-900 hover:-900 transition-colors"
                                         >
-                                            <MapPin className="h-3 w-3 text-stone" strokeWidth={1.5} />
+                                            <MapPin className="h-3 w-3 text-mercury-500" strokeWidth={1.5} />
                                             {cityFilter || "Toate orașele"}
                                             <ChevronDown
                                                 className={cn(
-                                                    "h-3 w-3 text-stone transition-transform",
+                                                    "h-3 w-3 text-mercury-500 transition-transform",
                                                     isCityDropdownOpen && "rotate-180"
                                                 )}
                                                 strokeWidth={1.5}
                                             />
                                         </button>
                                         {isCityDropdownOpen && (
-                                            <div className="absolute right-0 top-full mt-1 z-20 w-48 rounded-xl bg-chalk border border-stone/20 overflow-hidden">
+                                            <div className="absolute right-0 top-full mt-1 z-20 w-48 bg-mercury-50 -500/20 overflow-hidden">
                                                 <button
                                                     onClick={() => {
                                                         setCityFilter("");
@@ -253,8 +253,8 @@ export default function DemolitionsPage() {
                                                     className={cn(
                                                         "w-full text-left px-3 py-2 text-[11px] font-semibold transition-colors",
                                                         !cityFilter
-                                                            ? "bg-forest/5 text-forest"
-                                                            : "text-charcoal hover:bg-sand"
+                                                            ? "bg-mercury-900/5 text-mercury-900"
+                                                            : "text-mercury-900 hover:bg-mercury-50"
                                                     )}
                                                 >
                                                     Toate orașele
@@ -269,8 +269,8 @@ export default function DemolitionsPage() {
                                                         className={cn(
                                                             "w-full text-left px-3 py-2 text-[11px] font-semibold transition-colors",
                                                             cityFilter === city
-                                                                ? "bg-forest/5 text-forest"
-                                                                : "text-charcoal hover:bg-sand"
+                                                                ? "bg-mercury-900/5 text-mercury-900"
+                                                                : "text-mercury-900 hover:bg-mercury-50"
                                                         )}
                                                     >
                                                         {city}
@@ -288,13 +288,13 @@ export default function DemolitionsPage() {
                                 >
                                     {filtered.length === 0 ? (
                                         <div className="flex flex-col items-center justify-center py-16 text-center">
-                                            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-sand mb-3">
-                                                <Building2 className="h-6 w-6 text-stone" strokeWidth={1.5} />
+                                            <div className="flex h-14 w-14 items-center justify-center bg-mercury-50 mb-3">
+                                                <Building2 className="h-6 w-6 text-mercury-500" strokeWidth={1.5} />
                                             </div>
-                                            <p className="text-sm font-semibold text-charcoal">
+                                            <p className="text-sm font-semibold text-mercury-900">
                                                 Niciun anunț găsit
                                             </p>
-                                            <p className="text-xs text-stone mt-1">
+                                            <p className="text-xs text-mercury-500 mt-1">
                                                 Modificați filtrele pentru a vedea alte rezultate.
                                             </p>
                                         </div>

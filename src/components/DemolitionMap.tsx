@@ -102,17 +102,17 @@ export default function DemolitionMap({
 
     if (!isLoaded) {
         return (
-            <div className={cn("flex h-full w-full items-center justify-center bg-sand rounded-xl", className)}>
+            <div className={cn("flex h-full w-full items-center justify-center bg-mercury-50 ", className)}>
                 <div className="flex flex-col items-center gap-3">
-                    <div className="h-8 w-8 animate-spin rounded-full border-2 border-forest border-t-transparent" />
-                    <p className="text-sm text-stone">Se încarcă harta...</p>
+                    <div className="h-8 w-8 animate-spin -900 -transparent" />
+                    <p className="text-sm text-mercury-500">Se încarcă harta...</p>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className={cn("rounded-xl overflow-hidden", className)}>
+        <div className={cn("overflow-hidden", className)}>
         <GoogleMap
             mapContainerStyle={mapContainerStyle}
             center={center}
@@ -150,17 +150,17 @@ export default function DemolitionMap({
                     }}
                 >
                     <div className="p-1 font-body">
-                        <p className="font-heading text-sm font-bold text-charcoal mb-1 leading-snug">
+                        <p className="font-heading text-sm font-bold text-mercury-900 mb-1 leading-snug">
                             {selectedAnnouncement.title}
                         </p>
-                        <div className="flex items-center gap-2 text-[11px] text-stone mb-1.5">
+                        <div className="flex items-center gap-2 text-[11px] text-mercury-500 mb-1.5">
                             <span>{buildingTypeLabels[selectedAnnouncement.buildingType]}</span>
-                            <span className="text-stone/30">|</span>
+                            <span className="text-mercury-500/30">|</span>
                             <span>{statusLabels[selectedAnnouncement.status]}</span>
                         </div>
                         <div className="flex items-center justify-between">
-                            <span className="text-[11px] text-stone">Valoare estimată:</span>
-                            <span className="font-data text-xs font-bold text-forest">
+                            <span className="text-[11px] text-mercury-500">Valoare estimată:</span>
+                            <span className="font-data text-xs font-bold text-mercury-900">
                                 {formatPrice(getTotalEstimatedValue(selectedAnnouncement))}
                             </span>
                         </div>

@@ -52,12 +52,12 @@ export default function ScanPage() {
     };
 
     return (
-        <main className="min-h-screen bg-sand pt-16 pb-24">
+        <main className="min-h-screen bg-mercury-50 pt-16 pb-24">
             {/* Header */}
-            <div className="border-b border-stone-200 bg-white">
+            <div className="-500-200 bg-white">
                 <div className="mx-auto max-w-7xl px-4 lg:px-6">
                     <div className="flex items-center gap-3 h-14">
-                        <Link href="/" className="flex h-9 w-9 items-center justify-center border border-stone-200 hover:bg-forest hover:text-white transition-colors rounded-lg">
+                        <Link href="/" className="flex h-9 w-9 items-center justify-center -500-200 hover:bg-mercury-900 hover:text-white transition-colors ">
                             <ArrowLeft className="h-4 w-4" strokeWidth={1.5} />
                         </Link>
                         <div className="flex items-center gap-2">
@@ -72,33 +72,33 @@ export default function ScanPage() {
                 {/* SCANNING STATE */}
                 {state === "scanning" && (
                     <div className="space-y-4">
-                        <div className="relative rounded-xl overflow-hidden">
+                        <div className="relative overflow-hidden">
                             <div className="absolute inset-0 z-20 pointer-events-none">
-                                <div className="absolute top-4 left-4 w-10 h-10 border-t-3 border-l-3 border-forest rounded-tl-xl" />
-                                <div className="absolute top-4 right-4 w-10 h-10 border-t-3 border-r-3 border-forest rounded-tr-xl" />
-                                <div className="absolute bottom-4 left-4 w-10 h-10 border-b-3 border-l-3 border-forest rounded-bl-xl" />
-                                <div className="absolute bottom-4 right-4 w-10 h-10 border-b-3 border-r-3 border-forest rounded-br-xl" />
+                                <div className="absolute top-4 left-4 w-10 h-10 -3 -3 -900 -xl" />
+                                <div className="absolute top-4 right-4 w-10 h-10 -3 -3 -900 -xl" />
+                                <div className="absolute bottom-4 left-4 w-10 h-10 -3 -3 -900 -xl" />
+                                <div className="absolute bottom-4 right-4 w-10 h-10 -3 -3 -900 -xl" />
                             </div>
                             <div className="absolute inset-x-6 z-20 pointer-events-none scan-line" />
                             <Suspense fallback={
-                                <div className="flex items-center justify-center h-80 bg-black rounded-xl">
-                                    <div className="h-8 w-8 border-2 border-forest border-t-transparent rounded-full animate-spin" />
+                                <div className="flex items-center justify-center h-80 bg-black ">
+                                    <div className="h-8 w-8 -900 -transparent animate-spin" />
                                 </div>
                             }>
                                 <BarcodeScanner onScanSuccess={handleScanSuccess} />
                             </Suspense>
                         </div>
                         <div className="text-center space-y-2">
-                            <p className="font-heading font-semibold text-sm text-charcoal uppercase tracking-wider">
+                            <p className="font-heading font-semibold text-sm text-mercury-900 uppercase tracking-wider">
                                 Îndreptați camera spre codul de bare
                             </p>
-                            <p className="text-xs text-stone">
+                            <p className="text-xs text-mercury-500">
                                 Scanați codul de bare sau QR al produsului pentru a-l găsi pe Salvio
                             </p>
                         </div>
                         <button
                             onClick={() => setState("manual")}
-                            className="w-full flex items-center justify-center gap-2 py-3 border border-stone-200 bg-white hover:bg-forest hover:text-white transition-colors font-semibold text-sm uppercase tracking-wider rounded-lg"
+                            className="w-full flex items-center justify-center gap-2 py-3 -500-200 bg-white hover:bg-mercury-900 hover:text-white transition-colors font-semibold text-sm uppercase tracking-wider "
                         >
                             <Keyboard className="h-4 w-4" strokeWidth={1.5} />
                             Introduceți codul manual
@@ -111,16 +111,16 @@ export default function ScanPage() {
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                                <span className="bg-charcoal text-white rounded-lg px-3 py-1 font-bold text-sm uppercase tracking-wider">
+                                <span className="bg-mercury-900 text-white px-3 py-1 font-bold text-sm uppercase tracking-wider">
                                     SKU: {scannedCode}
                                 </span>
-                                <span className="text-sm text-stone">
+                                <span className="text-sm text-mercury-500">
                                     {results.length} {results.length === 1 ? "rezultat" : "rezultate"}
                                 </span>
                             </div>
                             <button
                                 onClick={handleReset}
-                                className="flex items-center gap-1.5 px-3 py-1.5 border border-stone-200 hover:bg-forest hover:text-white transition-colors text-sm font-semibold uppercase tracking-wider rounded-lg"
+                                className="flex items-center gap-1.5 px-3 py-1.5 -500-200 hover:bg-mercury-900 hover:text-white transition-colors text-sm font-semibold uppercase tracking-wider "
                             >
                                 <RotateCcw className="h-3.5 w-3.5" strokeWidth={1.5} />
                                 Scanează din nou
@@ -137,28 +137,28 @@ export default function ScanPage() {
                 {/* NO RESULTS STATE */}
                 {state === "no-results" && (
                     <div className="flex flex-col items-center justify-center py-16 space-y-6">
-                        <div className="flex h-20 w-20 items-center justify-center rounded-2xl border-2 border-stone-200">
-                            <Search className="h-10 w-10 text-stone" strokeWidth={1} />
+                        <div className="flex h-20 w-20 items-center justify-center -500-200">
+                            <Search className="h-10 w-10 text-mercury-500" strokeWidth={1} />
                         </div>
                         <div className="text-center space-y-2">
                             <p className="font-heading font-bold text-lg uppercase tracking-tight">
                                 Niciun rezultat
                             </p>
-                            <p className="text-sm text-stone max-w-xs">
-                                Codul <span className="font-bold text-charcoal">{scannedCode}</span> nu a fost găsit în catalog. Încercați alt cod sau răsfoiți manual.
+                            <p className="text-sm text-mercury-500 max-w-xs">
+                                Codul <span className="font-bold text-mercury-900">{scannedCode}</span> nu a fost găsit în catalog. Încercați alt cod sau răsfoiți manual.
                             </p>
                         </div>
                         <div className="flex gap-3">
                             <button
                                 onClick={handleReset}
-                                className="flex items-center gap-2 px-5 py-3 bg-charcoal text-white font-bold text-sm uppercase tracking-wider hover:opacity-90 transition-colors rounded-lg"
+                                className="flex items-center gap-2 px-5 py-3 bg-mercury-900 text-white font-bold text-sm uppercase tracking-wider hover:opacity-90 transition-colors "
                             >
                                 <RotateCcw className="h-4 w-4" strokeWidth={1.5} />
                                 Scanează din nou
                             </button>
                             <Link
                                 href="/browse"
-                                className="flex items-center gap-2 px-5 py-3 border border-stone-200 font-bold text-sm uppercase tracking-wider hover:bg-forest hover:text-white transition-colors rounded-lg"
+                                className="flex items-center gap-2 px-5 py-3 -500-200 font-bold text-sm uppercase tracking-wider hover:bg-mercury-900 hover:text-white transition-colors "
                             >
                                 <ShoppingBag className="h-4 w-4" strokeWidth={1.5} />
                                 Răsfoiește tot
@@ -171,37 +171,37 @@ export default function ScanPage() {
                 {state === "manual" && (
                     <div className="space-y-6">
                         <div className="text-center space-y-2">
-                            <Keyboard className="h-8 w-8 mx-auto text-stone" strokeWidth={1.5} />
+                            <Keyboard className="h-8 w-8 mx-auto text-mercury-500" strokeWidth={1.5} />
                             <p className="font-heading font-bold text-lg uppercase tracking-tight">
                                 Introducere manuală
                             </p>
-                            <p className="text-sm text-stone">
+                            <p className="text-sm text-mercury-500">
                                 Tastați codul SKU sau inserați link-ul produsului
                             </p>
                         </div>
                         <div className="space-y-3">
                             <div className="flex gap-2">
-                                <div className="flex items-center gap-2 flex-1 border border-stone-200 rounded-lg bg-white px-4">
-                                    <Keyboard className="h-4 w-4 text-stone shrink-0" strokeWidth={1.5} />
+                                <div className="flex items-center gap-2 flex-1 -500-200 bg-white px-4">
+                                    <Keyboard className="h-4 w-4 text-mercury-500 shrink-0" strokeWidth={1.5} />
                                     <input
                                         type="text"
                                         value={manualInput}
                                         onChange={(e) => setManualInput(e.target.value)}
                                         onKeyDown={(e) => e.key === "Enter" && handleManualSearch()}
                                         placeholder="SKU sau link: 900160 / https://caparolshop.md/..."
-                                        className="flex-1 py-3 bg-transparent text-sm font-semibold placeholder:text-stone focus:outline-none"
+                                        className="flex-1 py-3 bg-transparent text-sm font-semibold placeholder:text-mercury-500 focus:outline-none"
                                         autoFocus
                                     />
                                 </div>
                                 <button
                                     onClick={handleManualSearch}
-                                    className="px-6 py-3 bg-charcoal text-white font-bold text-sm uppercase tracking-wider hover:opacity-90 transition-colors rounded-lg"
+                                    className="px-6 py-3 bg-mercury-900 text-white font-bold text-sm uppercase tracking-wider hover:opacity-90 transition-colors "
                                 >
                                     <Search className="h-4 w-4" strokeWidth={1.5} />
                                 </button>
                             </div>
                             {manualInput.startsWith("http") && (
-                                <div className="flex items-center gap-2 text-xs text-stone">
+                                <div className="flex items-center gap-2 text-xs text-mercury-500">
                                     <Link2 className="h-3.5 w-3.5" strokeWidth={1.5} />
                                     <span>Se va căuta după URL-ul produsului</span>
                                 </div>
@@ -209,7 +209,7 @@ export default function ScanPage() {
                         </div>
                         <button
                             onClick={handleReset}
-                            className="w-full flex items-center justify-center gap-2 py-3 border border-stone-200 bg-white hover:bg-forest hover:text-white transition-colors font-semibold text-sm uppercase tracking-wider rounded-lg"
+                            className="w-full flex items-center justify-center gap-2 py-3 -500-200 bg-white hover:bg-mercury-900 hover:text-white transition-colors font-semibold text-sm uppercase tracking-wider "
                         >
                             <ScanBarcode className="h-4 w-4" strokeWidth={1.5} />
                             Înapoi la scanner
