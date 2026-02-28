@@ -16,7 +16,7 @@ export default function ListingCard({ listing, variant = "grid" }: ListingCardPr
                 <div className="relative h-28 w-36 shrink-0 overflow-hidden rounded-none p-2 bg-[#FAF9F6] border border-black-300">
                     <img src={listing.images[0]} alt={listing.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                     {listing.isFree && (
-                        <span className="absolute top-2 left-2 rounded-none bg-black-500 px-2 py-0.5 text-[11px] font-semibold text-white"> FREE </span>
+                        <span className="absolute top-2 left-2 rounded-none bg-black-500 px-2 py-0.5 text-[11px] font-semibold text-white"> GRATUIT </span>
                     )}
                 </div>
                 <div className="flex flex-1 flex-col justify-between min-w-0">
@@ -47,7 +47,7 @@ export default function ListingCard({ listing, variant = "grid" }: ListingCardPr
                 <img src={listing.images[0]} alt={listing.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                 {/* Badges */}
                 {listing.isFree && (
-                    <span className="absolute top-2 left-2 rounded-none bg-black-500 px-2.5 py-1 text-xs font-semibold text-white "> FREE </span>
+                    <span className="absolute top-2 left-2 rounded-none bg-black-500 px-2.5 py-1 text-xs font-semibold text-white "> GRATUIT </span>
                 )}
                 {/* Image count dots left unharmed */}
                 {listing.images.length > 1 && (

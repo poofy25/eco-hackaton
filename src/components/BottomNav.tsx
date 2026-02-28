@@ -6,11 +6,11 @@ import { Home, Search, PlusCircle, Package, UserCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-    { href: "/", icon: Home, label: "Home" },
-    { href: "/browse", icon: Search, label: "Browse" },
-    { href: "/dashboard/new-listing", icon: PlusCircle, label: "Sell", isCenter: true },
-    { href: "/buyer/orders", icon: Package, label: "Orders" },
-    { href: "/dashboard", icon: UserCircle, label: "Profile" },
+    { href: "/", icon: Home, label: "Acasă" },
+    { href: "/browse", icon: Search, label: "Caută" },
+    { href: "/dashboard/new-listing", icon: PlusCircle, label: "Vinde", isCenter: true },
+    { href: "/buyer/orders", icon: Package, label: "Comenzi" },
+    { href: "/dashboard", icon: UserCircle, label: "Profil" },
 ];
 
 export default function BottomNav() {

@@ -48,19 +48,19 @@ export default function Navbar() {
                                         onClick={() => { setCurrentLang("RO"); setLangMenuOpen(false); }}
                                         className={`w-full text-left px-4 py-2 text-sm transition-colors ${currentLang === "RO" ? "font-bold text-black-900" : "text-black-900"} hover:bg-black-900 hover:text-white`}
                                     >
-                                        Romanian (Default)
+                                        Română (Implicit)
                                     </button>
                                     <button
                                         onClick={() => { setCurrentLang("RU"); setLangMenuOpen(false); }}
                                         className={`w-full text-left px-4 py-2 text-sm transition-colors ${currentLang === "RU" ? "font-bold text-black-900" : "text-black-900"} hover:bg-black-900 hover:text-white`}
                                     >
-                                        Russian
+                                        Rusă
                                     </button>
                                     <button
                                         onClick={() => { setCurrentLang("EN"); setLangMenuOpen(false); }}
                                         className={`w-full text-left px-4 py-2 text-sm transition-colors ${currentLang === "EN" ? "font-bold text-black-900" : "text-black-900"} hover:bg-black-900 hover:text-white`}
                                     >
-                                        English
+                                        Engleză
                                     </button>
                                 </div>
                             </>
@@ -99,20 +99,20 @@ export default function Navbar() {
                                             <p className="text-xs text-black-500">{user.email}</p>
                                         </div>
                                         <Link href="/dashboard" className="flex items-center gap-2.5 px-4 py-2 text-sm text-black-900 hover:bg-black-900 hover:text-white" onClick={() => setUserMenuOpen(false)}>
-                                            <LayoutDashboard className="h-4 w-4" strokeWidth={1.5} /> Seller Dashboard
+                                            <LayoutDashboard className="h-4 w-4" strokeWidth={1.5} /> Panou Vânzător
                                         </Link>
                                         <Link href="/buyer" className="flex items-center gap-2.5 px-4 py-2 text-sm text-black-900 hover:bg-black-900 hover:text-white" onClick={() => setUserMenuOpen(false)}>
-                                            <Package className="h-4 w-4" strokeWidth={1.5} /> Buyer Dashboard
+                                            <Package className="h-4 w-4" strokeWidth={1.5} /> Panou Cumpărător
                                         </Link>
                                         <Link href="/dashboard/new-listing" className="flex items-center gap-2.5 px-4 py-2 text-sm text-black-900 hover:bg-black-900 hover:text-white" onClick={() => setUserMenuOpen(false)}>
-                                            <PlusCircle className="h-4 w-4" strokeWidth={1.5} /> List an Item
+                                            <PlusCircle className="h-4 w-4" strokeWidth={1.5} /> Adaugă Anunț
                                         </Link>
                                         <Link href="/dashboard" className="flex items-center gap-2.5 px-4 py-2 text-sm text-black-900 hover:bg-black-900 hover:text-white" onClick={() => setUserMenuOpen(false)}>
-                                            <Settings className="h-4 w-4" strokeWidth={1.5} /> Settings
+                                            <Settings className="h-4 w-4" strokeWidth={1.5} /> Setări
                                         </Link>
                                         <div className="border-t border-black-300 mt-2 pt-2">
                                             <button className="flex w-full items-center gap-2.5 px-4 py-2 text-sm text-black-900 hover:bg-black-900 hover:text-white">
-                                                <LogOut className="h-4 w-4" strokeWidth={1.5} /> Sign Out
+                                                <LogOut className="h-4 w-4" strokeWidth={1.5} /> Deconectare
                                             </button>
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@ export default function Navbar() {
                             href="/login"
                             className="hidden sm:flex items-center gap-1.5 border border-black-900 bg-black-900 px-4 py-2 text-sm font-semibold text-white hover:bg-[#FED601] hover:text-black-900 transition-colors uppercase"
                         >
-                            Sign In
+                            Autentificare
                         </Link>
                     )}
 
@@ -146,13 +146,13 @@ export default function Navbar() {
                 <div className="sm:hidden border-b border-black-300 bg-white">
                     <div className="mx-auto max-w-7xl border-x border-black-300 px-4 py-3 space-y-1">
                         <Link href="/dashboard" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-black-900 hover:bg-black-900 hover:text-white" onClick={() => setMenuOpen(false)}>
-                            <LayoutDashboard className="h-4 w-4" strokeWidth={1.5} /> Dashboard
+                            <LayoutDashboard className="h-4 w-4" strokeWidth={1.5} /> Panou
                         </Link>
                         <Link href="/dashboard/new-listing" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-black-900 hover:bg-black-900 hover:text-white" onClick={() => setMenuOpen(false)}>
-                            <PlusCircle className="h-4 w-4" strokeWidth={1.5} /> List an Item
+                            <PlusCircle className="h-4 w-4" strokeWidth={1.5} /> Adaugă Anunț
                         </Link>
                         <Link href="/login" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-black-900 hover:bg-[#FED601]" onClick={() => setMenuOpen(false)}>
-                            <User className="h-4 w-4" strokeWidth={1.5} /> Sign In
+                            <User className="h-4 w-4" strokeWidth={1.5} /> Autentificare
                         </Link>
                     </div>
                 </div>
