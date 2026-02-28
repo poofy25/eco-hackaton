@@ -1,0 +1,534 @@
+{
+  "common": {
+    "free": "FREE",
+    "dismiss": "Dismiss",
+    "apply": "Apply",
+    "clearAll": "Clear All",
+    "search": "Search",
+    "home": "Home",
+    "cart": "Cart",
+    "menu": "Menu",
+    "selectLanguage": "Select Language"
+  },
+  "nav": {
+    "cart": "Cart",
+    "menu": "Menu",
+    "selectLanguage": "Select Language",
+    "searchPlaceholder": "Search materials...",
+    "searchPlaceholders": {
+      "materials": "Search materials...",
+      "lumber": "Lumber...",
+      "steel": "Steel...",
+      "concrete": "Concrete..."
+    },
+    "materials": "Materials",
+    "demolitions": "Demolitions",
+    "dashboard": "Dashboard",
+    "addListing": "Add Listing",
+    "settings": "Settings",
+    "logout": "Log out",
+    "login": "Log in",
+    "languages": {
+      "ro": "Romanian (Default)",
+      "ru": "Russian",
+      "en": "English"
+    },
+    "bottomNav": {
+      "home": "Home",
+      "search": "Search",
+      "scan": "Scan",
+      "orders": "Orders",
+      "profile": "Profile"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Find Unused Materials.",
+      "description": "The surplus construction materials marketplace, connecting builders and contractors.",
+      "categoryCount": "{count} listings"
+    },
+    "viewAllMaterials": "View All Materials",
+    "footer": "© 2026 Salvio. All rights reserved."
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "steps": {
+      "list": {
+        "title": "List",
+        "description": "Take a photo, set a price (or offer free) and publish in under 60 seconds."
+      },
+      "connect": {
+        "title": "Connect",
+        "description": "Buyers browse, send messages and arrange pickup or delivery."
+      },
+      "impact": {
+        "title": "Impact",
+        "description": "Every transaction diverts materials from the landfill. Track your ecological impact in real time."
+      }
+    },
+    "cta": "Start Selling — It's Free"
+  },
+  "filters": {
+    "title": "Filters",
+    "closeFilters": "Close filters",
+    "freeOnly": "Free Items Only",
+    "category": "Category",
+    "condition": "Condition",
+    "priceRange": "Price Range",
+    "distance": "Distance",
+    "popularMarkets": "Popular Stores",
+    "sellerType": "Seller Type",
+    "min": "Min",
+    "max": "Max",
+    "conditions": {
+      "surplus": "Surplus New",
+      "lightlyUsed": "Lightly Used",
+      "asIs": "As-Is",
+      "recovered": "Recovered"
+    },
+    "distances": ["5 km", "10 km", "25 km", "50 km", "100+ km"],
+    "sellerTypes": {
+      "all": "All Sellers",
+      "markets": "Stores & Warehouses",
+      "individual": "Individual Sellers"
+    },
+    "needHelp": "Need help?",
+    "visitSupport": "Visit Support Center"
+  },
+  "sidebar": {
+    "title": "Seller Dashboard",
+    "description": "Manage listings and track your impact",
+    "overview": "Overview",
+    "myListings": "My Listings",
+    "orders": "Orders",
+    "calculators": "Calculators",
+    "impactReport": "Impact Report"
+  },
+  "browse": {
+    "breadcrumb": "All Materials",
+    "title": "All Materials",
+    "resultsCount": "{count} results",
+    "filters": "Filters",
+    "sort": {
+      "newest": "Newest",
+      "priceAsc": "Price: Low → High",
+      "priceDesc": "Price: High → Low",
+      "nearest": "Nearest",
+      "mostSaved": "Most Saved"
+    },
+    "viewGrid": "Grid view",
+    "viewList": "List view"
+  },
+  "listing": {
+    "free": "FREE",
+    "discount": "-{discount}%",
+    "quantity": "{quantity} {unit}",
+    "notFound": "Listing not found",
+    "notFoundDescription": "This listing may have been removed or does not exist.",
+    "searchMaterials": "Search Materials",
+    "memberSince": "Member since {date}",
+    "ecologicalContribution": "Ecological contribution",
+    "available": "{quantity} {unit} available",
+    "decreaseQty": "Decrease quantity",
+    "increaseQty": "Increase quantity",
+    "specs": "Specifications",
+    "atDistance": "at {distance}",
+    "pickupAvailable": "Pickup Available",
+    "delivery": "Delivery",
+    "shipping": "Shipping",
+    "addToCart": "Add to Cart",
+    "messageSeller": "Message Seller",
+    "save": "Save",
+    "share": "Share",
+    "report": "Report",
+    "impactMessage": "By buying this item you save an estimated {wasteKg} kg of waste from the landfill and {co2Kg} kg of CO₂ emissions.",
+    "description": "Description",
+    "moreFromSeller": "More from {seller}",
+    "similarMaterials": "Similar Materials"
+  },
+  "cart": {
+    "emptyTitle": "Your cart is empty",
+    "emptyDescription": "Search for materials and add items to your cart.",
+    "searchMaterials": "Search Materials",
+    "title": "Shopping Cart",
+    "itemCount": "({count} item)",
+    "itemCountPlural": "({count} items)",
+    "summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "serviceFee": "Service fee",
+    "totalEstimate": "Estimated Total",
+    "serviceFeeTooltip": "This fee keeps Salvio running and funds our ecological initiatives",
+    "continueToCheckout": "Continue to Checkout",
+    "taxNote": "Taxes and shipping calculated at checkout",
+    "decrease": "Decrease",
+    "increase": "Increase",
+    "remove": "Remove"
+  },
+  "login": {
+    "welcome": "Welcome back",
+    "description": "Sign in to your account to continue.",
+    "email": "Email",
+    "password": "Password",
+    "emailPlaceholder": "you@company.com",
+    "passwordPlaceholder": "Enter password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "submit": "Sign in",
+    "or": "or",
+    "continueWithGoogle": "Continue with Google",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "quote": "One company's surplus is another's foundation."
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {name}",
+    "subtitle": "Here's what's happening with your store today.",
+    "addListing": "Add New Listing",
+    "stats": {
+      "activeListings": "Active Listings",
+      "totalSales": "Total Sales",
+      "itemsSold": "Items Sold",
+      "impact": "Impact"
+    },
+    "trends": {
+      "newThisWeek": "2 new this week",
+      "salesUp": "+12% this month",
+      "soldThisWeek": "+5 this week",
+      "diverted": "diverted from landfill"
+    },
+    "recentOrders": "Recent Orders",
+    "viewAll": "View All →",
+    "orderNumber": "Order #",
+    "buyer": "Buyer",
+    "date": "Date",
+    "status": "Status",
+    "amount": "Amount",
+    "statuses": {
+      "pending": "pending",
+      "confirmed": "confirmed",
+      "ready": "ready",
+      "completed": "completed",
+      "cancelled": "cancelled"
+    }
+  },
+  "listings": {
+    "title": "My Listings",
+    "newListing": "New Listing",
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "paused": "Paused",
+      "sold": "Sold"
+    },
+    "statuses": {
+      "active": "active",
+      "paused": "paused",
+      "sold": "sold"
+    },
+    "actions": {
+      "edit": "Edit",
+      "pause": "Pause",
+      "activate": "Activate",
+      "delete": "Delete"
+    },
+    "listedAt": "Listed {date}"
+  },
+  "orders": {
+    "title": "Orders",
+    "items": "Items",
+    "logistics": "Logistics",
+    "logisticsTypes": {
+      "pickup": "pickup",
+      "delivery": "delivery",
+      "shipping": "shipping"
+    },
+    "quantity": "Qty: {count}"
+  },
+  "newListing": {
+    "title": "Add Listing",
+    "description": "List your surplus materials quickly and easily.",
+    "modes": {
+      "single": "Single Product",
+      "bulk": "Bulk Import"
+    },
+    "fields": {
+      "title": "Title *",
+      "category": "Category *",
+      "condition": "Condition",
+      "quantity": "Quantity *",
+      "unit": "Unit",
+      "price": "Price (MDL)",
+      "description": "Description (optional)",
+      "photos": "Photos (optional)"
+    },
+    "placeholders": {
+      "title": "e.g. Douglas Fir Lumber 5×15 cm, Caparol Paint 10L",
+      "select": "Select",
+      "quantity": "50",
+      "unit": "pcs, m², kg",
+      "price": "0.00",
+      "description": "Add additional details..."
+    },
+    "pricing": {
+      "sell": "Sell",
+      "free": "Offer Free",
+      "freeInfo": "Free listings get 3× more visibility!"
+    },
+    "addPhotos": "Add photos",
+    "locationDelivery": "Location & Delivery",
+    "pickupAvailable": "Pickup available",
+    "deliveryAvailable": "Delivery available",
+    "shippingAvailable": "Shipping available",
+    "modify": "Modify",
+    "hide": "Hide",
+    "specsNote": "Technical specs are auto-generated based on category.",
+    "saveDraft": "Save as Draft",
+    "publish": "Publish Listing",
+    "bulk": {
+      "uploadFile": "Upload File",
+      "dropzone": "Drag file here or click to select",
+      "formats": "CSV, Excel (.xlsx) or JSON",
+      "pasteTable": "Paste from Table",
+      "pasteHint": "Copy rows from Excel or Google Sheets.",
+      "quickAdd": "Quick Add",
+      "titleCol": "Title",
+      "categoryCol": "Category",
+      "qtyCol": "Qty",
+      "priceCol": "Price",
+      "conditionCol": "Condition",
+      "titlePlaceholder": "Product title",
+      "pricePlaceholder": "MDL",
+      "addRow": "Add row",
+      "locationForAll": "Location for all products",
+      "publishAll": "Publish All ({count} listing)",
+      "publishAllPlural": "Publish All ({count} listings)"
+    }
+  },
+  "impact": {
+    "title": "Impact Report",
+    "totalDiverted": "Total Materials Diverted from Landfill",
+    "truckLoads": "That's equivalent to {count} truck loads kept away from landfills.",
+    "byCategory": "Waste Saved by Category",
+    "monthlyImpact": "Monthly Impact",
+    "saved": "Waste Saved",
+    "diverted": "Waste Diverted",
+    "shareTitle": "Share Your Impact",
+    "shareText": "I saved {count} kg of construction materials from the landfill with Salvio",
+    "shareLinkedIn": "Share on LinkedIn",
+    "downloadImage": "Download Image"
+  },
+  "impactTicker": {
+    "live": "Live",
+    "tonsDiverted": "{value} tons diverted from landfill",
+    "mdlRecycled": "{value} MDL in recycled materials",
+    "activeSellers": "{value} active sellers"
+  },
+  "missionStrip": {
+    "quote": "The construction industry generates 600 million tons of waste annually. We believe every material deserves a second chance.",
+    "learnMore": "Learn More About Our Mission →"
+  },
+  "demolitions": {
+    "title": "Demolitions & Recoverable Materials",
+    "description": "Discover planned demolitions in Moldova and estimate the value of recoverable materials. Turn construction waste into valuable resources.",
+    "stats": {
+      "listings": "Listings",
+      "value": "Value",
+      "recoverable": "Recoverable"
+    },
+    "tabs": {
+      "listings": "Listings",
+      "calculator": "Calculator"
+    },
+    "filters": {
+      "all": "All",
+      "planned": "Planned",
+      "inProgress": "In Progress",
+      "completed": "Completed"
+    },
+    "allCities": "All cities",
+    "empty": "No listings found",
+    "emptyHint": "Modify filters to see other results."
+  },
+  "demolitionCard": {
+    "recoverableMaterials": "Recoverable materials",
+    "estimatedValue": "Total estimated value",
+    "viewDetails": "View Details",
+    "floors": "{floors} floor",
+    "floorsPlural": "{floors} floors",
+    "area": "{area} m²",
+    "year": "Year {year}"
+  },
+  "demolitionCalculator": {
+    "quickEstimate": "Quick Estimate",
+    "detailedComponents": "Detailed by Components",
+    "buildingType": "Building type",
+    "area": "Area (m²)",
+    "floors": "Floors",
+    "yearBuilt": "Year built",
+    "areaPlaceholder": "e.g. 2000",
+    "calculate": "Calculate Estimate",
+    "totalValue": "Total value",
+    "co2Saved": "CO₂ saved",
+    "recoverable": "Recoverable",
+    "material": "Material",
+    "quantity": "Quantity",
+    "recovery": "Recov.",
+    "value": "Value",
+    "listOnSalvio": "List on Salvio",
+    "detailedHint": "Add materials individually for a more accurate recovery value estimate.",
+    "component": "Component {index}",
+    "selectMaterial": "Select material",
+    "addComponent": "Add component",
+    "calculateValue": "Calculate Value",
+    "wasteDiverted": "Waste diverted",
+    "condition": "Condition"
+  },
+  "scan": {
+    "title": "SKU Scanner",
+    "instructions": "Point camera at barcode",
+    "hint": "Scan the product barcode or QR code to find it on Salvio",
+    "manualEntry": "Enter code manually",
+    "skuResult": "SKU: {code}",
+    "resultsCount": "{count} result",
+    "resultsCountPlural": "{count} results",
+    "scanAgain": "Scan again",
+    "noResults": "No results",
+    "noResultsHint": "Code {code} was not found in catalog. Try another code or browse manually.",
+    "browseAll": "Browse all",
+    "manualMode": {
+      "title": "Manual entry",
+      "description": "Type the SKU code or paste product link",
+      "placeholder": "SKU or link: 900160 / https://caparolshop.md/...",
+      "urlHint": "Search will use product URL",
+      "backToScanner": "Back to scanner"
+    }
+  },
+  "buyer": {
+    "title": "My Dashboard",
+    "stats": {
+      "ordersPlaced": "Orders Placed",
+      "savedItems": "Saved Items",
+      "totalSavings": "Total Savings",
+      "impact": "Impact"
+    },
+    "trends": {
+      "vsRetail": "vs retail price",
+      "wasteDiverted": "waste diverted"
+    },
+    "activeOrders": "Active Orders",
+    "savedItems": "Saved Items",
+    "viewAll": "View All →",
+    "steps": {
+      "placed": "Placed",
+      "confirmed": "Confirmed",
+      "ready": "Ready",
+      "completed": "Completed"
+    },
+    "quantityLogistics": "Qty: {count} · {logistics}",
+    "savedTitle": "Saved Items",
+    "savedSearches": "Saved Searches",
+    "alertsActive": "Alerts Active",
+    "orderHistory": "Order History",
+    "action": "Action",
+    "total": "Total",
+    "leaveReview": "Leave a Review"
+  },
+  "calculators": {
+    "tabs": {
+      "area": "Area",
+      "paint": "Paint",
+      "tile": "Tile",
+      "concrete": "Concrete",
+      "wallpaper": "Wallpaper"
+    },
+    "shapes": {
+      "rectangle": "Rectangle",
+      "circle": "Circle",
+      "triangle": "Triangle",
+      "trapezoid": "Trapezoid"
+    },
+    "labels": {
+      "length": "Length",
+      "width": "Width",
+      "radius": "Radius",
+      "base": "Base",
+      "height": "Height",
+      "baseLarge": "Large base",
+      "baseSmall": "Small base",
+      "quantity": "Quantity",
+      "waste": "Waste",
+      "costPerSqm": "Cost / m²"
+    },
+    "units": {
+      "m": "m",
+      "pcs": "pcs",
+      "percent": "%",
+      "mdl": "MDL",
+      "liters": "liters",
+      "tons": "tons",
+      "rolls": "rolls"
+    },
+    "results": {
+      "area": "Area",
+      "totalWithQty": "Total (× quantity)",
+      "withWaste": "With waste",
+      "estimatedCost": "Estimated cost",
+      "wallArea": "Wall area",
+      "paintArea": "Paint area",
+      "paintNeeded": "Paint needed",
+      "totalArea": "Total area",
+      "tilesNeeded": "Tiles needed",
+      "volume": "Volume",
+      "total": "Total",
+      "estimatedWeight": "Est. weight",
+      "effectivePerimeter": "Effective perimeter",
+      "stripsNeeded": "Strips needed",
+      "rollsNeeded": "Rolls needed"
+    },
+    "paint": {
+      "roomLength": "Room length",
+      "roomWidth": "Room width",
+      "doors": "Doors",
+      "windows": "Windows",
+      "coats": "Coats",
+      "coverage": "Paint coverage"
+    },
+    "tile": {
+      "zoneLength": "Zone length",
+      "zoneWidth": "Zone width",
+      "tileLength": "Tile length",
+      "tileWidth": "Tile width",
+      "grout": "Grout",
+      "pricePerTile": "Price / tile"
+    },
+    "concrete": {
+      "depth": "Depth",
+      "pricePerCubic": "Price / m³"
+    },
+    "wallpaper": {
+      "roomLength": "Room length",
+      "roomWidth": "Room width",
+      "rollWidth": "Roll width",
+      "rollLength": "Roll length",
+      "pricePerRoll": "Price / roll"
+    },
+    "disclaimer": "Results are estimates. Consult a specialist for precise calculations."
+  },
+  "socialProof": {
+    "feeNote": "Salvio charges a small fee only when you make a sale. Listing is always free."
+  },
+  "categories": {
+    "lumber": "Lumber & Wood",
+    "steel": "Steel & Metal",
+    "concrete": "Concrete & Masonry",
+    "electrical": "Electrical",
+    "plumbing": "Plumbing",
+    "fixtures": "Hardware & Accessories",
+    "roofing": "Roofing",
+    "tile": "Tile & Stone",
+    "insulation": "Insulation",
+    "paint": "Paint & Finishes",
+    "doors": "Doors & Windows",
+    "equipment": "Heavy Equipment"
+  }
+}

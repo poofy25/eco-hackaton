@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import {
     TreePine, Construction, Blocks, Zap, Droplets, Wrench,
     Home, LayoutGrid, Thermometer, Paintbrush,
@@ -54,6 +55,9 @@ function AnimatedCounter({ end, prefix = "", suffix = "", decimals = 0 }: { end:
 }
 
 export default function HeroSection() {
+    const t = useTranslations("home.hero");
+    const tCategories = useTranslations("categories");
+
     return (
         <section className="relative overflow-hidden bg-transparent">
             <div className="relative mx-auto max-w-7xl h-full bg-white flex flex-col items-start px-8 pt-8 pb-0">
@@ -61,10 +65,10 @@ export default function HeroSection() {
                 <div className="w-full text-left relative z-10 flex flex-col items-start mb-3">
                     {/* HEADLINE + DESCRIPTION */}
                     <h1 className="font-heading text-2xl sm:text-3xl font-bold text-mercury-900 leading-[1.1] mb-2 tracking-tight">
-                        Găsește Materiale Nefolosite.
+                        {t("title")}
                     </h1>
                     <p className="text-sm sm:text-base text-mercury-500 max-w-xl mb-5">
-                        Piața materialelor de construcție surplus, conectând constructori și antreprenori.
+                        {t("description")}
                     </p>
 
                     {/* STATS PILL */}
@@ -86,10 +90,10 @@ export default function HeroSection() {
                                 </div>
                                 <div className="min-w-0">
                                     <p className="text-xs sm:text-sm font-semibold text-mercury-900 truncate">
-                                        {cat.name}
+                                        {tCategories(cat.id)}
                                     </p>
                                     <p className="text-[11px] sm:text-xs text-mercury-500">
-                                        {cat.count.toLocaleString()} anunțuri
+                                        {t("categoryCount", { count: cat.count.toLocaleString() })}
                                     </p>
                                 </div>
                             </Link>

@@ -1,20 +1,21 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Home, Search, ScanBarcode, Package, UserCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const navItems = [
-    { href: "/", icon: Home, label: "Acasă" },
-    { href: "/browse", icon: Search, label: "Caută" },
-    { href: "/scan", icon: ScanBarcode, label: "Scanează", isCenter: true },
-    { href: "/dashboard/orders", icon: Package, label: "Comenzi" },
-    { href: "/dashboard", icon: UserCircle, label: "Profil" },
-];
+import { Link, usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 export default function BottomNav() {
+    const t = useTranslations("nav.bottomNav");
     const pathname = usePathname();
+
+    const navItems = [
+        { href: "/", icon: Home, label: t("home") },
+        { href: "/browse", icon: Search, label: t("search") },
+        { href: "/scan", icon: ScanBarcode, label: t("scan"), isCenter: true },
+        { href: "/dashboard/orders", icon: Package, label: t("orders") },
+        { href: "/dashboard", icon: UserCircle, label: t("profile") },
+    ];
 
     return (
         <nav className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white -500-200">
@@ -54,7 +55,6 @@ export default function BottomNav() {
                     );
                 })}
             </div>
-            {/* Safe area padding for notched devices */}
             <div className="h-[env(safe-area-inset-bottom)] bg-white max-w-7xl mx-auto" />
         </nav>
     );

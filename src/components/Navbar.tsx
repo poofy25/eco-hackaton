@@ -1,27 +1,42 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { ShoppingCart, Menu, X, LayoutDashboard, Settings, PlusCircle, LogOut, User, Globe, ChevronDown, Search } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { useAuth } from "@/lib/auth-context";
-
-const placeholders = [
-    "Caută materiale...",
-    "Cherestea...",
-    "Oțel...",
-    "Beton...",
-];
+import { Link, useRouter, usePathname } from "@/i18n/navigation";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Navbar() {
+    const t = useTranslations("nav");
+    const router = useRouter();
+    const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
     const [userMenuOpen, setUserMenuOpen] = useState(false);
     const [langMenuOpen, setLangMenuOpen] = useState(false);
-    const [currentLang, setCurrentLang] = useState("RO");
+    const locale = useLocale();
+    const [currentLang, setCurrentLang] = useState(locale.toUpperCase());
     const [searchValue, setSearchValue] = useState("");
     const [placeholderIndex, setPlaceholderIndex] = useState(0);
     const { itemCount } = useCart();
     const { user, isAuthenticated } = useAuth();
+
+    const placeholders = [
+        t("searchPlaceholders.materials"),
+        t("searchPlaceholders.lumber"),
+        t("searchPlaceholders.steel"),
+        t("searchPlaceholders.concrete"),
+    ];
+
+    const setLocale = (locale: "ro" | "en") => {
+        setCurrentLang(locale.toUpperCase());
+        setLangMenuOpen(false);
+        router.replace(pathname || "/", { locale });
+    };
+
+    useEffect(() => {
+        setCurrentLang(locale.toUpperCase());
+    }, [locale]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -90,13 +105,13 @@ export default function Navbar() {
                         href="/browse"
                         className="px-3 py-1.5 text-sm font-normal text-mercury-900 hover:text-mercury-900 transition-colors "
                     >
-                        Materiale
+                        {t("materials")}
                     </Link>
                     <Link
                         href="/demolitions"
                         className="px-3 py-1.5 text-sm font-normal text-mercury-900 hover:text-mercury-900 transition-colors "
                     >
-                        Demolări
+                        {t("demolitions")}
                     </Link>
                 </div>
 
@@ -107,7 +122,7 @@ export default function Navbar() {
                         <button
                             onClick={() => setLangMenuOpen(!langMenuOpen)}
                             className="flex h-9 items-center justify-center gap-1.5 border border-mercury-200 bg-white px-2.5 hover:bg-mercury-900 hover:text-white transition-colors group "
-                            aria-label="Select Language"
+                            aria-label={t("selectLanguage")}
                         >
                             <Globe className="h-4 w-4 text-mercury-900 group-hover:text-white transition-colors" strokeWidth={1.5} />
                             <span className="font-bold text-xs text-mercury-900 group-hover:text-white transition-colors uppercase hidden sm:inline-block">{currentLang}</span>
@@ -118,22 +133,16 @@ export default function Navbar() {
                                 <div className="fixed inset-0 z-40" onClick={() => setLangMenuOpen(false)} />
                                 <div className="absolute right-0 top-full mt-2 z-50 w-44 bg-white border border-mercury-200 py-1">
                                     <button
-                                        onClick={() => { setCurrentLang("RO"); setLangMenuOpen(false); }}
+                                        onClick={() => setLocale("ro")}
                                         className={`w-full text-left px-4 py-2 text-sm transition-colors ${currentLang === "RO" ? "font-bold text-mercury-900" : "text-mercury-900"} hover:bg-mercury-900 hover:text-white`}
                                     >
-                                        Română (Implicit)
+                                        {t("languages.ro")}
                                     </button>
                                     <button
-                                        onClick={() => { setCurrentLang("RU"); setLangMenuOpen(false); }}
-                                        className={`w-full text-left px-4 py-2 text-sm transition-colors ${currentLang === "RU" ? "font-bold text-mercury-900" : "text-mercury-900"} hover:bg-mercury-900 hover:text-white`}
-                                    >
-                                        Rusă
-                                    </button>
-                                    <button
-                                        onClick={() => { setCurrentLang("EN"); setLangMenuOpen(false); }}
+                                        onClick={() => setLocale("en")}
                                         className={`w-full text-left px-4 py-2 text-sm transition-colors ${currentLang === "EN" ? "font-bold text-mercury-900" : "text-mercury-900"} hover:bg-mercury-900 hover:text-white`}
                                     >
-                                        Engleză
+                                        {t("languages.en")}
                                     </button>
                                 </div>
                             </>
@@ -146,7 +155,7 @@ export default function Navbar() {
                     <Link
                         href="/cart"
                         className="relative flex h-9 w-9 items-center justify-center border border-mercury-200 bg-white hover:bg-mercury-900 hover:text-white transition-colors group "
-                        aria-label="Cart"
+                        aria-label={t("cart")}
                     >
                         <ShoppingCart className="h-4 w-4 text-mercury-900 group-hover:text-white" strokeWidth={1.5} />
                         {itemCount > 0 && (
@@ -174,17 +183,17 @@ export default function Navbar() {
                                             <p className="text-xs text-mercury-500">{user.email}</p>
                                         </div>
                                         <Link href="/dashboard" className="flex items-center gap-2.5 px-4 py-2 text-sm text-mercury-900 hover:bg-mercury-900 hover:text-white mx-1" onClick={() => setUserMenuOpen(false)}>
-                                            <LayoutDashboard className="h-4 w-4" strokeWidth={1.5} /> Panou
+                                            <LayoutDashboard className="h-4 w-4" strokeWidth={1.5} /> {t("dashboard")}
                                         </Link>
                                         <Link href="/dashboard/new-listing" className="flex items-center gap-2.5 px-4 py-2 text-sm text-mercury-900 hover:bg-mercury-900 hover:text-white mx-1" onClick={() => setUserMenuOpen(false)}>
-                                            <PlusCircle className="h-4 w-4" strokeWidth={1.5} /> Adaugă Anunț
+                                            <PlusCircle className="h-4 w-4" strokeWidth={1.5} /> {t("addListing")}
                                         </Link>
                                         <Link href="/dashboard" className="flex items-center gap-2.5 px-4 py-2 text-sm text-mercury-900 hover:bg-mercury-900 hover:text-white mx-1" onClick={() => setUserMenuOpen(false)}>
-                                            <Settings className="h-4 w-4" strokeWidth={1.5} /> Setări
+                                            <Settings className="h-4 w-4" strokeWidth={1.5} /> {t("settings")}
                                         </Link>
                                         <div className="border border-mercury-200 mt-2 pt-2">
                                             <button className="flex w-full items-center gap-2.5 px-4 py-2 text-sm text-mercury-900 hover:bg-mercury-900 hover:text-white mx-1">
-                                                <LogOut className="h-4 w-4" strokeWidth={1.5} /> Deconectare
+                                                <LogOut className="h-4 w-4" strokeWidth={1.5} /> {t("logout")}
                                             </button>
                                         </div>
                                     </div>
@@ -196,7 +205,7 @@ export default function Navbar() {
                             href="/login"
                             className="hidden sm:flex items-center gap-1.5 bg-mercury-900 px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-colors "
                         >
-                            Autentificare
+                            {t("login")}
                         </Link>
                     )}
 
@@ -204,7 +213,7 @@ export default function Navbar() {
                     <button
                         className="sm:hidden flex h-9 w-9 items-center justify-center border border-mercury-200 bg-white hover:bg-mercury-900 hover:text-white transition-colors "
                         onClick={() => setMenuOpen(!menuOpen)}
-                        aria-label="Menu"
+                        aria-label={t("menu")}
                     >
                         {menuOpen ? <X className="h-4 w-4" strokeWidth={1.5} /> : <Menu className="h-4 w-4" strokeWidth={1.5} />}
                     </button>
@@ -221,13 +230,14 @@ export default function Navbar() {
                                 type="text"
                                 value={searchValue}
                                 onChange={(e) => setSearchValue(e.target.value)}
-                                placeholder="Caută materiale..."
+                                placeholder={t("searchPlaceholder")}
                                 className="w-full border border-mercury-200 bg-white py-2.5 pl-3 pr-10 text-sm text-mercury-900 focus:outline-none focus:border-mercury-500"
                             />
                             <button className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-mercury-900 text-white h-7 w-7 flex items-center justify-center ">
                                 <Search className="h-3.5 w-3.5" strokeWidth={2} />
                             </button>
                         </div>
+<<<<<<< Updated upstream
                         <Link href="/demolitions" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-normal text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
                             Demolări
                         </Link>
@@ -239,6 +249,19 @@ export default function Navbar() {
                         </Link>
                         <Link href="/login" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-normal text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
                             <User className="h-4 w-4" strokeWidth={1.5} /> Autentificare
+=======
+                        <Link href="/demolitions" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
+                            {t("demolitions")}
+                        </Link>
+                        <Link href="/dashboard" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
+                            <LayoutDashboard className="h-4 w-4" strokeWidth={1.5} /> {t("dashboard")}
+                        </Link>
+                        <Link href="/dashboard/new-listing" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
+                            <PlusCircle className="h-4 w-4" strokeWidth={1.5} /> {t("addListing")}
+                        </Link>
+                        <Link href="/login" className="flex items-center gap-2.5 px-3 py-2.5 text-sm font-semibold text-mercury-900 hover:bg-mercury-900 hover:text-white " onClick={() => setMenuOpen(false)}>
+                            <User className="h-4 w-4" strokeWidth={1.5} /> {t("login")}
+>>>>>>> Stashed changes
                         </Link>
                     </div>
                 </div>

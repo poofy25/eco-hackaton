@@ -1,0 +1,534 @@
+{
+  "common": {
+    "free": "GRATUIT",
+    "dismiss": "Închide",
+    "apply": "Aplică",
+    "clearAll": "Șterge Tot",
+    "search": "Caută",
+    "home": "Acasă",
+    "cart": "Coș",
+    "menu": "Meniu",
+    "selectLanguage": "Selectează limba"
+  },
+  "nav": {
+    "cart": "Coș",
+    "menu": "Meniu",
+    "selectLanguage": "Selectează limba",
+    "searchPlaceholder": "Caută materiale...",
+    "searchPlaceholders": {
+      "materials": "Caută materiale...",
+      "lumber": "Cherestea...",
+      "steel": "Oțel...",
+      "concrete": "Beton..."
+    },
+    "materials": "Materiale",
+    "demolitions": "Demolări",
+    "dashboard": "Panou",
+    "addListing": "Adaugă Anunț",
+    "settings": "Setări",
+    "logout": "Deconectare",
+    "login": "Autentificare",
+    "languages": {
+      "ro": "Română (Implicit)",
+      "ru": "Rusă",
+      "en": "Engleză"
+    },
+    "bottomNav": {
+      "home": "Acasă",
+      "search": "Caută",
+      "scan": "Scanează",
+      "orders": "Comenzi",
+      "profile": "Profil"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Găsește Materiale Nefolosite.",
+      "description": "Piața materialelor de construcție surplus, conectând constructori și antreprenori.",
+      "categoryCount": "{count} anunțuri"
+    },
+    "viewAllMaterials": "Vezi Toate Materialele",
+    "footer": "© 2026 Salvio. Toate drepturile rezervate."
+  },
+  "howItWorks": {
+    "title": "Cum Funcționează",
+    "steps": {
+      "list": {
+        "title": "Listează",
+        "description": "Fă o poză, stabilește un preț (sau oferă gratuit) și publică în mai puțin de 60 de secunde."
+      },
+      "connect": {
+        "title": "Conectează",
+        "description": "Cumpărătorii navighează, trimit mesaje și aranjează ridicarea sau livrarea."
+      },
+      "impact": {
+        "title": "Impact",
+        "description": "Fiecare tranzacție deviază materiale de la groapa de gunoi. Urmărește impactul tău ecologic în timp real."
+      }
+    },
+    "cta": "Începe să Vinzi — Este Gratuit"
+  },
+  "filters": {
+    "title": "Filtre",
+    "closeFilters": "Închide filtrele",
+    "freeOnly": "Doar Articole Gratuite",
+    "category": "Categorie",
+    "condition": "Stare",
+    "priceRange": "Interval de Preț",
+    "distance": "Distanță",
+    "popularMarkets": "Magazine Populare",
+    "sellerType": "Tip Vânzător",
+    "min": "Min",
+    "max": "Max",
+    "conditions": {
+      "surplus": "Surplus Nou",
+      "lightlyUsed": "Ușor Utilizat",
+      "asIs": "În Starea Actuală",
+      "recovered": "Recuperat"
+    },
+    "distances": ["5 km", "10 km", "25 km", "50 km", "100+ km"],
+    "sellerTypes": {
+      "all": "Toți Vânzătorii",
+      "markets": "Magazine & Depozite",
+      "individual": "Vânzători Individuali"
+    },
+    "needHelp": "Ai nevoie de ajutor?",
+    "visitSupport": "Vizitează Centrul de Asistență"
+  },
+  "sidebar": {
+    "title": "Panou Vânzător",
+    "description": "Gestionează anunțurile și urmărește impactul",
+    "overview": "Prezentare",
+    "myListings": "Anunțurile Mele",
+    "orders": "Comenzi",
+    "calculators": "Calculatoare",
+    "impactReport": "Raport Impact"
+  },
+  "browse": {
+    "breadcrumb": "Toate Materialele",
+    "title": "Toate Materialele",
+    "resultsCount": "{count} rezultate",
+    "filters": "Filtre",
+    "sort": {
+      "newest": "Cele mai noi",
+      "priceAsc": "Preț: Mic → Mare",
+      "priceDesc": "Preț: Mare → Mic",
+      "nearest": "Cele mai aproape",
+      "mostSaved": "Cele mai salvate"
+    },
+    "viewGrid": "Vizualizare grilă",
+    "viewList": "Vizualizare listă"
+  },
+  "listing": {
+    "free": "GRATUIT",
+    "discount": "-{discount}%",
+    "quantity": "{quantity} {unit}",
+    "notFound": "Anunțul nu a fost găsit",
+    "notFoundDescription": "Acest anunț poate fi fost eliminat sau nu există.",
+    "searchMaterials": "Caută Materiale",
+    "memberSince": "Membru din {date}",
+    "ecologicalContribution": "Contribuție ecologică",
+    "available": "{quantity} {unit} disponibil(e)",
+    "decreaseQty": "Scade cantitatea",
+    "increaseQty": "Crește cantitatea",
+    "specs": "Specificații",
+    "atDistance": "la {distance}",
+    "pickupAvailable": "Ridicare Disponibilă",
+    "delivery": "Livrare",
+    "shipping": "Expediere",
+    "addToCart": "Adaugă în Coș",
+    "messageSeller": "Mesaj Vânzător",
+    "save": "Salvează",
+    "share": "Distribuie",
+    "report": "Raportează",
+    "impactMessage": "Cumpărând acest articol economisești estimativ {wasteKg} kg de deșeuri de la groapa de gunoi și {co2Kg} kg de emisii de CO₂.",
+    "description": "Descriere",
+    "moreFromSeller": "Mai multe de la {seller}",
+    "similarMaterials": "Materiale Similare"
+  },
+  "cart": {
+    "emptyTitle": "Coșul tău este gol",
+    "emptyDescription": "Caută materiale și adaugă articole în coș.",
+    "searchMaterials": "Caută Materiale",
+    "title": "Coș de Cumpărături",
+    "itemCount": "({count} articol)",
+    "itemCountPlural": "({count} articole)",
+    "summary": "Sumar Comandă",
+    "subtotal": "Subtotal",
+    "serviceFee": "Comision serviciu",
+    "totalEstimate": "Total Estimat",
+    "serviceFeeTooltip": "Acest comision menține Salvio funcțional și finanțează inițiativele noastre ecologice",
+    "continueToCheckout": "Continuă la Finalizare",
+    "taxNote": "Taxele și livrarea se calculează la finalizare",
+    "decrease": "Scade",
+    "increase": "Crește",
+    "remove": "Elimină"
+  },
+  "login": {
+    "welcome": "Bine ai revenit",
+    "description": "Autentifică-te în contul tău pentru a continua.",
+    "email": "Email",
+    "password": "Parolă",
+    "emailPlaceholder": "tu@companie.md",
+    "passwordPlaceholder": "Introdu parola",
+    "rememberMe": "Ține-mă minte",
+    "forgotPassword": "Ai uitat parola?",
+    "submit": "Autentificare",
+    "or": "sau",
+    "continueWithGoogle": "Continuă cu Google",
+    "noAccount": "Nu ai un cont?",
+    "signUp": "Înregistrează-te",
+    "quote": "Surplusul unei companii este fundația alteia."
+  },
+  "dashboard": {
+    "welcome": "Bine ai revenit, {name}",
+    "subtitle": "Iată ce se întâmplă cu magazinul tău azi.",
+    "addListing": "Adaugă Anunț Nou",
+    "stats": {
+      "activeListings": "Anunțuri Active",
+      "totalSales": "Vânzări Totale",
+      "itemsSold": "Articole Vândute",
+      "impact": "Impact"
+    },
+    "trends": {
+      "newThisWeek": "2 noi săptămâna aceasta",
+      "salesUp": "+12% luna aceasta",
+      "soldThisWeek": "+5 săptămâna aceasta",
+      "diverted": "deviate de la groapa de gunoi"
+    },
+    "recentOrders": "Comenzi Recente",
+    "viewAll": "Vezi Toate →",
+    "orderNumber": "Nr. Comandă",
+    "buyer": "Cumpărător",
+    "date": "Data",
+    "status": "Status",
+    "amount": "Sumă",
+    "statuses": {
+      "pending": "în așteptare",
+      "confirmed": "confirmat",
+      "ready": "pregătit",
+      "completed": "finalizat",
+      "cancelled": "anulat"
+    }
+  },
+  "listings": {
+    "title": "Anunțurile Mele",
+    "newListing": "Anunț Nou",
+    "filters": {
+      "all": "Toate",
+      "active": "Active",
+      "paused": "Pauzate",
+      "sold": "Vândute"
+    },
+    "statuses": {
+      "active": "activ",
+      "paused": "pauzat",
+      "sold": "vândut"
+    },
+    "actions": {
+      "edit": "Editează",
+      "pause": "Pauză",
+      "activate": "Activează",
+      "delete": "Șterge"
+    },
+    "listedAt": "Listat {date}"
+  },
+  "orders": {
+    "title": "Comenzi",
+    "items": "Articole",
+    "logistics": "Logistică",
+    "logisticsTypes": {
+      "pickup": "ridicare",
+      "delivery": "livrare",
+      "shipping": "expediere"
+    },
+    "quantity": "Cant: {count}"
+  },
+  "newListing": {
+    "title": "Adaugă Anunț",
+    "description": "Listează materialele tale surplus rapid și simplu.",
+    "modes": {
+      "single": "Produs Individual",
+      "bulk": "Import în Masă"
+    },
+    "fields": {
+      "title": "Titlu *",
+      "category": "Categorie *",
+      "condition": "Stare",
+      "quantity": "Cantitate *",
+      "unit": "Unitate",
+      "price": "Preț (MDL)",
+      "description": "Descriere (opțional)",
+      "photos": "Fotografii (opțional)"
+    },
+    "placeholders": {
+      "title": "ex. Cherestea Brad 5×15 cm, Vopsea Caparol 10L",
+      "select": "Selectează",
+      "quantity": "50",
+      "unit": "buc, m², kg",
+      "price": "0,00",
+      "description": "Adaugă detalii suplimentare..."
+    },
+    "pricing": {
+      "sell": "Vinde",
+      "free": "Oferă Gratuit",
+      "freeInfo": "Anunțurile gratuite primesc de 3× mai multă vizibilitate!"
+    },
+    "addPhotos": "Adaugă fotografii",
+    "locationDelivery": "Locație & Livrare",
+    "pickupAvailable": "Ridicare disponibilă",
+    "deliveryAvailable": "Livrare disponibilă",
+    "shippingAvailable": "Expediere disponibilă",
+    "modify": "Modifică",
+    "hide": "Ascunde",
+    "specsNote": "Specificațiile tehnice se generează automat în funcție de categorie.",
+    "saveDraft": "Salvează ca Ciornă",
+    "publish": "Publică Anunțul",
+    "bulk": {
+      "uploadFile": "Încarcă Fișier",
+      "dropzone": "Trage fișierul aici sau click pentru a selecta",
+      "formats": "CSV, Excel (.xlsx) sau JSON",
+      "pasteTable": "Lipește din Tabel",
+      "pasteHint": "Copiază rândurile din Excel sau Google Sheets.",
+      "quickAdd": "Adăugare Rapidă",
+      "titleCol": "Titlu",
+      "categoryCol": "Categorie",
+      "qtyCol": "Cant.",
+      "priceCol": "Preț",
+      "conditionCol": "Stare",
+      "titlePlaceholder": "Titlu produs",
+      "pricePlaceholder": "MDL",
+      "addRow": "Adaugă rând",
+      "locationForAll": "Locație pentru toate produsele",
+      "publishAll": "Publică Toate ({count} anunț)",
+      "publishAllPlural": "Publică Toate ({count} anunțuri)"
+    }
+  },
+  "impact": {
+    "title": "Raport de Impact",
+    "totalDiverted": "Total Materiale Deviate de la Groapa de Gunoi",
+    "truckLoads": "Aceasta echivalează cu {count} încărcături de camion ținute departe de gropi de gunoi.",
+    "byCategory": "Deșeuri Salvate pe Categorie",
+    "monthlyImpact": "Impact Lunar",
+    "saved": "Deșeuri Salvate",
+    "diverted": "Deșeuri Deviate",
+    "shareTitle": "Distribuie Impactul Tău",
+    "shareText": "Am salvat {count} kg de materiale de construcție de la groapa de gunoi cu Salvio",
+    "shareLinkedIn": "Distribuie pe LinkedIn",
+    "downloadImage": "Descarcă Imaginea"
+  },
+  "impactTicker": {
+    "live": "Live",
+    "tonsDiverted": "{value} tone deviate de la groapa de gunoi",
+    "mdlRecycled": "{value} MDL în materiale recirculate",
+    "activeSellers": "{value} vânzători activi"
+  },
+  "missionStrip": {
+    "quote": "Industria construcțiilor generează 600 de milioane de tone de deșeuri anual. Noi credem că fiecare material merită o a doua șansă.",
+    "learnMore": "Află Mai Multe Despre Misiunea Noastră →"
+  },
+  "demolitions": {
+    "title": "Demolări & Materiale Recuperabile",
+    "description": "Descoperă demolările planificate în Moldova și estimează valoarea materialelor recuperabile. Transformă deșeurile de construcție în resurse valoroase.",
+    "stats": {
+      "listings": "Anunțuri",
+      "value": "Valoare",
+      "recoverable": "Recuperabil"
+    },
+    "tabs": {
+      "listings": "Anunțuri",
+      "calculator": "Calculator"
+    },
+    "filters": {
+      "all": "Toate",
+      "planned": "Planificate",
+      "inProgress": "În Desfășurare",
+      "completed": "Finalizate"
+    },
+    "allCities": "Toate orașele",
+    "empty": "Niciun anunț găsit",
+    "emptyHint": "Modificați filtrele pentru a vedea alte rezultate."
+  },
+  "demolitionCard": {
+    "recoverableMaterials": "Materiale recuperabile",
+    "estimatedValue": "Valoare estimată totală",
+    "viewDetails": "Vezi Detalii",
+    "floors": "{floors} etaj",
+    "floorsPlural": "{floors} etaje",
+    "area": "{area} m²",
+    "year": "Anul {year}"
+  },
+  "demolitionCalculator": {
+    "quickEstimate": "Estimare Rapidă",
+    "detailedComponents": "Detaliat pe Componente",
+    "buildingType": "Tipul clădirii",
+    "area": "Suprafață (m²)",
+    "floors": "Etaje",
+    "yearBuilt": "Anul construcției",
+    "areaPlaceholder": "ex: 2000",
+    "calculate": "Calculează Estimarea",
+    "totalValue": "Valoare totală",
+    "co2Saved": "CO₂ economisit",
+    "recoverable": "Recuperabil",
+    "material": "Material",
+    "quantity": "Cantitate",
+    "recovery": "Recup.",
+    "value": "Valoare",
+    "listOnSalvio": "Listează pe Salvio",
+    "detailedHint": "Adăugați materialele individual pentru o estimare mai precisă a valorii de recuperare.",
+    "component": "Componenta {index}",
+    "selectMaterial": "Selectați materialul",
+    "addComponent": "Adaugă componentă",
+    "calculateValue": "Calculează Valoarea",
+    "wasteDiverted": "Deșeuri deviate",
+    "condition": "Stare"
+  },
+  "scan": {
+    "title": "Scanner SKU",
+    "instructions": "Îndreptați camera spre codul de bare",
+    "hint": "Scanați codul de bare sau QR al produsului pentru a-l găsi pe Salvio",
+    "manualEntry": "Introduceți codul manual",
+    "skuResult": "SKU: {code}",
+    "resultsCount": "{count} rezultat",
+    "resultsCountPlural": "{count} rezultate",
+    "scanAgain": "Scanează din nou",
+    "noResults": "Niciun rezultat",
+    "noResultsHint": "Codul {code} nu a fost găsit în catalog. Încercați alt cod sau răsfoiți manual.",
+    "browseAll": "Răsfoiește tot",
+    "manualMode": {
+      "title": "Introducere manuală",
+      "description": "Tastați codul SKU sau inserați link-ul produsului",
+      "placeholder": "SKU sau link: 900160 / https://caparolshop.md/...",
+      "urlHint": "Se va căuta după URL-ul produsului",
+      "backToScanner": "Înapoi la scanner"
+    }
+  },
+  "buyer": {
+    "title": "Panoul Meu",
+    "stats": {
+      "ordersPlaced": "Comenzi Plasate",
+      "savedItems": "Articole Salvate",
+      "totalSavings": "Economii Totale",
+      "impact": "Impact"
+    },
+    "trends": {
+      "vsRetail": "față de prețul de retail",
+      "wasteDiverted": "deșeuri deviate"
+    },
+    "activeOrders": "Comenzi Active",
+    "savedItems": "Articole Salvate",
+    "viewAll": "Vezi Toate →",
+    "steps": {
+      "placed": "Plasată",
+      "confirmed": "Confirmată",
+      "ready": "Pregătită",
+      "completed": "Finalizată"
+    },
+    "quantityLogistics": "Cant: {count} · {logistics}",
+    "savedTitle": "Articole Salvate",
+    "savedSearches": "Căutări Salvate",
+    "alertsActive": "Alerte Activate",
+    "orderHistory": "Istoricul Comenzilor",
+    "action": "Acțiune",
+    "total": "Total",
+    "leaveReview": "Lasă o Recenzie"
+  },
+  "calculators": {
+    "tabs": {
+      "area": "Suprafață",
+      "paint": "Vopsea",
+      "tile": "Gresie",
+      "concrete": "Beton",
+      "wallpaper": "Tapet"
+    },
+    "shapes": {
+      "rectangle": "Dreptunghi",
+      "circle": "Cerc",
+      "triangle": "Triunghi",
+      "trapezoid": "Trapez"
+    },
+    "labels": {
+      "length": "Lungime",
+      "width": "Lățime",
+      "radius": "Rază",
+      "base": "Baza",
+      "height": "Înălțime",
+      "baseLarge": "Baza mare",
+      "baseSmall": "Baza mică",
+      "quantity": "Cantitate",
+      "waste": "Risipă",
+      "costPerSqm": "Cost / m²"
+    },
+    "units": {
+      "m": "m",
+      "pcs": "buc",
+      "percent": "%",
+      "mdl": "MDL",
+      "liters": "litri",
+      "tons": "tone",
+      "rolls": "role"
+    },
+    "results": {
+      "area": "Suprafața",
+      "totalWithQty": "Total (× cantitate)",
+      "withWaste": "Cu risipă",
+      "estimatedCost": "Cost estimat",
+      "wallArea": "Suprafață pereți",
+      "paintArea": "Suprafață de vopsit",
+      "paintNeeded": "Vopsea necesară",
+      "totalArea": "Suprafața totală",
+      "tilesNeeded": "Plăci necesare",
+      "volume": "Volum",
+      "total": "Total",
+      "estimatedWeight": "Greutate est.",
+      "effectivePerimeter": "Perimetru efect.",
+      "stripsNeeded": "Fâșii necesare",
+      "rollsNeeded": "Role necesare"
+    },
+    "paint": {
+      "roomLength": "Lungime cameră",
+      "roomWidth": "Lățime cameră",
+      "doors": "Uși",
+      "windows": "Ferestre",
+      "coats": "Straturi",
+      "coverage": "Acoperire vopsea"
+    },
+    "tile": {
+      "zoneLength": "Lungime zonă",
+      "zoneWidth": "Lățime zonă",
+      "tileLength": "Lungime placă",
+      "tileWidth": "Lățime placă",
+      "grout": "Rost",
+      "pricePerTile": "Preț / bucată"
+    },
+    "concrete": {
+      "depth": "Adâncime",
+      "pricePerCubic": "Preț / m³"
+    },
+    "wallpaper": {
+      "roomLength": "Lungime cameră",
+      "roomWidth": "Lățime cameră",
+      "rollWidth": "Lățime rolă",
+      "rollLength": "Lungime rolă",
+      "pricePerRoll": "Preț / rolă"
+    },
+    "disclaimer": "Rezultatele sunt estimative. Consultați un specialist pentru calcule precise."
+  },
+  "socialProof": {
+    "feeNote": "Salvio percepe un comision mic doar atunci când realizezi o vânzare. Listarea este întotdeauna gratuită."
+  },
+  "categories": {
+    "lumber": "Cherestea & Lemn",
+    "steel": "Oțel & Metal",
+    "concrete": "Beton & Zidărie",
+    "electrical": "Electrice",
+    "plumbing": "Instalații Sanitare",
+    "fixtures": "Feronerie & Accesorii",
+    "roofing": "Acoperiș",
+    "tile": "Gresie & Piatră",
+    "insulation": "Izolație",
+    "paint": "Vopsele & Finisaje",
+    "doors": "Uși & Ferestre",
+    "equipment": "Utilaje Grele"
+  }
+}
